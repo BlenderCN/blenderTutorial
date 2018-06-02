@@ -240,8 +240,10 @@
         
 复制到文本框，点击“运行脚本”运行下看： 
 ![](http://static.oschina.net/uploads/img/201501/28091359_vsQD.png)
+
 运行这个菜单项，结果如下：
 ![](http://static.oschina.net/uploads/img/201501/28091401_BJel.png)
+
 当选中以后，可以选择一次创建多个Cube对象。
 
 注意：直接运行这个脚本，将会导致菜单项多次加载。但是放到Addon就没有这个问题了。
