@@ -30,7 +30,7 @@ blender版本 2.79
     bpy.utils.register_class(PanelOne)
     bpy.utils.register_class(PanelTwo)
 到工具面板栏的“Misc”，可以看见创建的面板。  
-！[]()
+![]()
 
 ### 对象属性面板
 
