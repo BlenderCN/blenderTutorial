@@ -117,4 +117,173 @@ operator方法用法可参考[API文档]()。
 
 修改后的最终代码如下：
 
+    import bpy #加载bpy，这个是必须有的 
+    
+    #定义添加网格的方法 
+    def Add_Pyramid(height = 2): 
+        h = height #四棱锥高度 
+        
+        #顶点 
+        verts = [(1,1,0), 
+                 (-1,1,0), 
+                 (-1,-1,0), 
+                 (1,-1,0), 
+                 (0,0,h)] 
+        
+        #边 
+        edges = [(0,1), 
+                 (1,2), 
+                 (2,3), 
+                 (3,0), 
+                 (0,4), 
+                 (1,4), 
+                 (2,4), 
+                 (3,4)] 
+                    
+        #面 
+        faces = [(0,1,4), 
+                 (1,2,4), 
+                 (2,3,4), 
+                 (3,0,4), 
+                 (0,1,2,3)] 
+        mesh = bpy.data.meshes.new('Pyramid_Mesh') #新建网格 
+        mesh.from_pydata(verts, edges, faces) #载入网格数据 
+        mesh.update() #更新网格数据 
+        
+        pyramid=bpy.data.objects.new('Pyramid', mesh) #新建物体“Pyramid”，并使用“mesh”网格数据 
+        scene=bpy.context.scene 
+        scene.objects.link(pyramid) #将物体链接至场景 
+        
+    #添加一个Operator类AddPyramid 
+    class AddPyramid(bpy.types.Operator): 
+        bl_idname = 'mesh.pyramid_add' #定义ID名称 
+        bl_label= 'Pyramid' #定义显示的标签名 
+        
+        def execute(self, context): 
+            Add_Pyramid() #调用Add_Pyramid()方法 
+            return {'FINISHED'} #执行结束后返回值 
+    
+    #定义添加菜单方法 
+    def menu_func(self, context): 
+        self.layout.operator(AddPyramid.bl_idname, icon = 'MESH_CONE') 
+    
+    #定义注册类方法 
+    def register(): 
+        bpy.utils.register_class(AddPyramid) 
+        bpy.types.INFO_MT_mesh_add.append(menu_func) #添加菜单 
+    #定义取消注册类方法 
+    def unregister(): 
+        bpy.utils.unregister_class(AddPyramid) 
+        bpy.types.INFO_MT_mesh_add.remove(menu_func) #移除菜单 
+        
+    #直接执行py文件时，注册Operator 
+    if __name__ == '__main__': 
+        register()
+
+再次点击运行脚本(Run Script),在3D视图按下Shift+A，在Mesh子菜单下就可以找到Pyramid选项，点击后可添加四棱锥。
+
+![](https://upload-images.jianshu.io/upload_images/1241054-9a78cf7780e4ba60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/546)
+
+还有一点就是，将鼠标悬停在标题菜单上，可查看菜单名称。
+
+![](https://upload-images.jianshu.io/upload_images/1241054-20aa2835ab7e6a47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/270)
+
+修改添加和移除菜单代码中的INFO_MT_mesh_add为VIEW3D_MT_view
+
+    #定义注册类方法 
+    def register(): 
+        bpy.utils.register_class(AddPyramid) 
+        bpy.types.VIEW3D_MT_view.append(menu_func) #添加菜单 
+    
+    #定义取消注册类方法 
+    def unregister(): 
+        bpy.utils.unregister_class(AddPyramid) 
+        bpy.types.VIEW3D_MT_view.remove(menu_func) #移除菜单
+        
+然后我们就可以在View菜单找到Pyramid选项了。
+
+![](https://upload-images.jianshu.io/upload_images/1241054-f0f119eea8db3fd6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/368)
+
+### 5.添加弹出菜单
+
+    import bpy #加载bpy，这个是必须有的 
+    
+    #定义添加网格的方法 
+    def Add_Pyramid(height = 2): 
+        h = height #四棱锥高度 
+        
+        #顶点 
+        verts = [(1,1,0), 
+                 (1,1,0), 
+                 (1,-1,0), 
+                 (1,-1,0), 
+                 (0,0,h)] 
+        #边 
+        edges = [(0,1), 
+                 (1,2),
+                 (2,3), 
+                 (3,0), 
+                 (0,4), 
+                 (1,4), 
+                 (2,4), 
+                 (3,4)] 
+        面 
+        faces = [(0,1,4), 
+                 (1,2,4), 
+                 (2,3,4), 
+                 (3,0,4), 
+                 (0,1,2,3)] 
+                 
+        mesh = bpy.data.meshes.new('Pyramid_Mesh') #新建网格 
+        mesh.from_pydata(verts, edges, faces) #载入网格数据 
+        mesh.update() #更新网格数据
+        
+        pyramid=bpy.data.objects.new('Pyramid', mesh) #新建物体“Pyramid”，并使用“mesh”网格数据 
+        scene=bpy.context.scene 
+        scene.objects.link(pyramid) #将物体链接至场景 
+    
+    #添加一个Operator类AddPyramid 
+    class AddPyramid(bpy.types.Operator): 
+        bl_idname = 'mesh.pyramid_add' #定义ID名称 
+        bl_label= 'Pyramid' #定义显示的标签名 
+        
+            def execute(self, context): 
+                Add_Pyramid() #调用Add_Pyramid()方法 
+                return {'FINISHED'} #执行结束后返回值 
+    #定义菜单 
+    class AddMenu(bpy.types.Menu): 
+        bl_idname = "OBJECT_whatever_menu" 
+        bl_label = 'whatever' 
+        def draw(self, context): 
+            layout = self.layout 
+            layout.operator("mesh.pyramid_add", text = 'Add Pyramid') 
+    #定义添加菜单方法 
+    #def menu_func(self, context): 
+    #   self.layout.operator(AddPyramid.bl_idname, icon = 'MESH_CONE') 
+    
+    #定义注册类方法 
+    def register(): 
+        bpy.utils.register_class(AddPyramid) 
+        bpy.utils.register_class(AddMenu) 
+        #bpy.types.INFO_MT_mesh_add.append(menu_func) #添加菜单 
+    
+    #定义取消注册类方法 
+    def unregister(): 
+        bpy.utils.unregister_class(AddPyramid) 
+        bpy.utils.unregister_class(AddMenu) 
+        #bpy.types.INFO_MT_mesh_add.remove(menu_func) #移除菜单 
+    
+    #直接执行py文件时，注册Operator 
+    if __name__ == '__main__': 
+        register() 
+        
+        bpy.ops.wm.call_menu(name = AddMenu.bl_idname) #调用菜单
+
+以上是使用bpy添加菜单的方法，其余将Operator添加到各面板按钮的方法可以自行探索。
+   
+
+
+
+
+
 
