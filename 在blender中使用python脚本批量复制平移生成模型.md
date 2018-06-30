@@ -14,4 +14,5 @@
         bpy.data.objects["cube"].select=True
         bpy.ops.object.duplicate_move(OBJECT_OT_duplicate={"mode":"TRANSLATION"},TRANSFORM_OT_translate={"value":(x,y,z)})
         
+
 ![](https://img-blog.csdn.net/20180218211811398)        
