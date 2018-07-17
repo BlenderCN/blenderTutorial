@@ -8,4 +8,4 @@ blender示例教程
 
 # [blender python api源码](https://github.com/Apress/blender-python-api)
 
-# [The Blender Python API: Precision 3D Modeling and Add-on Development试译]()
+# [The Blender Python API: Precision 3D Modeling and Add-on Development试译](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/README.md)
