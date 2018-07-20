@@ -40,3 +40,25 @@ by[Chris Conlan](https://github.com/chrisconlan)
 
     1 特定于套件的格式，例如.blender for Blender,.3ds for 3ds Max 和 .ma for Maya
     2 特定于渲染器的格式，如.babylon for BabylonJS,.json几何描述符（3JS）和.glsl(OpenGL着色器）
+    3 简单的交换格式，如.obj和.stl
+    
+  2 顶点和面定义了在3D空间中连接这些点的点和曲面。
+  
+    1 顶点是实数3D空间的三元组，或对象的每个点的传统（x,y,z)坐标
+    2 面是整数的三元组，其中（i，j，k）表示由第i，第j和第k个顶点形成的3D空间中的三角形。
+    
+# 本书的必备知识
+
+本书涵盖了运行Python3.5.2的Blender版本2.78c。大多数例子都在Blender2.70和更大，这些概念一般适用于Blender。
+尽管如此，建议读者使用Blender2.78c最好跟随。在我们讨论Blender和Python语言的历史和发展时，
+我们将指出不太可能用于过去和未来版本的编程实践。
+
+  我们假设Blender和Python3的基本工作知识。熟悉任何版本的Blender2.60或更高版本就足够了。同样，纯Python2程序员也没有问题。
+  
+# 资料概述
+
+本文介绍知识并依据它构建，以创建越来越完整和复杂的软件解决方案。我们介绍和讨论以下主要议题
+
+## 第一章 Blender 接口
+
+
