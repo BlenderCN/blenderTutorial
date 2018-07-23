@@ -8,7 +8,9 @@
 ## 默认Blender界面
 
 当我们第一次打开Blender时，我们就会得到熟悉的默认用户界面。我们有一个立方体，一个相机对象和一个灯对象，
-它被绘制到3D视口中显示的场景中。[图1-1]()是默认Blender界面的简单屏幕截图。[图1-2]显示了标有各种主要组件的相同界面。
+它被绘制到3D视口中显示的场景中。
+[图1-1](https://github.com/BlenderCN/blenderTutorial/raw/master/mDrivEngine/1-1.png?raw=true)是默认Blender界面的简单屏幕截图。
+[图1-2](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-2.png?raw=true)显示了标有各种主要组件的相同界面。
 我们讨论每个接口的功能
 
 图1-1
