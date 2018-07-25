@@ -71,4 +71,18 @@ Scripting布局或其中的一些变体将是我们在Blender中完成大部分�
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-5.png?raw=true)
 
 ### 文本编辑器
+我们可以在文本编辑器中编辑Python脚本(以及任何其他文本文件)。我们可以单击新建和打开按钮分别创建和打开脚本。
+加载脚本后，文本编辑器底部的菜单栏将更改为允许在文件之间保存和切换。
 
+Blender的文本编辑器具有一些与Python中的导入，系统路径和链接文件有关的特殊属性。
+我们将在本章后面以及开发插件的后续章节中详细讨论这个问题。
+
+### 命令日志
+
+命令日志显示在会话期间由Blender接口进行的函数调用。在尝试使用脚本和了解API时，此窗口非常有用。
+例如，如果我们使用红色箭头在3D视窗中变换立方体，我们将获得命令日志中清单1-1中所示的输出。
+
+清单1-1。沿x轴平移的命令日志输出。
+
+bpy.ops.transform.translate(value=(3.05332, 0, 0), constraint_axis=(True, False, False),
+constraint_orientation='GLOBAL', mirror=False, proportional='DISABLED',proportional_edit_falloff='SMOOTH', proportional_size=1,release_confirm=True)
