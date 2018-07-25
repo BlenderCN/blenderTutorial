@@ -61,3 +61,6 @@
 
 图1-4
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-4.png?raw=true)
+
+图1-5
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-5.png?raw=true)
