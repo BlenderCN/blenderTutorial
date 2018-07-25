@@ -64,6 +64,11 @@
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-4.png?raw=true)
 
+Scripting布局或其中的一些变体将是我们在Blender中完成大部分工作的地方。我们将讨论图1-5中介绍的Blender的接口的新组件。
+
 图1-5
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-5.png?raw=true)
+
+### 文本编辑器
+
