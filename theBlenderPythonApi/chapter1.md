@@ -53,4 +53,11 @@
 
 ## 脚本界面
 
-要进入脚本界面，请在页眉菜单中
+要进入脚本界面，请在页眉菜单中帮助按钮右侧的下拉菜单中选择脚本选项。在整个文本中，我们将使用粗体指令来呈现这样的指令，
+例如：标题菜单>屏幕布局>脚本。有关菜单位置的信息。请参见1-3.Blender的布局将更改为如图1-4所示。
+
+图1-3
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-3.png?raw=true)
+
+图1-4
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-4.png?raw=true)
