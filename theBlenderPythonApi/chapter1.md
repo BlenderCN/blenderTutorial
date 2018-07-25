@@ -80,8 +80,22 @@ Blender的文本编辑器具有一些与Python中的导入，系统路径和链�
 ### 命令日志
 
 命令日志显示在会话期间由Blender接口进行的函数调用。在尝试使用脚本和了解API时，此窗口非常有用。
-例如，如果我们使用红色箭头在3D视窗中变换立方体，我们将获得命令日志中清单1-1中所示的输出。
+例如，如果我们使用红色箭头在3D视窗中平移立方体，我们将获得命令日志中清单1-1中所示的输出。
 
 清单1-1。沿x轴平移的命令日志输出。
 
     bpy.ops.transform.translate(value=(3.05332, 0, 0), constraint_axis=(True, False, False),constraint_orientation='GLOBAL',mirror=False, proportional='DISABLED',proportional_edit_falloff='SMOOTH', proportional_size=1,release_confirm=True)
+
+清单1-1中的输出显示我们从bpy.ops子模块的转换类调用了translate()函数。这些参数相当冗长，并且从界面调用时通常是多余的，
+但它们很简单，我们可以破译它们的含义并尝试使用该函数。我们将在下一章节中深入研究这样的代码。
+虽然解密行为通常是在Blender Python中学习函数的最佳和最快的方法，但我们也可以参考官方文档以获取更多细节。这也将在下一章中讨论。
+
+
+
+
+
+
+
+
+
+
