@@ -134,3 +134,27 @@ Blender界面的组件是模块化的，可拆卸的，可扩展的，全方位�
 将文件夹保存并解压缩到易于访问的位置。Windows用户将打开命令提示符，UNIX用户将打开终端。
 清单1-2和1-3分别显示了打开Windows和UNIX用户桌面上的Blender安装所需的命令。
 或者，Windows用户可以正常打开Blender，然后导航到页眉菜单>窗口>切换系统控制台以查看到终端。
+
+清单1-2。在Window中从命令行打开Blender。
+
+    # Assuming you are starting from C:\Users\%USERNAME%
+    cd Desktop\blender-2.78c-window64
+    blender
+    
+    # Navigating from anywhere on the windows
+    # filesystem to Blender on the Desktop
+    cd C:\Users\%USERNAME%\Desktop\blender-2.78c-windows64
+    blender.exe
+    
+清单1-3。在UNIX中从命令行打开Blender。
+ 
+    # Navigating to Blender on the Desktop from
+    # anywhere in the filesystem for Linux
+    cd ～/Desktop/blender-2.78c-linux-glibc211-x86_64
+    ./blender
+    
+    # Navigating to Blender in the home directory for OSX
+    cd ~/Desktop/blender-2.78c-OSX-10.6-x86_64
+    ./blender
+    
+    
