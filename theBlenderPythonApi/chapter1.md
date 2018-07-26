@@ -109,6 +109,11 @@ Blender界面的组件是模块化的，可拆卸的，可扩展的，全方位�
 
 3.按住Shift并向任意方向拖动右上角将在新的分离窗口中复制组件。
 
+在可拆卸窗口中创建3D视窗并复制文本编辑器是使用双屏幕设置的好方法。有两个文本编辑器可用于调试自定义模块。
+有关双屏幕设置的屏幕截图，请参考图1-6。
 
+图1-6
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-6.png?raw=true)
 
 
