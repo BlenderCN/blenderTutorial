@@ -113,7 +113,6 @@ Blender界面的组件是模块化的，可拆卸的，可扩展的，全方位�
 有关双屏幕设置的屏幕截图，请参考图1-6。
 
 图1-6
-
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-6.png?raw=true)
 
 
