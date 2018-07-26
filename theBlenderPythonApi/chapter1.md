@@ -122,6 +122,9 @@ Blender界面的组件是模块化的，可拆卸的，可扩展的，全方位�
 
 在Blender中开发Python脚本时，从命令行启动Blender非常重要。当我们在Blender中运行脚本时，如果出现错误，命令日志将显示以下消息：
 
-  Python scripting fail，look in the console for now...
+    Python scripting fail，look in the console for now...
 
-
+此消息可能非常混乱，因为交互式控制台将不显示任何内容。Blender的意思是：现在查看终端... 不幸的是，
+大多数人不通过终端打开Blender，除非我们在后台运行Blender终端，否则错误消息和追溯将被忽视。
+通过终端打开Blender是Python开发人员的非官方调试模式。Blender具有核心开发人员使用的官方调试模式，
+但这对我们作为API用户通常没有帮助。
