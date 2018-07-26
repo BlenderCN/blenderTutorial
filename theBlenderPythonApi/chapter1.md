@@ -128,3 +128,9 @@ Blender界面的组件是模块化的，可拆卸的，可扩展的，全方位�
 大多数人不通过终端打开Blender，除非我们在后台运行Blender终端，否则错误消息和追溯将被忽视。
 通过终端打开Blender是Python开发人员的非官方调试模式。Blender具有核心开发人员使用的官方调试模式，
 但这对我们作为API用户通常没有帮助。
+
+要从终端打开Blender，我们必须导航到保存在我们系统上的Blender发行版中的Blender可执行文件。
+确保从https://www.blender.org/download/ 下载了适用于相应操作系统的Blender .zip或 .bz2文件。
+将文件夹保存并解压缩到易于访问的位置。Windows用户将打开命令提示符，UNIX用户将打开终端。
+清单1-2和1-3分别显示了打开Windows和UNIX用户桌面上的Blender安装所需的命令。
+或者，Windows用户可以正常打开Blender，然后导航到页眉菜单>窗口>切换系统控制台以查看到终端。
