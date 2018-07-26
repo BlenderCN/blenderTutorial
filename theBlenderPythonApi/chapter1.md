@@ -115,4 +115,13 @@ Blender界面的组件是模块化的，可拆卸的，可扩展的，全方位�
 图1-6
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-6.png?raw=true)
 
+请注意，如果在界面移动时工具架或工具属性窗口消失，请在3D视窗中按键盘上的T以显示它们。此外，在3D视窗中按键盘上的N以显示新窗口，
+即对象属性。这个窗口经常在附加开发中使用，特别是当我们开始将自定义Blender类作为参数分配给对象时。
+
+## 从命令行启动Blender(用于调试)
+
+在Blender中开发Python脚本时，从命令行启动Blender非常重要。当我们在Blender中运行脚本时，如果出现错误，命令日志将显示以下消息：
+
+  Python scripting fail，look in the console for now...
+
 
