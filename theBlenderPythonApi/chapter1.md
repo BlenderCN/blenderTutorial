@@ -198,3 +198,15 @@ location指定位置。要对此进行测试，请在交互式控制台中运行
 然后转到Text Editor>Run Script。
 
 清单1-6 创建立方体的立方体
+
+    import bpy
+    
+    for k in range(5):
+        for j in range(5):
+            for i in range(5):
+                bpy.ops.mesh.primitive_cube_add(radius=0.25,location=(i,j,k))
+                
+ 该脚本创建一个0.25*2=0.5个单位宽的立方体，以整数顶点的每个组合为中心，使得0<=x,y,z<5。结果如图1-7所示。
+ 
+ 图1-7
+ ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/1-7.png?raw=true)
