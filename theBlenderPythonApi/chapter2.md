@@ -133,5 +133,21 @@ _____
 当我们在3D视窗周围单击鼠标左键时，我们单击的任何对象都将高亮显示。当我们以这种方式高亮显示单个对象时，
 Blender会选择并激活该对象。如果我们按住Shift并在3D视窗周围单击鼠标左键，则只有我们单击的第一个对象才会处于活动状态。
 
+请注意图2-1中所示的属性窗口区域，其中显示活动对象的名称。也可以通过图2-1底部的菜单激活对象。
 
+要在Python中访问活动对象，请在交互式控制台中键入清单2-4.请注意，有两个等效的bpy.context类用于访问活动对象。
+就像选择的对象一样，我们返回一个bpy.data.objects数据块，我们可以直接操作。
 
+清单2-4。访问活动对象
+
+    # Returns bpy.data.objects datablock
+    bpy.context.object
+    
+    # Longers synonym for above line
+    bpy.context.active_objects
+    
+    # Accessing the 'name' and 'loation' values of the datablock
+    bpy.context.object.name
+    bpy.context.object.location
+    
+    
