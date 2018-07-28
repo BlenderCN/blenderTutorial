@@ -62,5 +62,34 @@ Blender界面设计直观，同时还提供复杂功能。某些操作在逻辑�
 
 ### 选择对象
 
+在继续之前，建议读者在3D视窗中创建一些不同的对象作为示例。转到3D Viewport>Add 以查看对象的创建菜单。
 
+当我们右键单击3D视窗中的对象时，对象会高亮显示并取消高亮显示。当我们按住Shift键并单击时，我们可以一次突出显示多个对象。
+3D视窗中的这些高亮显示所选对象。要列出所选对象，请在清单2-1中键入交互控制台中的代码。
+
+清单2-1。获取所选对象列表
+
+    # Outputs bpy.data.objects datablocks
+    bpy.context.selected_objects
+
+正如我们我们前面提到的，bpy.context子模块非常适合根据Blender中的状态获取对象列表。在这种情况下，我们获取了所有选定的对象。
+
+    # Example output of Listing 2-1,list of bpy.data.objects datablocks
+    [bpy.data.objects['Sphere'],bpy.data.objects['Circle'],bpy.data.objects['Cube']]
+
+在这种情况下，在3D视窗中选择了一个名为Sphere的球体，一个名为Circle的圆圈和一个名为Cube的立方体。
+我们返回了一个bpy.data.objects数据块的Python列表。鉴于所有这种类型的数据块都具有名称值的知识，
+我们可以遍历清单2-1的结果来访问所选对象的名称。请参阅清单2-2,我们在其中获取所选对象的名称和位置。
+
+清单2-2。获取所选对象列表
+
+    # Return the names of selected objects
+    [k.name for k in bpy.context.selected_objects]
+    
+    # Return the locations of selected objects
+    # (location of origin assuming no pending transformations)
+    [k.location for k in bpy.context.selected_objects]
+   
+现在我们知道如何手动选择对象 ，我们需要根据某些条件自动选择对象。必需的函数在bpy.ops中。清单2-3创建了一个函数，
+该函数将对象名称作为参数并选择它，默认情况下清除所有其他选择。如果用户指定additive=True，则该函数不会事先清除其他选择。
 
