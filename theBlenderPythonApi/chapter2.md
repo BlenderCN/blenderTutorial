@@ -93,3 +93,31 @@ Blender界面设计直观，同时还提供复杂功能。某些操作在逻辑�
 现在我们知道如何手动选择对象 ，我们需要根据某些条件自动选择对象。必需的函数在bpy.ops中。清单2-3创建了一个函数，
 该函数将对象名称作为参数并选择它，默认情况下清除所有其他选择。如果用户指定additive=True，则该函数不会事先清除其他选择。
 
+清单2-3。以编程方式选择对象
+    
+    import bpy
+    
+    def mySelector(objName,additive=False):
+        
+        # By default,clear other selections
+        if not additive:
+            bpy.ops.object.select_all(action='DESELECT')
+            
+        # set the 'select' property of the datablock ot True
+        bpy.data.objects[objName].select = True
+    
+    # select only 'Cube'
+    mySelector('Cube')
+    
+    # Select 'Sphere',keeping other selections
+    mySelector('Sphere,additive=True)
+    
+    # Translate selected objects 1 unit along the x-axis
+    bpy.ops.transform.translate(value=(1,0,0))
+
+_____
+Note
+_____
+
+
+
