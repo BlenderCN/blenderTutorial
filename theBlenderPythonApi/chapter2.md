@@ -116,8 +116,13 @@ Blender界面设计直观，同时还提供复杂功能。某些操作在逻辑�
     bpy.ops.transform.translate(value=(1,0,0))
 
 _____
-Note
+Note: 要在没有Python脚本的情况下轻松查看对象的名称，请导航到“属性"窗口并选择橙色立方体图标。现在，
+活动对象将在此子窗口顶部附近显示其名称，如图2-1中的情况。此外3D视窗的左下角将显示活动对象的名称。
+我们将在本章的下一小节中讨论激活。
 _____
+
+图2-1
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/2-1.png?raw=true)
 
 
 
