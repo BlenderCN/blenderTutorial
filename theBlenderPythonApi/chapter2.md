@@ -370,6 +370,96 @@ bpy.data.objects数据块有一个非常有趣的属性，突出了为Blender Py
         act.scale((1,3,1))
 
 图2-2
-![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/2-2.png?raw=true)        
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/2-2.png?raw=true) 
+
+注意注释标签差异和声明。在Blender Python中有很多方法可以旋转，缩放和转换对象，
+但重要的是要记住哪些函数指示一个表单(声明性)以及哪些函数修改表单(差异性)。值得庆幸的是，bpy函数和类值的含义相当直观。
+例如，rotate是动词，因此是差异性的，而旋转是名词，因此是声明性的。
+
+清单2-9,我们将调用ut.py,是自定义实用程序类的一个很好的起点。
+
+在本书中，我们感兴趣的是教授Blender Python API，而不是作者的ut.py模块。虽然ut.py模块是一个很好的参考和教学工具，
+但我们将在以后的章节中避免使用其单行函数调用。虽然这些函数调用可以在短期内解决我们的问题，
+但它们模糊了我们希望通过重复强化的类结构和参数。
+
+现在，我们将使用ut.py进行一些很酷的可视化。在以后的章节中，我们将为其添加笨重且有意义的实用功能，同时将单行功能视为占位符。
+
+## 使用最小化工具箱可视化多变量数据
+
+在本节中，我们使用清单2-9中的工具包可视化多变量数据。在开始之前，使用文本编辑器底部的栏为此工具箱提供ut.py的Python文件名。
+现在，单击文本编辑器底部的加号以创建新脚本。文件ut.py现在是Blender Python环境中的链接脚本，我们可以将其导入环境的其他脚本。
+
+我们将可视化著名的Fisher‘s Iris数据集。该数据集有五列数据。前四列是描述花的尺寸的数值，最后一列是描述花的类型的分类值。
+该数据集中有三种类型的花：setosa，versicolor和virginica。
+
+清单2-10用作此示例的标头代码。它导入必要的模块：我们的工具包ut,csv模块和urllib.request。我们将使用urllib从文件存储库中获取数据，
+然后使用csv解析它。没有必要理解清单2-10中的所有代码来从这个例子获益。
+
+清单2-10。在iris.csv中阅读练习
+
+    import ut
+    import csv
+    import urllib.request
+    
+    ###################
+    # Reading in Data #
+    ###################
+    
+    # Read iris.csv from file repository
+    url_str = 'http://blender.chrisconlan.com/iris.csv'
+    iris_csv = urllib.request.urlopen(url_str)
+    iris_ob = csv.reader(iris_csv.read().decode('utf-8').splitlines())
+    
+    # Store header as list,and data as list of lists
+    iris_header = []
+    iris_data = []
+    
+    for v in iris_ob:
+        if not iris_header:
+            iris_header = v
+        else:
+            v = [
+                float(v[0]),
+                float(v[1]),
+                float(v[2]),
+                float(v[3]),
+                str(v[4])]
+            iris_data.append(v)
             
+### 可视化数据的三个维度
+由于Blender是一个3D建模套件，因此将三维数据可视化似乎最合乎逻辑。清单2-11将球体放置在由每个观察的萼片长度，
+萼片宽度和花瓣长度指定的3D视窗的（x,y,z)值处。
+
+清单2-11。可视化数据的三个维度
+
+    # Columns：
+    # ’Sepal.Length','Sepal.Width',
+    # 'Peta.Length','Petal.Width','Species'
+    
+    # Visualize 3 dimensions
+    # Sepal.Length,Sepal.Width,and 'Petal.Length'
+    
+    # Clear scene
+    ut.delete_all()
+    
+    # Place data
+    for i in range(0,len(iris_data)):
+        ut.create.sphere('row-' + str(i))
+        v = iris_data[i]
+        ut.act.scale((0.25,0.25,0.25))
+        ut.act.location(v[0],v[1],v[2]))
+        
+得到的球体集出现在3D视窗中，如图2-3所示。显然，本文中印刷的2D图片并不是这种模型的正义。使用Blender的鼠标和键盘移动工具，
+用户可以非常直观地浏览这些数据。
+
+图2-3
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/2-3.png?raw=true)
+
+##
+
+
+
+
             
