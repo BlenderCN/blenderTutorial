@@ -457,8 +457,42 @@ bpy.data.objects数据块有一个非常有趣的属性，突出了为Blender Py
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/2-3.png?raw=true)
 
-##
+### 可视化数据的四个维度
 
+幸运的是，我们可以通过Blender Python参数化对象的方法有三种以上。为了考虑最终的数值变量，花瓣宽度，我们将按花瓣宽度缩放球体。
+这将使我们能够在Blender中可视化和理解数据的四个维度。清单2-12是对前一个的略微修改。
+
+清单2-12。可视化数据的四个维度
+
+    # Columns:
+    # 'Sepal.Length','Sepal.Width',
+    # 'Petal.Length','Petal.Width','Species'
+    # Visualize 4 dimensions
+    # Sepal.Length,Sepal.Width,'Petal.Length',
+    # and scale the object by a factor of 'Petal.Width'
+    
+    # Clear scene
+    ut.delete_all()
+    
+    # Place data
+    for i in range(0,len(iris_data)):
+        ut.create.sphere('row-' + str(i))
+        v = iris_data[i]
+        scale_factor = 0.2
+        ut.act.scale((v[3]*scale_factor,)*3)
+        ut.act.location((v[0],v[1],v[2]))
+
+得到的球体集出现在3D视窗中，如图2-4所示。很明显，较低的球体组具有非常小的萼片宽度。图2-5放大了这个数据集。
+
+图2-4
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/2-4.png?raw=true)
+
+图2-5
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/2-5.png?raw=true)
+
+### 可视化数据的五个维度
 
 
 
