@@ -369,6 +369,6 @@ bpy.data.objects数据块有一个非常有趣的属性，突出了为Blender Py
         act.rotation((0,0，3.1415/3))
         act.scale((1,3,1))
         
-![]()        
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/2-2.png?raw=true)        
             
             
