@@ -150,4 +150,225 @@ Blender会选择并激活该对象。如果我们按住Shift并在3D视窗周围
     bpy.context.object.name
     bpy.context.object.location
     
+ 清单2-5与清单2-3类似，用于激活。由于在任何给定时间只能有一个对象处于活动状态，因此激活功能要简单得多。
+ 我们将bpy.data.objects数据块传递给一个场景属性，该场景属性处理激活时的内部数据。因为Blender只允许单个对象处于活动状态，
+ 所以我们可以对bpy.context.scene进行单个赋值，并允许Blender的内部引擎对其他对象的停用进行排序。
+ 
+ 清单2-5。以编程方式激活对象
+ 
+    import bpy
     
+    def myActivator(objName):
+        
+        # Pass bpy.data.objects datablock to scene class
+        bpy.context.scene.objects.active = bpy.data.objects[objName]
+        
+    # Activate the object named 'Sphere'
+    myActivator('Sphere')
+    
+    # Verify the 'Sphere' was activated
+    print("Active object:",bpy.context.object.name)
+    
+    # Selected objects were unaffected
+    print("Selected objects:",bpy.context.selected.objects)
+ 
+### 指定对象(按名称访问)
+
+本节详细介绍如何通过指定对象的名称来返回bpy.data.objects数据块。清单2-6显示了如何为给定名称的对象访问bpy.data.objects数据块。
+根据我们到目前为止的讨论，清单2-6可能看起来微不足道。数据块引用的这种循环性质具有非常重要的目的。
+
+清单2-6。按规范访问对象
+
+    # bpy.data.objects datablock for an object named 'Cube'
+    bpy.data.objects['Cube']
+    
+    # bpy.data.objects datablock for  an object named 'eyeballSpere'
+    bpy.data.objects['eyeballSphere']
+    
+清单2-7与清单2-3和2-5类似，但适用于规范。mySelector()和myActivator()的目的是返回具有给定状态的对象的数据块或数据块。
+在这种情况下，mySpecifier()通常会返回数据块。
+ 
+清单2-7。按规范以编程方式访问对象
+ 
+    import bpy
+    
+    def mySpecifier(objName):
+        # Return the datablock
+        return bpy.data.objects[objName]
+ 
+    # Store a reference to the datablock
+    myCube = mySpecifier('Cube')
+    
+    # Output the location of the origin
+    print(myCube.location)
+    
+    # Works exactly the same as above
+    myCube = bpy.data.objects['Cube']
+    print(myCube.location)
+    
+## 伪循环引用和抽象
+
+bpy.data.objects数据块有一个非常有趣的属性，突出了为Blender Python API做出的许多明智的架构决策。为了促进模块化，
+可扩展性和自由抽象，bpy.data.objects数据块被构建为无限嵌套。我们将此称为伪循环引用，因为虽然引用是循环的，
+但它们发生在对象内而不是对象之间，使得概念与循环引用不同。
+
+有关伪循环引用的数据块的简单示例，请参见清单2-8。
+
+清单2-8。伪循环引用
+
+    # Each line will return the same object type and memory address
+    bpy.data
+    bpy.data.objects.data
+    bpy.data.objects.data.objects.data
+    bpy.data.objects.data.objects.data.objects.data
+
+    # References to the same object can be made across datablock types
+    bpy.data.meshs.data
+    bpy.data.meshs.data.objects.data
+    bpy.data.meshs.data.objects.data.scenes.data.worlds.data.materials.data
+    
+    # Different types of datablocks also nest
+    # Each of these lines returns the bpy.data.meshs datablock for 'Cube'
+    bpy.data.meshes['Cube']
+    bpy.data.objects['Cube'].data
+    bpy.data.objects['Cube'].data.vertices.data
+    bpy.data.objects['Cube'].data.vertices.data.edges.data.materials.data
+    
+清单2-8展示了Blender Python API的强大功能。当我们将.data附加到对象时，它返回对父数据块的引用。此行为有一些限制。
+例如，我们不能附加.data.data来从bpy.data.meshes[]数据块移动到bpy.data数据块。
+但是，这种行为将帮助我们构建自然模块化的清晰可读的代码库。
+
+我们将在文本中创建工具，使我们能够在Blender中构建和操作对象，而无需直接调用bpy模块。
+虽然我们在清单2-8中提到伪循环引用似乎是微不足道的，但读者会发现它在抽象bpy模块时经常隐含在工具包中。
+
+# 用bpy转换
+
+本节讨论bpy.ops.transorm类的主要组件及其他地方的类似物。它自然地扩展了抽象主题，并介绍了一些有用的Blender Python技巧。
+
+清单2-9是用于创建，选择和转换对象的最小工具集。脚本的底部运行一些示例转换。图2-2显示了3D视窗中最小工具包的测试运行输出。
+
+清单2-9。创建和转换的最小工具包(ut.py)。
+
+    import bpy
+    
+    # Selecting  objects by name
+    def select(objName):
+        bpy.ops.object.select_all(action='DESELECT')
+        bpy.data.objects[objName].select = True
+        
+    # Activating objects by name
+    def activate(objName):
+        bpy.context.scene.objects.active = bpy.data.objects[objName]
+        
+    class sel:
+        """Function Class for operating on SELECTED objects"""
+        
+        # Differential
+        def translate(v):
+            bpy.ops.transform.translate(value=v,constraint_axis=(True,True,True))
+        
+        # Differential
+        def scale(v):
+            bpy.ops.transform.resize(value=v,constraint_axis=(True,True,True))
+            
+        # Differential
+        def rotate_x(v):
+            bpy.ops.transform.rotate(value,axis=(1,0,0))
+            
+        # Differential
+        def rotate_y(v):
+            bpy.ops.transform.rotate(value=v,axis=(0,1,0))
+            
+        # Differential
+        def rotate_z(v):
+            bpy.ops.transform.rotate(value=v,axis=(0,0,1))
+            
+    class act:
+        """Function Class for operating on ACTIVE objects"""
+        
+        # Declarative
+        def location(v):
+            bpy.context.object.location = v
+            
+        # Declarative
+        def scale(v):
+            bpy.context.object.scale = v
+            
+        # Declarative
+        def rotation(v):
+            bpy.context.object.rotation_euler = v
+            
+        # Rename the active object
+        def rename(objName):
+            bpy.context.object.name = objName
+            
+    class spec:
+        """Function Class for operating on SPECIFIED objects"""
+        
+        # Declarative
+        def scale(objName,v):
+            bpy.data.objects[objName].scale = v
+            
+        # Declarative
+        def location(objName,v):
+            bpy.data.objects[objName].location = v
+            
+        # Declarative
+        def rotation(objName,v):
+            bpy.data.objects[objName].rotation_euler = v
+            
+    class create:
+        """Function Class for CREATING Objects"""
+        
+        def cube(objName):
+            bpy.ops.mesh.primitive_cube_add(radius=0.5,location=(0,0,0))
+            act.rename(objName)
+            
+        def sphere(objName):
+            bpy.ops.mesh.primitive_uv_sphere_add(size=0.5,location=(0,0,0))
+            act.rename(objName)
+            
+        def cone(objName):
+            bpy.ops.mesh.primitive_cone_add(radius1=0.5,location=(0,0,0))
+            act.rename(objName)
+        
+        # Delete an object by name        
+        def delete(objName):
+        
+            select(objName)
+            bpy.ops.object.delete(use_global=False)
+            
+        # Delete all objects
+        def delete_all():
+            
+            if(len(bpy.data.objects) != 0):
+                bpy.ops.object.select_all(action='SELECT')
+                bpy.ops.object.delete(use_global=False)
+                
+    if __name__ == "__main__":
+        
+        # Create a cube
+        create.cube('PerfectCube')
+        
+        # Differential transformations combine
+        sel.translate((0,1,2))
+        
+        sel.scale((1,1,2))
+        sel.scale((0.5,1,1))
+        
+        sel.rotate_x(3.1415/8)
+        sel.rotate_x(3.1415/7)
+        
+        sel.rotate_z(3.1415/3)
+        
+        # Create a cone
+        create.cone('PointyCone')
+            
+        # Declarative transformations overwrite
+        spec.location('SmoothSphere',(2,0,0))
+        act.rotation((0,0，3.1415/3))
+        act.scale((1,3,1))
+        
+![]()        
+            
+            
