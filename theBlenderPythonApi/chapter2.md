@@ -494,6 +494,54 @@ bpy.data.objects数据块有一个非常有趣的属性，突出了为Blender Py
 
 ### 可视化数据的五个维度
 
+从我们看到的这一点来看，在这些数据中至少存在两个非常不同的聚类。我们将挖掘花种数据以寻找关系。
+为了轻松区分3D视窗中的花朵类型，我们可以为每种花朵类型指定几何形状。请参见清单2-13。
 
+清单2-13。可视化数据的五个维度
 
+    # Columns:
+    # 'Sepal.Length','Sepal.Width',
+    # 'Petal.Length','Petal.Width','Species'
+    
+    # Visualize 5 dimensions
+    # Sepal.Length,Sepal.Width,'Petal.Length',
+    # and scale the object by a factor of 'Petal.Width'
+    # setosa = sphere,versicolor = cube,virginica = cone
+    
+    # Clear scene
+    ut.delete_all()
+    
+    # Place data
+    for i in range(0,len(iris_data)):
+        v = iris_data[i]
+        
+        if v[4] == 'setosa':
+            ut.create.sphere('setosa-' + str(i))
             
+        if v[4] == 'versicolor':
+            ut.create.cube('versicolor-' + str(i))
+            
+        if v[4] == 'virginica':
+            ut.create.cone('virginica-' + str(i))
+            
+        scale_factor = 0.2
+        ut.act.scale((v[3]*scale_factor,)*3)
+        ut.act.location((v[0],v[1],v[2]))
+
+3D视窗中的结果输出（2-6）揭示了数据中维度和物种之间的关系。我们在较大的星团的顶峰看到许多锥体，弗吉尼亚花，
+我们在那个较大的星团的底部看到许多立方体，杂色花。这两个物种的维度之间存在一些重叠。球体，setosa花，
+构成完全分离的花簇，具有较小的尺寸。
+ 
+ 图2-6
+ 
+ ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/2-6.png?raw=true)
+ 
+ ### 讨论
+ 
+ 由于代码少于200行，我们为交互式多变量数据可视化软件构建了强大的概念验证。
+ 像这样的概念可以通过我们尚未涉及的高级API函数进行扩展，包括纹理，GUI开发和顶点级操作。目前，我们的示例软件可以在以下方面使用改进。
+ 
+ 1.
+ 2.
+ 3.
+ 4.
