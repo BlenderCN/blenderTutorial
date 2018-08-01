@@ -16,3 +16,23 @@ bmesh模块几乎专门处理编辑模式操作。因此，在深入研究bmesh�
 图3-1
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3-1.png?raw=true)
+
+切换到编辑模式时，此时激活的对象将是用户可以编辑该编辑模式会话的唯一对象。如果用户想要在编辑模式操作不同的对象，
+则必须先切换回对象模式以激活所需的对象。只有这样，在切换回编辑模式并激活所需对象后，他才能操作它。如果此时不清楚有关选择和激活的措辞，
+请参阅第二章中的选择，激活和规范部分。请记住，我们始终可以在交互控制台中运行bpy.context.object来检查激活对象的名称。
+
+要以编程方式在对象模式和编辑模式之间切换，请使用清单3-1中的两个命令。
+
+清单3-1。在对象和编辑模式之间切换。
+
+    # Set mode to Edit Mode
+    bpy.ops.object.mode_set(mode="EDIT")
+    
+    # Set mode to Object Mode
+    bpy.ops.object.mode_set(mode="OBJECT")
+    
+## 选择顶点，边和平面
+
+    
+
+  
