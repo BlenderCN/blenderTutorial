@@ -251,6 +251,67 @@ ReferenceError:已删除BMesh类型的BMesh数据。
     import bmesh
     
     # Will fail if scene is empty
+    bpy.ops.object.mode_set(mode='OBJECT')
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.object.delete()
+    
+    # Create a cube and extrude the top face away from it
+    bpy.ops.mesh.primitive_cube_add(radius=0.5,location=(-3,0,0))
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='DESELECT')
+    
+    # Set to face mode for transformations
+    bpy.ops.mesh.select_mode(type='FACE')
+    
+    bm = bmesh.from_edit_mesh(bpy.context.object.data)
+    bm.faces.ensure_lookup_table()
+    bm.faces[5].select = True
+    bpy.ops.mesh.extrude_region_move(TRANSFORM_OT_translate = {"vlaue":(0.3,0.3,0.3),
+                                                                "constraint_axis":(True,True,True),
+                                                                "constraint_orientation":'NORMAL'})
+    bpy.ops.object.mode_set(mode='OBJECT')
+    
+    # Create a cube and subdivide the top face
+    bpy.ops.mesh.primitive_cube_add(radius=0.5,location=(0,0,0))
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='DESELECT')
+    
+    bm = bmesh.from_edit_mesh(bpy.context.object.data)
+    bm.faces.ensure_lookup_table()
+    bm.faces[5].select = True
+    bpy.ops.mesh.subdivide(number_cuts=1)
+    
+    bpy.ops.mesh.select_all(action='DESELECT')
+    bm.faces.ensure_lookup_table()
+    bm.faces[5].select = True
+    bm.faces[7].select = True
+    bpy.ops.ops.transform.translate(value = (0,0,0.5))
+    
+    bpy.ops.object.mode_set(mode='OBJECT')
+    
+    # Create a cube and add a random offset to each vertex
+    bpy.ops.mesh.primitive_cube_add(radius=0.5,location=(3,0,0))
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='SELECT')
+    bpy.ops.transform.vertex_random(offset=0.5)
+    
+    bpy.ops.object.mode_set(mode='OBJECT')
+    
+图3-4
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3-4.png?raw=true)
+
+## 关于索引和交叉兼容性的注意事项
+
+读者可能已经注意到3D对象中的顶点，边和面的索引没有按特定顺序排列。到目前为止示例脚本中，
+作者已经提前手动定位索引而不是以编程方式发现它们。例如，在操作清单3-7中多维数据集的顶部时，
+作者事先确定ut.act.select_face(bm,5)将选择多维数据集顶部的面。这是通过试错法测试确定。
+
+使用试错法测试来发现对象的一部分的索引号是一种可接受的做法，但是存在许多缺点。
+在任何给定版本的Blender中，索引语义应该被认为是可复制的但是不可篡改的。
+    
+`对象的默认索引在不同版本的Blender中变化很大。作者已经注意到依赖于不同版本的Blender的硬编码索引的插件中的主要兼容性问题。
+在依赖于硬编码索引的插件中，版本2.77和版本2.78之间存在重大差异。    
 
     
 
