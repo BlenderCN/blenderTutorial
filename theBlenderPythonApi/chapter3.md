@@ -115,7 +115,7 @@ Blender为用户提供了大量数据和实例管理工作，以便通过API进�
     # Print the bmesh object
     print(bm)
     
-    
+如果我们尝试在    
     
 
 
