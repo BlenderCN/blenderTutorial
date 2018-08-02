@@ -115,9 +115,142 @@ Blender为用户提供了大量数据和实例管理工作，以便通过API进�
     # Print the bmesh object
     print(bm)
     
-如果我们尝试在    
+如果我们尝试在 交互式控制台中运行这些命令，我们可能会得到不同的结果。bmesh对象的实例不是持久的。
+除非Blender检测到它正在被主动使用，否则bmesh对象将取消引用网格数据块，垃圾收集内部数据，
+并返回<BMesh dead at some_memory_address>。考虑到维护bmesh对象所需的空间和计算能力，这是一种理想的行为，
+但它确实需要程序员执行额外的命令以使其保持活动状态。在构建用于选择3D对象的特定部分的函数时，我们将遇到这些命令。
     
+### 选择3D对象的部分
 
+要选择部分bmesh对象，我们操纵每个BMesh.verts,BMesh.edges和BMesh.faces对象的选择布尔值。清单3-5给出了选择立方体部分的示例。
+
+请注意清单3-5中对ensure_lookup_table()的大量调用。我们使用这些函数来提醒Blender在操作直接保持BMesh对象的某些部分不被垃圾收集。
+这些功能占用的处理能力极低，因此我们可以轻松地调用它们而不会产生太大后果。因为调试此错误，最好是over-call它们而不是under-call它们。
+
+ReferenceError:已删除BMesh类型的BMesh数据。
+
+可以在大型代码库中使用keep_lookup_table()没有协议的噩梦。
+
+清单3-5。选择3D对象的部分。
+
+    import bpy
+    import bmesh
+    
+    # Must start in object mode
+    bpy.ops.object.mode_set(mode='OBJECT')
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.object.delete()
+    
+    # Create a cube and enter Edit Mode
+    bpy.ops.mesh.primitive_cube_add(radius=1,location=(0,0,0))
+    bpy.ops.object.mode_set(mode='EDIT')
+    
+    # Set to "Face Mode" for easier visualization
+    bpy.ops.mesh.select_mode(type="FACE")
+    
+    # Register bmesh object and select various parts
+    bm = bmesh.from_edit_mesh(bpy.context.object.data)
+    
+    # Deselect all verts,edges,faces
+    bpy.ops.mesh.select_all(action='DESELECT")
+    
+    # Select a face
+    bm.faces.ensure_lookup_table()
+    bm.faces[0].select = True
+    
+    # Select an edge
+    bm.edges.ensure_lookup_table()
+    bm.edges[7].select = True
+    
+    # Select a vertex
+    bm.verts.ensure_lookup_table()
+    bm.verts[5].select = True
+    
+读者会注意到我们运行了bpy.ops.mesh.select_mode(type="FACE")。到目前为止还没有涵盖这个概念，但要正确使用高级编辑模式功能，
+这一点很重要 ，通常，Blender艺术家会单击3D视窗标题中的三个选项之一，如图3-2所示。
+图3-2中的按钮对应于bpy.ops.mesh.select_mode()中的VERT,EDGE和FACE参数。现在，这只会影响我们在编辑模式下可选择的方式。
+我们为此示例选择FACE，因为它是同时可视化所有三种类型的最佳模式。在本章的后面，我们将讨论编辑模式中的一些功能，
+其行为将根据此选择而改变。
+
+图3-2
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3-2.png?raw=true)
+
+## 编辑模式转换
+
+本节讨论简单转换，如编辑模式下的转换和旋转，以及随机化，拉伸和细分等高级转换。
+
+### 基础转换
+
+方便的是，我们可以使用第2章中用于对象模式转换的相同功能来操作3D对象的各个部分。
+我们将使用清单2-9中介绍的bpy.ops子模块给出一些示例清单3-6。有关轻微变形立方体的输出，请参见图3-3。
+
+清单3-6。编辑模式的基础转换。
+
+    import bpy
+    import bmesh
+    
+    # Must start in object mode
+    bpy.ops.object.mode_set(mode='OBJECT‘)
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.object.delete()
+    
+    # Create a cube and rotate a face around the y-axis
+    bpy.ops.mesh.primitive_cube_add(radius=0.5,location=(-3,0,0))
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='DESELECT')
+    
+    # Set to face mode for transformations
+    bpy.ops.mesh.select_mode(type='FACE')
+    
+    bm = bmesh.from_edit_mesh(bpy.context.object.data)
+    bm.faces.ensure_lookup_table()
+    bm.face[1].select = True
+    bpy.ops.transform.rotate(value=0.3,axis=(0,1,0))
+    
+    bpy.ops.object.mode_set(mode='OBJECT')
+    
+    # Create a cube and pull an edge along the y-axis
+    bpy.ops.mesh.primitive_cube_add(radius=0.5,location=(0,0,0))
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='DESELECT')
+    
+    bm = bmesh.from_edit_mesh(bpy.context.object.data)
+    bm.edges.ensure_lookup_table()
+    bm.edges[4].select = True
+    bpy.ops.transform.translate(value=(0,0.5,0))
+    
+    bpy.ops.object.mode_set(mode='OBJECT')
+    
+    # Create a cube and pull a vertex 1 unit
+    # along the y and z axes
+    # Create a cube and pull an edge along the y-axis
+    bpy.ops.mesh.primitive_cube_add(radius=0.5,location=3,0,0))
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='DESELECT')
+    
+    bm = bmesh.from_edit_mesh(bpy.context.object.data)
+    bm.verts.ensure_lookup_table()
+    bm.verts[3].select = True
+    bpy.ops.transform.translate(value=(0,1,1))
+    
+    bpy.ops.object.mode_set(mode='OBJECT')
+
+图3-3
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3-3.png?raw=true)    
+
+### 高级转换
+
+我们不能希望覆盖Blender中所包含的所有工具来编辑网格，因此我们将在本节中介绍一些工具，并在本章末尾使用示例清除更多内容。
+清单3-7实现了挤出，细分和随机化运算符。有关预期输出，请参见图3-4。
+
+清单3-7。挤出，细分和随机化运算符
+
+    import bpy
+    import bmesh
+    
+    # Will fail if scene is empty
 
     
 
