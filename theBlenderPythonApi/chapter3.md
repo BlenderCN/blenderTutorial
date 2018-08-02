@@ -64,6 +64,61 @@ Note 如果您在同一个Blender会话中多次编辑自定义模块如ut.py，
 
 -----
 
+清单3-3.编辑自定义模块，在Blender会话中存在。
+
+    # Will use the cached version of ut.py from 
+    # your first import of the Blender session
+    import ut 
+    ut.create.cube('myCube')
+    
+    # Will reload the module from  the live script of ut.py
+    # and create  a new cached version for the session 
+    import importlib
+    importlib.reload(ut)
+    ut.create.cube('myCube')
+    
+    # This is what the header of your main script 
+    # should look like when editing custom modules
+    import ut
+    import importlib
+    importlib.reload(ut)
+    
+    # Code using ut.py ...
+    
+### 实例化bmesh对象
+
+在Blender中，与其他核心数据结构相比，bmesh对象相当笨重，计算成本也很高。为了保持效率，
+Blender为用户提供了大量数据和实例管理工作，以便通过API进行管理。在我们探索bmesh时，我们将继续看到这方面的示例。
+有关实例化bmesh对象的示例，请参见3-4。通常，实例化bmesh对象需要我们在编辑模式下将bpy.meshes数据块传递给bmesh.from_edit_mesh()。
+
+清单3-4。实例化bmesh对象
+
+    import bpy
+    import bmesh
+    
+    # Must start in object mode
+    # Script will fail if scene is empty
+    bpy.ops.object.mode_set(mode="OBJECT")
+    bpy.ops.object.select_all(action="SELECT")
+    bpy.ops.object.delete()
+    
+    # Create a cube and enter Edit Mode
+    bpy.ops.mesh.primitive_cube_add(radius=1,location=(0,0,0))
+    bpy.ops.object.mode_set(mode='EDIT')
+    
+    # Store a reference to the mesh datablock
+    mesh_datablock = bpy.context.object.data
+    
+    # Create the bmesh object(named bm) to operate on 
+    bm = bmesh.from_edit_mesh(mesh_datablock)
+    
+    # Print the bmesh object
+    print(bm)
+    
+    
+    
+
+
     
 
   
