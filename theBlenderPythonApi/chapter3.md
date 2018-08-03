@@ -329,7 +329,109 @@ ReferenceError:已删除BMesh类型的BMesh数据。
 
 ## 全局和局部坐标
 
+Blender为每个对象的每个对象的每个部分存储许多坐标数据集。在大多数情况下，我们只关注两组坐标：全局坐标G和局部坐标L。
+当我们对对象执行变换时，Blender将这些变换存储为变换矩阵T的一部分。Blender在某些时候，将变换矩阵应用于局部坐标。
+在Blender应用变换矩阵之后，局部坐标将等于全局坐标，并且变换矩阵将是单位矩阵。
 
+在3D视窗中，我们始终查看全局坐标G=T*L。
 
+我们可以控制Blender何时使用bpy.ops.object.transform_apply()应用转换。这不会改变对象的外观，
+而是将L设置为等于G并将T设置为等于标识。
+
+我们可以利用它来轻松选择对象的特定部分。
+如果我们通过不运行bpy.ops.object.transform_apply()并且不退出编辑模式来延迟执行bpy.ops.object.transform_apply(),
+我们可以维护两个数据集G和L。实际上，G对于相对于其他人定位对象非常有用，并且L很容易循环来获取索引。
+
+有关访问对象的全局和局部坐标的函数，请参见清单3-8。给定bpy.data.meshes[].topics数据块为v，
+v.co给出局部坐标和bpy.data.objec[].matrix_world*v.co给出全局坐标。值得庆幸的是，
+可以在对象模式和编辑模式下访问此数据块。我们将构建与模式无关的函数来访问这些坐标。
+有关独立于模式获取每组坐标的函数，请参见清单3-8。
+
+这些功能牺牲了一些清晰度以换取简洁和效率。在此代码中，v是表示矩阵L的元组列表，
+obj.matrix_world是表示我们的变换矩阵T的Python矩阵。
+
+# 清单3-8。获取全局和本地坐标
+
+    def coords(objName,space='GLOBAL'):
+        
+        # Store reference to the bpy.data.objects datablock
+        obj = bpy.data.objects[objName]
+        
+        # Store referencce  to bpy.data.objects[].meshes datablock
+        if obj.mode = 'EDIT':
+            v = bmesh.from_edit_mesh(obj.data).verts
+        elif obj.mode == 'OBJECT':
+            v = obj.data.vertices
+        
+        if space == 'GLOBAL':
+            # Return T*L as list of tuples
+            return [(obj.matrix_world*v.co).to_tuple() for v in v]
+        elif space == 'LOCAL':
+            # Return L as list of tuples
+            return [v.co.to_tuple() for v in v]
+            
+    class sel:
+        
+        # Add this to the ut.sel class,for use in object mode
+        def transform_apply():
+            bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
+            
+有关本地和全局坐标行为的示例，请参阅清单3-9。我们在转换之前，
+转换之后立即以及在transform_apply()之后打印立方体的前两个坐标三元组。这在纸上和代码编辑器中都很有意义。
+逐行在交互式控制台中运行清单3-9突出显示了transfrom_apply()的有趣行为。转换立方体后，
+读者将看到立方体移动，但局部坐标将保持不变。运行transform_apply()后，立方体将不会移动，但本地坐标将更新以匹配全局坐标。
+
+清单3-9。全局和局部坐标的行为及变换应用
+
+    import ut
+    import importlib
+    importlib.reload(ut)
+    
+    import bpy
+    
+    # Will fail if scene is empty
+    bpy.ops.object.mode_set(mode='OBJECT')
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.object.delete()
+    
+    bpy.ops.mesh.primitive_cube_add(radius=0.5,location=(0,0,0))
+    bpy.context.object.name = 'Cube-1'
+    
+    # Check global and local coordinates
+    print('\nBefore transform:')
+    print('Global:',ut.coords('Cube-1','GLOBAL')[0:2])
+    print('Local:',ut.coords('Cube-1','LOCAL')[0:2])
+    
+    # Translate it along x=y=z
+    # See the cube move in the 3D viewport
+    bpy.ops.transform.translate(value=(3,3,3))
+    
+    # Check global and local coordinates
+    print('\nAfter transform,unapplied:')
+    print('Global:',ut.coords('Cube-1','GLOBAL')[0:2])
+    print('Local:',ut.coords('Cube-1','LOCAL')[0:2]
+    
+    # Apply transformation
+    # Nothing changes in 3D viewport
+    ut.sel.tansform_apply()
+    
+    # Check global and local coordinates
+    print('\nAfter transform,applied:')
+    print('Global:',ut.coords('Cube-a','GLOBAL')[0:2])
+    print('Local:',ut.coords('Cube-1','LOCAL')[0:2])
+    
+    #############################Output###################
+    # Before transform:
+    # Global:[(-0.5,-0.5,-0.5),(-0.5,-0.5,0.5)]
+    # Local:[(-0.5,-0.5,-0.5),(-0.5,-0.5,0.5)]
+    #
+    # After transform,applied:
+    # Global: [(2.5,2.5,2.5),(2.5,2.5,3.5)]
+    # Local: [(-0.5,-0.5,-0.5),(-0.5,-0.5,0.5)]
+    #
+    # After transform applied:
+    # Global : [(2.5,2.5,2.5),(2.5,2.5,3.5)]
+    # Local:[(2.5,2.5,2.5),(2.5,2.5,3.5)]
+    #####################################################
 
   
