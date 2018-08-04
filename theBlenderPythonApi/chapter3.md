@@ -433,5 +433,129 @@ obj.matrix_world是表示我们的变换矩阵T的Python矩阵。
     # Global : [(2.5,2.5,2.5),(2.5,2.5,3.5)]
     # Local:[(2.5,2.5,2.5),(2.5,2.5,3.5)]
     #####################################################
+    
+在下一节中，我们使用此概念来解决图3-5中显示的问题，并在Blender中解锁编辑模式的全部功能。    
 
+## 按位置选择顶点，边和面
+
+有关两个函数的共同作用，有助于在全局和局部坐标系中按位置选择顶点，边和面，请参见清单3-10。
+我们指定为ut.act.select_by_loc()的函数看起来非常复杂，但不使用我们迄今尚未介绍的任何Blender概念。
+作者认为此功能应作为bmesh模块的一部分包括在内，因为它广泛适用。
+
+清单3-10。按位置选择对象的功能
+
+    # Add in body of script,outside any class declarations
+    def in_bbox(lbound,ubound,v,buffer=0.0001):
+        return lbound[0] - buffer <= v[0] <= ubound[0] + buffer and \
+            lbound[1] - buffer <= v[1] <= ubound[1] + buffer and \
+            lbound[2] - buffer <= v[2] <= ubound[2] + buffer
+            
+    class act:
+    
+        # Add to ut.act class
+        def select_by_loc(lbound=(0,0,0),ubound=(0,0,0),
+                            select_mode='VERT',coords='GLOBAL'):
+            # Set selection mode,VERT,EDGE,or FACE
+            selection_mode(select_mode)
+            
+            # Grab the transformation matrix
+            world = bpy.context.object.matrix_world
+            
+            # Instantiate a bmesh object and ensure lookup table
+            # Running bm.faces.ensure_lookup_table() works for all parts
+            bm = bmesh.from_edit_mesh(bpy.context.object.data)
+            bm.faces.ensure_lookup_table()
+            
+            # Initialize list of vertices and list of parts to be selected
+            verts = []
+            to_select = []
+            
+            # For VERT,EDGE,or FACE ...
+            # 1.Grab list of global or local coordinates
+            # 2.Test if the piece is entirely within the rectangular
+            #   prism defined by  lbound and ubound
+            # 3.Select each piece that returned True and deselect
+            #   each piece that returned False in Step 2
+            
+            if select_mode == 'VERT':
+                if coords == 'GLOBAL':
+                    [verts.append((world*v.co).to_tuple()) for v in bm.verts]
+                elif coords ==  'LOCAL':
+                    [verts.append(v.co.to_tuple()) for v in bm.verts]
+                
+                [to_select.append(in_bbox(lbound,ubound,v)) for v in verts]
+                for vertObj,select in zip(bm.verts,to_select):
+                    vertObj.select = select
+            
+            if select_mode == 'EDGE':
+                if coords ==  'GLOBAL':
+                    [verts.append([world*v.co).to_tuple() for v in e.verts]) for e in bm.edges]
+                elif coords == 'LOCAL':
+                    [verts.append([v.co.to_tuple() for v in e.verts]) for e in bm.edges]
+                
+            [to_select.append(all(in_bbox(lbound,ubound,v) for v in e)) for e in verts]
+            
+            for edgeObj,select in zip(bm.edges,to_select):
+                edgeObj.select = select
+
+        if select_mode == 'FACE':
+            if coords == 'GLOBAL':
+                [verts.append([world*v.co).to_tuple() for v in f.verts]) for f in bm.faces]
+            elif coords == 'LOCAL':
+                [verts.append([v.co.to_tuple() for v in verts]) for f in bm.faces]
+                  
+            [to_select.append(all(in_bbox(lbound,ubound,v) for v in f)) for f in verts]
+            for faceObj,select in zip(bm.faces,to_select):
+                faceObj.select = select
+                
+清单3-11给出了一个使用ut.act.select_by_loc()来选择球体片段并对其进行转换的示例。请记住，
+此函数的前两个参数是3D中矩形棱镜的最低角和最高角。如果整个部件（顶点，边缘，面）落入矩形棱镜内，则将选择它。
+
+清单3-11。选择和变换球体的碎片
+
+    import ut
+    import importlib
+    importlib.reload(ut)
+    
+    import bpy
+    
+    # Will fail if scene is empty
+    bpy.ops.object.mode_set(mode='OBJECT')
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.object.delete()
+    
+    bpy.ops.mesh.primitive_uv_sphere_add(size=0.5,location=(0,0,0))
+    bpy.ops.transform.resize(value=(5,5,5))
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='DESELECT')
+    
+    # Selects upper right quadrant of sphere
+    ut.act.select_by_loc((0,0,0),(1,1,1),'VERT','LOCAL')
+    
+    # Selects nothing
+    ut.act.select_by_loc((0,0,0),(1,1,1),'VERT','GLOBAL')
+    
+    # Select upper right quadrant of sphere
+    ut.act.select_by_loc((0,0,0),(5,5,5),'VERT','LOCAL')
+    
+    # Mess with it
+    bpy.ops.transform.translate(value=(1,1,1))
+    bpy.ops.transform.resize(value=(2,2,2))
+    
+    # Selects lower half of sphere
+    ut.act.select_by_loc((-5,-5,-5),(5,5,-0.5),'EDGE','GLOBAL')
+    
+    # Mess with it
+    bpy.ops.transform.translate(value=(0,0,3))
+    bpy.ops.transform.resize(value=(0.1,0.1,0.1))
+    
+    bpy.ops.object.mode_set(mode='OBJECT')
+    
+## 检查点和例子
+
+到目前为止，我们已经为ut.py做了很多补充。有关我们迄今为止在本书中所做的所有新增内容的最新版本，
+请访问blender.chrisconlan.com/ut_ch03.py。
+    
+    
+    
   
