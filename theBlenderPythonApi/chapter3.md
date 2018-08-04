@@ -556,6 +556,77 @@ obj.matrix_world是表示我们的变换矩阵T的Python矩阵。
 到目前为止，我们已经为ut.py做了很多补充。有关我们迄今为止在本书中所做的所有新增内容的最新版本，
 请访问blender.chrisconlan.com/ut_ch03.py。
     
+鉴于此版本的ut.py,我们将尝试一些有趣的示例。有关随机形状增长算法，请参见清单3-12。
+随机(和粗略地）的简短算法选择对象所在的空间块，然后沿着所选表面的垂直法线挤出所选部分。
+要沿着曲面的垂直法线进行挤出，我们只需运行ut.act.extrude((0,0,1)),因为此函数默认使用曲面的局部方向。
+
+该算法让我们可以构建优雅和古怪的形状。结果的类型主要取决于我们在脚本顶部附近的ut.create调用中提供的形状。
+有关立方体和球体的清单3-12的示例，请参见图3-6和3-7。
+
+清单3-12。随机i形状增长。
+
+    import ut
+    import importlib
+    importlib.reload(ut)
+    
+    import bpy
+    
+    from random import randint
+    from math import floor
+    
+    # Must start in object mode
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.object.delete()
+    
+    # Create a  cube
+    bpy.ops.mesh.primitive_cube_add(radius=0.5,location=(0,0,0))
+    bpy.context.object.name = 'Cube-1'
+    
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='DESELECT')
+    
+    for i in range(0,100):
+        
+        # Grab the local coordinates
+        coords = ut.coords('Cube-1','LOCAL')
+        
+        # Find the bounding box for the object
+        lower_bbox = [floor(min(v[i] for v in coords])) for i in [0,1,2]]
+        upper_bbox = [floor(max(v[i] for v in coords])) for i in [0,1,2]]
+        
+        # Select a random face 2x2x1 units wide,snapped to integer coordinates
+        lower_sel = [randint(l,u) for l,u in zip(lower_bbox,upper_bbox)]
+        upper_sel = [1+2 for l in lower_sel]
+        upper_sel[randint(0,2)] -= 1
+        
+        ut.act.select_by_loc(lower_sel,upper_sel,'FACE','LOCAL')
+        
+        # Extrude the surface along it aggregate vertical normal
+        bpy.ops.mesh.extrude_region_move(TRANSFORM_OT_translate={'value':(0,0,1),
+                                            "constraint_axis":(True,True,True),
+                                            "constraint_orientation": 'NORMAL'})
+ 
+图3-6
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3-6.png?raw=true)
+
+图3-7
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3-7.png?raw=true)
+
+虽然这些示例看似微不足道，但它们说明了在Blender中自动执行编辑模式操作的强大功能。虽然清单3-12中的简短算法可以制作迷人的形状，
+但是在给定正确的领域特定知识的情况下，其中的概念可用于在Blender中创建整个CAD系统。很好的例子包括：
+
+1.商业建筑的模型
+
+2.数学曲面的模型
+
+3.原子和化学模型
+
+所有这些都可以都可以通过本章讨论的概念来实现。就目前而言，我们的工具包并非特定于案例。在很多方面可以对其进行改进，
+以适应不同学科和应用程序的建模需求。定制和改进我们的工具包的显着方法包括：
+
+                        
     
     
   
