@@ -60,6 +60,18 @@
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/4-2.png?raw=true)
 
+在第8章之前，我们不会通过Blender的Python API使用纹理，但是当我们讨论3D模型和文件格式时，纹理的uv坐标的概念很重要。
+
+## 常见文件格式
+
+我们首先列出常见的文件格式并解释它们各自的优点和用途。我们在本章开头将这些格式与我们对3D对象的定义结合使用，
+以进一步说明这些概念。
+
+### Wavefront(.obj and mtl)
+
+Wavefront几何(.obj)和材料(.mtl)规范格式协同工作以指定网格和纹理。它们的编写方式使.obj文件可以独立存在以仅指定几何。
+.obj文件非常简单易懂，非常适合用作讨论3D对象形状的标准符号。
+
 
 
     
