@@ -72,7 +72,58 @@
 Wavefront几何(.obj)和材料(.mtl)规范格式协同工作以指定网格和纹理。它们的编写方式使.obj文件可以独立存在以仅指定几何。
 .obj文件非常简单易懂，非常适合用作讨论3D对象形状的标准符号。
 
+有关带有.obj格式的xy平面中的简单方形的示例，请参见清单4-1。我们将不再详细解释.mtl文件，因为它与我们对渲染概念的讨论不太相关。
 
+清单4-1。.obj格式的简单方形。
+
+    # Use hashes to leave comments in .obj files
+    # The 'o' tag is used to name objects
+    # all data following an 'o' tag is considered
+    # to have this name until another name is entered o MySimpleFace
+    
+    # Vertices are entered with the 'v' tag as
+    # space-delimited(x,y,z) tuples
+    v -1.00 0.00 1.00
+    v 1.00 0.00 1.00
+    v -1.00 0.00 -1.00
+    v 1.00 0.00 -1.00
+    
+    # Texture coordinate are entered with the 'vt' tag as
+    # space-delimited(u,v) tuples,between 0 and 1
+    vt 0.00 1.00
+    vt 1.00 1.00
+    vt 0.00 0.00
+    vt 1.00 0.00
+    
+    # Normal vectors are entered with the 'vn' tag as
+    # space-delimited(x,y,z) tuples,can be normal vectors if desired
+    vn 0.0000 1.0000 0.0000
+    
+    # Indices are entered with the 'f' (for face) tag as
+    # space-delimited triplets of v,vt,and vn indices as
+    # f v_i/vt_i/vn_i v_j/vt_j/vn_j v_k/vt_k/vn_k
+    # Faces can have any number(three or more) coplanar point
+    f 2/2/1 3/3/1 1/1/1
+    f 2/2/1 4/4/1 3/3/1
+    
+    # Alternatively,the faces section for this face can be
+    # written as a single coplanar quadrilateral:
+    f 1/1/1 2/2/1 4/4/1 3/3/1
+    
+    # Alternatively,the texture coordinates can be
+    # excluded with double slashes
+    f 1//1 2//1 4//1 3//1
+    
+我们在清单4-1中看到.obj文件格式的规范，用于具有以下特征的简单面：  
+
+1。两个单位长两个单位宽
+
+2。以原点为中心，法线向量沿z轴向上
+
+3。一些纹理沿正x轴和y轴定向。
+
+我们将在以下实例中看到.obj格式与其他格式相比相当成熟且灵活。
+    
 
     
 
