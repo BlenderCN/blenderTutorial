@@ -376,5 +376,7 @@ STL文件格式通常由工程师和CAD软件使用。与.obj格式相比，它�
     f 6//4 7//4 3//4
     f 3//5 7//5 8//5
     f 1//6 4//6 8//5
-    
+
+图4-3
+
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/4-3.png?raw=true)    
