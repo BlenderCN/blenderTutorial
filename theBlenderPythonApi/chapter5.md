@@ -120,4 +120,49 @@
         
         register()
         
-![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/5-1.png?raw=true)        
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/5-1.png?raw=true)  
+
+当我们运行脚本时，我们应该得到关于注册和取消注册清单5-1中声明的类的控制台输出。
+通过更改消息并选择Print Encouraging Message,我们应该在控制台中获得以下内容：
+
+    Unregistered class:Print an Encouraging Message
+    Unregistered class:Call simple Operator
+    Simple Add-on Template unregister complete
+    
+    Registered class:Print an Encouraging Message
+    Registered class:Call Simple Operator
+    Simple Add-on Template registration complete
+    
+    ####################################################
+    # Add-on and Simple Operator executed successfully!
+    # Have a nice day!
+    ####################################################
+    
+    ####################################################
+    # Add-on and Simple Operator executed successfully!
+    # I changed the message!
+    ####################################################
+    
+虽然有许多细节需要解释，但Blender插件相当优雅且易读。虽然每行代码都有一个目的，但脚本可以通过重复获得一致性。
+图5-1中显示的模板相当小，但我们还包括一些可选的质量控制。在继续使用更高级的插件之前，我们会讨论每个组件。
+
+## Blender插件的组件
+
+Blender插件依赖于许多不同的，特别命名的变量和类函数来正常运行。我们在这里按类别详细说明。
+
+### bl_info字典
+
+在Blender插件中出现的第一件事应该是bl_info字典。此字典是从源文件的前1024个字节解析的，
+因此bl_info必须出现在文件的顶部。我们将使用单词字典来编写类dict的Python对象。
+
+Blender的内部引擎使用此字典中的数据来填充与插件本身相关的各种元数据。
+如果我们导航到Header Menu>File>User Preferences>Add-ons,我们可以在Blender中看到各种官方和社区插件。
+单击任何加载项上的插入符号显示如何使用bl_info信息填充此GUI，如图5-2所示。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/5-2.png?raw=true)
+
+重要的是要注意bl_info字典加载项对插件没有任何功能，而是确定最终用户如何在此窗口中找到并激活它。请参阅此处的详细说明：
+
+1。名字——插件的名称，显示在用户首选项的插件选项卡中（例如，Math Vis（控制台），动作捕捉工具。它被写成一个单独的字符串。
+
+2。作者——出现在用户偏好中的作者姓名(例如，Campbell Barton，Fabian Fricke)。它可以是带逗号或元组的字符串
