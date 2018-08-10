@@ -163,23 +163,22 @@ Blender的内部引擎使用此字典中的数据来填充与插件本身相关�
 
 重要的是要注意bl_info字典加载项对插件没有任何功能，而是确定最终用户如何在此窗口中找到并激活它。请参阅此处的详细说明：
 
-1。name——插件的名称，显示在用户首选项的插件选项卡中（例如，Math Vis（控制台），动作捕捉工具。它被写成一个单独的字符串。
+    1。name——插件的名称，显示在用户首选项的插件选项卡中（例如，Math Vis（控制台），动作捕捉工具。它被写成一个单独的字符串。
 
-2。author——出现在用户偏好中的作者姓名(例如，Campbell Barton，Fabian Fricke)。它可以是带逗号或元组的字符串
+    2。author——出现在用户偏好中的作者姓名(例如，Campbell Barton，Fabian Fricke)。它可以是带逗号或元组的字符串
 
-3。location——插件GUI的主要位置。常用语法是工具，属性和工具架面板中Window>Panel>Tab>Section。
+    3。location——插件GUI的主要位置。常用语法是工具，属性和工具架面板中Window>Panel>Tab>Section。
 如有疑问，请遵循其他插件建立的惯例。
 
-4。version——作为元组的插件的版本号。
+    4。version——作为元组的插件的版本号。
 
-5。blender——根据Blender Wiki，这是运行插件所需的最小Blender版本号。
-社区插件经常被错误地列出(2,7,8)作为较低版本可以支持插件的版本。在许多情况下，数字是指开发人员选择支持的最低版本。
+    5。blender——根据Blender Wiki，这是运行插件所需的最小Blender版本号。社区插件经常被错误地列出(2,7,8)作为较低版本可以支持插件的版本。在许多情况下，数字是指开发人员选择支持的最低版本。
 
-6。description——
+    6。description——显示在指定为单个字符串的用户首选项窗口中的简要说明。
 
-7。wiki_url——
+    7。wiki_url——指向指定为单个字符串的插件的手册或指南的URL。
 
-8。category——
+    8。category——字符串指定表5-1中列出的类别之一。
 
     Table 5-1。The bl-info Category Options
     ——————————————————————————————————————————————————————————————————————————————————
@@ -188,3 +187,6 @@ Blender的内部引擎使用此字典中的数据来填充与插件本身相关�
     Add Curve   Game Engine     Mesh            Physics     Sequencer   User Interface
     Animation   Import-Export   Node            Render      System
     ———————————————————————————————————————————————————————————————————————————————————
+
+还有一些不常见的bl_info选项。
+
