@@ -190,3 +190,12 @@ Blender的内部引擎使用此字典中的数据来填充与插件本身相关�
 
 还有一些不常见的bl_info选项。
 
+    1。support——OFFICIAL,COMMUNITY或TESTING。如果官方提到官方支持的Blender插件，则社区引用社区支持的插件，而测试则指的是应该故意从Blender版本中排除的未完成或新添加的插件。
+    
+    2。tracker_url——指向bug追踪器的URL(例如Github issues或类似的)
+    
+    3。warning——字符串指定将出现在用户首选项窗口中的一些警告。
+
+### 运算符和类继承(bpy.types.Operator)
+
+在最简单的意义上，
