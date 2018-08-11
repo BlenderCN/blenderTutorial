@@ -327,3 +327,75 @@ bpy.utils.unregister_module(__name__)用于清除先前运行的脚本中注册�
         register()    
         
 ### 场景属性和bpy.props        
+
+添加到场景和对象类型的属性将保存到.blend文件中。为了让用户通过Blender GUI修改变量，必须将它们注册为bpy.props.*object。
+bpy.props类具有大多数数据类型的选项，包括浮点数，整数，字符串和布尔值。
+它们可以注册到bpy.types.*classes,包括Scene和Object。在本节中
+，我们将讨论如何将简单的场景属性注册到bpy.types.Scene.variables。这些是可以通过bpy.context.scene.*访问的任意命名变量。
+虽然名称是任意的，但它仅限于小写字符和下划线。
+
+我们可以在两个地方注册场景变量：
+
+    1。在脚本底部的register()函数中。
+    
+    2。在任何继承bpy.types.*class(面板，运算符，菜单等)的类的register()类方法中。
+    
+最常见的是，场景变量直接与类相关联。为了清晰和组织起见，我们希望在该类的register()类方法中声明这些变量。
+其他不完全适合定义的变量可以在脚本底部的register()函数中声明。在本文中，我们鼓励在register()类方法中声明场景属性，
+如果与特定类密切相关，但这在现有社区插件中并不常见。
+
+场景变量将是bpy.typs.variables的实例。这些包括Blender类型StringProperty，FloatProperty,IntProperty和BoolProperty。
+每当面板通过调用self.layout.prop在GUI中包含变量时，该变量将根据其类型进行逻辑格式化。整数和浮点数显示在滑块栏中，
+字符串显示为文本输入字段，布尔值显示为复选框，依次类推。
+
+在清单5-3中，我们使用其他场景变量重新声明了清单5-1中的SimpleOpetator和SimplePanel。
+读者将使用清单5-1作为模板重写这些类。结果GUI请参见图5-3。
+
+清单5-3。探索场景属性
+
+    # Simple Operator with Extra Properties
+    class SimpleOpetator(bpy.types.Opetator):
+        bl_idname = "object.simple_opetator"
+        bl_label = "Print an Encourageing Message"
+        
+        def execute(self,context):
+            print("\n\n#####################################################")
+            print("# Add-on and Simple Opetator executed successfully!")
+            print("# Encouraging Message:",context.scene.encouraging_message)
+            print("# My Int:",context.scene.my_int_prop)
+            print("# My Float:",context.scene.my_float_prop)
+            print("# My Bool:",context.scene.my_bool_prop)
+            print("# My Int Vector:",*context.scene.my_int_vector_prop)
+            print("# My Float Vector:",*context.scene.my_float_vector_prop)
+            print("# My Bool Vector:",*context.scene.my_bool_vector_prop)
+            print("###########################################################")
+            return {'FINISHED'}
+
+        @classmethod
+        def register(cls):
+            print("Registered class:%s" % cls.bl_label)
+            
+            bpy.types.Scene.encouraging_message = bpy.props.StringProperty(
+                name = "",
+                description = "Message to print to user",
+                default = "Have a nice day!")
+                
+            bpy.types.Scene.my_int_prop = bpy.props.IntProperty(
+                name = "My Int",
+                description = "Sample integer property to print to user",
+                default = 123,
+                min = 100,
+                max = 200)
+            
+            bpy.types.Scene.my_float_prop = bpy.props.FloatProperty(
+                name = "My Float",
+                description = "Sample float property to print to user",
+                default = 3.1415,
+                min = 0.0,
+                max = 10.0,
+                precision = 4)
+                
+            bpy.types.Scene.my_bool_prop = bpy.props.BoolProperty(
+                name = "My Bool",
+                description = "Sample boolean property to print to user",
+                default = True)
