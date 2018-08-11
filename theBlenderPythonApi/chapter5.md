@@ -251,5 +251,79 @@ bpy.types.Panel类是插件中继承的下一个最常见的类。面板已占Bl
     ——————————————————————————————————————————————————————————————————————————————————————————
     bl_space_type和bl_region_type的大多数组合不能一起工作，但逻辑组合通常会起作用。目前没有关于哪种空间类型和区域类型合作的完整文档。此外，并非所有空间类型和区域类型都需要声明bl_category或bl_label。再次，在逻辑上使用它们通常会产生良好的结果。
     
-    3。
+    3。(可选)声明bl_context。与前面的示例一样，我们可以将bl_context设置为等于objectmode,以使面板仅以对象模式显示。截至撰写本文时，我们没有针对此变量的有效选项的具体列表。API文档目前有一个TODO标记，要求更多解释。我们在后面的章节中介绍poll()方法，这是一种更灵活的方式来实现这种类型的行为。
     
+    4。声明绘制方法。此函数将上下文作为参数，并始终声明为def draw(self,context):。在此函数定义中，请务必注意上下文是指bpy.context对象，但不应将其作为bpy.context传递。这个函数体中的重要变量是bpy.context.scene和self.layout。layout.prop()函数可以引用场景属性，对象属性和一些其他Blender内部属性。它将根据场景属性本身自动创建适当的输入字段。清单5-1中的encouraging_message场景属性被声明为字符串属性，因此将其作为布局的参数提供。prop()生成了一个文本输入字段。layout.operator()函数获取运算符的bl_idname,并创建一个带有text=argument指定标签的按钮。我们不会在这里详细介绍布局对象，因为高级GUI可能会非常复杂。我们将在本章后面详细讨论布局对象。
+    
+    5。(可选)使用装饰器@classmethod声明register()和unregister()函数，如我们对bpy.types.Operator类的讨论。
+    
+### register()和unregister()
+
+在清单5-1的末尾附近有两个函数，register()和unregister(),这些函数在插件中是必需的。这两个函数负责调用bpy.utils.register_class(),bpy.utils.unregister_class(),
+bpy.utils.register_module()和bpy.utils.unregister_module()。
+任何继承bpy.type类的类都需要注册才能由Blender在插件中使用。当用户在用户首选项中关闭加载项时，
+Blender使用unregister()函数。
+
+注册和取消注册类有两种选择。有些工作比其他工作更好用于开发，而其他工作则更适合部署。
+
+    1。明确注册和注销每个类。在这种情况下，我们希望以逻辑顺序注册类。依赖其他的类应在其依赖后进行注册。我们使用bpy.utils.register_class()在register()函数中执行此操作，并将类名作为参数传递。应使用unregister()函数中的bpy.utils.unregister_class()以相反的顺序取消注册类。
+    
+    2。根据模块中的成员资格隐式注册和注销类。我们使用bpy.utils.register_module()和bpy.utils.unregister_module()函数来实现。我们经常看到bpy.utils.register_module(__name__)在已发布的插件的register(0函数中调用，但在开发过程中它可能会很混乱，因为我们很快会解释。
+    
+回顾清单5-1,我们看到我们已经显示注册但隐式注销了我们的类。作者认为，这种设置非常适合单文件插件的实时编辑。
+bpy.utils.unregister_module(__name__)用于清除先前运行的脚本中注册的类的插件环境。
+在使用Blender的文本编辑器完成编辑期间，bpy.utils.register_module(__name__)通常会记录以前运行的脚本中已删除或未使用的类副本。
+
+因此，实时编辑插件的清晰平板方法似乎是显式注册并隐式取消注册。隐式注销将从先前的运行中获取杂散类实例，
+然后显式注册仅实例化当前运行中新创建的类。这违背了大多数文档的建议，这通常建议使用清单5-2中一种样式进行注册和注销。
+清单5-1中的方法是安全，冗长的，可以很容易地修改，以符合清单5-2中普遍接受的做法。
+
+清单5-2。注册协议
+
+    # Option 1:
+    # Using implicit registration
+    
+    def register():
+        bpy.utils.register_module(__name__)
+        
+    def unregister():
+        bpy.utils.unregister_module(__name__)
+    
+    if __name__ == "__main__":
+        register()
+
+    # Option 2:
+    # Using explicit registration
+    
+    def register():
+        bpy.utils.register_class(SimpleOperator)
+        bpy.utils.register_class(SimplePanel)
+        
+    def unregister():
+        bpy.utils.unregister_class(SimpleOperator)
+        bpy.utils.unregister_class(SimplePanel)
+        
+    if __name__ == "__main__":
+        register()
+        
+    # Option 3 (Recommended)
+    # Explicit registration and implicit unregistration
+    # with safe + verbose single-script run
+    
+    def register():
+        bpy.utils.register_class(SimpleOperator)
+        bpy.utils.register_class(SimplePanel)
+        
+    def unregister():
+        bpy.utils.unregister_module(__name__)
+
+    if __name__ == "__main__":
+        try:
+            unregister()
+        except Exception as e:
+            print(e)
+            pass
+            
+        register()    
+        
+### 场景属性和bpy.props        
