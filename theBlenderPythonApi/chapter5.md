@@ -198,4 +198,58 @@ Blender的内部引擎使用此字典中的数据来填充与插件本身相关�
 
 ### 运算符和类继承(bpy.types.Operator)
 
-在最简单的意义上，
+在最简单的意义上，插件允许我们通过单击标准Blender GUI中的按钮来调用Blender Python函数。
+必须首先将Blender GUI调用的函数注册为类bpy.types.Operator的运算符。以SimpleOperator为例。
+当我们注册到这个类时，调用SimpleOperator。execute（）映射到bpy.ops中的函数对像。
+函数是bpy.ops,它映射到的是由类头部的bl_idname值决定的。因此，在运行清单5-1中的脚本之后，
+您可以通过从交互式控制台，加载项本身或不相关的Python脚本调用bpy.ops.object.simple_operator()来打印令人鼓舞的消息。
+
+以下是在Blender中声明运算符的步骤。请参阅清单5-1中的SimpleOperator类定义。
+
+    1。声明一个继承bpy.types.Operator的类。这将在我们的代码中显示为：
+        class MyNewOperator(bpy.types.Operator):
+    
+    2。将bl_idname声明为具有您选择的类和函数名称的字符串，用句点分隔(例如，object.simple_operator或simple.message)。类和函数名称只能包含小写字符和下划线。稍后可以通过bpy.ops.my_bl_idname访问execute函数。
+    
+    3。(可选)将bl_label声明为描述功能的任何字符串。这将出现在Blender自动生成的功能文档和元数据中。
+    
+    4。声明一个执行函数。此函数将充当普通类函数，并始终接受对bpy.context的引用作为参数。通过设计bpy.types.Operator类，execute函数将始终定义：为：
+        def execute(self,context):
+    最佳做法是在运算符类中成功调用execute()返回{”FINISHED"}。
+    
+    5。(可选)声明用于注册和取消注册类的类方法。注册和取消注册函数将始终需要@classmethod装饰器并将cls作为参数。只要Blender尝试注册或取消注册运算符类，就会运行这些函数。在开发期间，包含有关类注册和注销的输出语句是有帮助的，如清单5-1所示，以检查Blender是否错误地重新注册现有类。同样重要的是要注意我们可以在这些函数中声明和删除场景属性。我们将在后面的章节中讨论。
+    
+为确保Blender可以使用我们的Python代码，需要遵循一些限制和指导原则。最终，
+这些指南改变了我们编码的方式以及我们考虑构建Python代码库的方式。 这是我们理解Blender Python API的重点，
+它开始感觉像是一个真正的应用程序编程接口(API)，而不仅仅是一组有用的函数。
+
+### 面板和类继承(bpy.types.Panel)
+
+bpy.types.Panel类是插件中继承的下一个最常见的类。面板已占Blender工具，Toolshelf和Properties窗口的大部分。
+其中一个窗口的每个可折叠部分都是一个独特的面板。例如，如果我们导航到3D Viewport>Tools>Tools,
+则默认情况下会看到三个面板：变换，编辑和历史。在Blender Python插件中，这些将由三个不同的bpy.types.Panel类表示。
+
+以下是注册面板的要求。始终引用清单5-1中的SimplePanel类。
+
+    1。声明一个继承bpy.types.Panel的类。这将显示为类:
+        MyNewPanel(bpy.types.Panel)
+    
+    2。声明bl_space_type,bl_region_type,bl_category和bl_label。读者可能已经注意到这些的有序是有意的(虽然没有必要)。这四个变量按编写顺序和清单5-1中的顺序指定了用户到达面板所用的路径。在清单5-1中，它读取了VIEW_3D>TOOLS>SimpleAddon>CallSimple Operator,它看起来非常熟悉到目前为止我们在文本中找到GUI元素的方式。纠正这些变量中的案例和拼写问题。虽然类别和标签可以是任意值，但空间和区域必须引用Blender GUI的实际区域。有关bl_space_type和bl_region_type的可能参数列表，请参见5-2和5-3。
+    
+    Table5-2。bl_space_type Options
+    ——————————————————————————————————————————————————————————————————————
+    EMPTY               NLA_EDITOR          NODE_EDITOR     INFO
+    VIEW_3D             IMAGE_EDITOR        LOGIC_EDITOR    FILE_BROWSER
+    TIMELINE            SEQUENCE_EDITOR     PROPERTIES      CONSOLE
+    GRAPH_EDITOR        CLIP_EDITOR         OUTLINER
+    DOPESHEET_EDITOR    TEXT_EDITOR         USER_PREFERENCES    
+    ——————————————————————————————————————————————————————————————————————
+    
+    Table5-3。bl_region_type Options
+    ——————————————————————————————————————————————————————————————————————————————————————————
+    WINDOW      HEADER      CHANNELS        TEMPORARY UI TOOLS      TOOL——PROPS     PREVIEW
+    ——————————————————————————————————————————————————————————————————————————————————————————
+    bl_space_type和bl_region_type的大多数组合不能一起工作，但逻辑组合通常会起作用。目前没有关于哪种空间类型和区域类型合作的完整文档。此外，并非所有空间类型和区域类型都需要声明bl_category或bl_label。再次，在逻辑上使用它们通常会产生良好的结果。
+    
+    3。
+    
