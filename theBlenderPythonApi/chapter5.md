@@ -457,4 +457,86 @@ bpy.props类具有大多数数据类型的选项，包括浮点数，整数，�
 
 图5-3
 
-![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/5-3.png?raw=true)            
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/5-3.png?raw=true)  
+
+有关可用bpy.props.*variables的列表，请参阅5-4。有关更多信息，请参阅bpy.props的API文档页面。到目前为止，
+我们还没有涵盖EnumProperty，CollectionProperty或PointerProperty。我们将在本章后面介绍EnumProperty，
+我们将在本章后面介绍EnumProperty,我们将在第七章介绍有关高级插件功能的CollectionProperty。
+
+    Table5-4。Available Blender Properties
+    ——————————————————————————————————————————————————————————————————————————————————
+    BoolProperty            EnumProperty            IntProperty     StringProperty
+    BoolVectorProperty      FloatProperty           IntVectorProperty
+    CollectionProperty      FloatVectorProperty     PointerProperty
+    ———————————————————————————————————————————————————————————————————————————————————
+
+赋予属性声明的参数通常很简单，其中许多都是在不同属性之间共享的。最为显着地：
+
+    1。default=是一个长度等于指定默认值的大小的值或元组。
+    
+    2。name=是将出现在输入字段左侧的GUI中的值。
+    
+    3。description=是用户将光标悬停在GUI元素上时显示的字符串。
+    
+    4。precision=指定任何float属性的显示中的小数精度。
+    
+    5。size=指定任何vector属性中所需的向量大小(通常为Vector,bpy_boolean或bpy_int类型)
+    
+    6。subtype=指定变量的所需显示格式字符串。有用的示例是XYZ和TRANSLATION，它们将在UI中的前四个变量之前显示X，Y，Z和W。另一个值得注意的例子是subtype=”COLOR“，当添加到面板时，它将创建一个有吸引力的颜色选择UI。有关颜色子类型的示例，请参见清单5-4和图5-4。请注意，Blender对颜色使用浮点范围(0.0,1.0)。表5-5和5-6显示了属性和向量属性子类型。
+    
+    7。min=和max=指定可以在GUI中显示的极值以及可以存储在变量中的极值。
+    
+    8。softmin和softmax=指定用于显示变量和缩放滑块的最小值和最大滑块值。任意值仍然可以手动输入，只要它们在最小值和最大值。
+    
+    9。update=接受函数作为参数。每次更新值时都会运行该函数。指定的函数应该接受self和context作为参数，
+    无论它在何处被声明。此功能目前没有记录，但表现相当好。
+    
+    Table5-5。Available Property Subtypes
+    ——————————————————————————————————————————————————————————————————————————
+    PIXEL   PERCENTAGE  ANGLE   DISTANCE    UNSIGNED    FACTOR  TIME    NONE    
+    ——————————————————————————————————————————————————————————————————————————
+    
+    Table5-6。Available Vector Property Subtypes
+    ——————————————————————————————————————————————————————————————————————————
+    COLOR           VELOCITY        EULER           XYZ                 NONE
+    TRANSLATION     ACCELERATION    QUATERNION      COLOR_GAMMA
+    DIRECTION       MATRIX          AXISANGLE       LAYER
+    __________________________________________________________________________
+    
+清单5-4。使用颜色子类型。 
+
+    bpy.types.Scene.my_color_prop = bpy.props.FloatVectorProperty(
+        name = ”My Color Property",
+        descritption = "Returns a vector of length 4",
+        default=(0.322,1.0,0.182,1.0),
+        min = 0.0,
+        max = 1.0,
+        subtype = 'COLOR',
+        size = 4)
+
+图5-4
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/5-4.png?raw=true)  
+
+## 精确选择插件示例
+
+在本文的这一点上，我们已经讨论了Blender Python API概念，它们具有足够的容量来开始构建有效的插件。
+对于我们的第一个真正的插件，我们将参数化第3章中声明的ut.act.select_by_loc()函数，以便在编辑模式下启用精确的组选择。
+
+在开始之前，请务必从http://blender.chrisconlan.com/ut.py 下载第三章的ut.py迭代。我们将在我们的插件中导入它。
+社区使用了一些不同的协议来管理插件中的自定义导入。我们将讨论从单级目录管理自定义导入的通用协议。换句话说，
+我们将导入与主脚本位于同一目录中的自定义模块。
+
+### 我们的插件的代码概述
+
+我们概述了从开发到部署和共享构建插件所采取的步骤：
+
+    1。创建主脚本并在Blender的文本编辑器中将其命名为__init__.py。将清单5-1中的加载项模板复制到此脚本中。
+    
+    2。创建第二个脚本，并在Blender的文本编辑器中将其命名为ut.py。将http://blender.crisconlan.com/ut.py 上的Python模块复制到此脚本中。
+    
+    3。修改新插件的bl_info。
+    
+    4。添加自定义模块导入协议。请参阅清单5-5，从if “bpy” in locals():开始。很简单，为了测试我们是否处于部署模式或开发模式，我们检查bpy是否在当前命名空间中。
+    
+        (1)如果脚本中此时bpy位于命名空间中，我们之前已加载了插件及其相关模块。在这种情况下，使用importlib.reload()重新加载对象。
