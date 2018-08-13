@@ -119,7 +119,9 @@
             pass
         
         register()
-        
+
+图5-1
+
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/5-1.png?raw=true)  
 
 当我们运行脚本时，我们应该得到关于注册和取消注册清单5-1中声明的类的控制台输出。
@@ -158,6 +160,8 @@ Blender插件依赖于许多不同的，特别命名的变量和类函数来正�
 Blender的内部引擎使用此字典中的数据来填充与插件本身相关的各种元数据。
 如果我们导航到Header Menu>File>User Preferences>Add-ons,我们可以在Blender中看到各种官方和社区插件。
 单击任何加载项上的插入符号显示如何使用bl_info信息填充此GUI，如图5-2所示。
+
+图5-2
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/5-2.png?raw=true)
 
@@ -540,3 +544,229 @@ bpy.props类具有大多数数据类型的选项，包括浮点数，整数，�
     4。添加自定义模块导入协议。请参阅清单5-5，从if “bpy” in locals():开始。很简单，为了测试我们是否处于部署模式或开发模式，我们检查bpy是否在当前命名空间中。
     
         (1)如果脚本中此时bpy位于命名空间中，我们之前已加载了插件及其相关模块。在这种情况下，使用importlib.reload()重新加载对象。
+
+        (2)如果此时bpy不在命名空间中，那么我们是第一次加载插件。导入模块，假设它与文件系统中的__init__.py位于同一目录中。要从与主脚本相同的目录导入，我们使用from .import custommodule
+        
+    5。通常导入任何本机Blender和/或本机Python模块。
+    
+    6。声明我们的核心运算符类SelectByLocation。我们将使用合理输入将ut.act.select_by_loc()参数化为场景属性。
+        (1)使用bpy.props.FloatVectorProperty注册边界框
+        (2)使用bpy.props.EnumProperty注册选择模式和坐标系的菜单。有关这些参数的说明，请参阅第3章中的清单3-8到3-10。
+        
+    7。声明我们的核心面板类XYZSelect。我们将在此处组织与operator相关的按钮和参数。在这种情况下，默认菜单布局看起来非常直观。声明poll()类方法仅在模式为编辑模式时返回True。
+    
+    8。实现安全和详细的注册，如清单5-1所示。
+    
+清单5-5。XYZ-Select 插件。
+
+    bl_info = {
+        "name" : "XYZ-Select",
+        "author" : "Chris Conlan",
+        "location" : "View3D>Tools>XYZ-Select",
+        "version" : (1,0,0),
+        "blender" : (2,7,8),
+        "description" : "Precision selection in Edit Mode",
+        "category" : "3D View"
+        }
+        
+    ### Use these imports to during development ###
+    import ut
+    import importlib
+    importlib.reload(ut)
+    
+    ### Use these imports to package and ship your add-on ###
+    # if "bpy" in locals():
+    #     import importlib
+    #     importlib.reload(ut)
+    #     print('Reloaded ut.py')
+    # else:
+    #     from . import ut
+    #     print('Imported ut.py')
+    
+    import bpy
+    import os
+    import random
+    
+    # Simple Operator with Extra Properties
+    
+    class xyzSelect(bpy.types.Operator):
+        bl_idname = "object.xyz_select"
+        bl_label = "Select pieces of objects in Edit Mode with bounding boxes"
+        
+        def execute(self,context):
+            
+            scn = context.scene
+            
+            output = ut.act.select_by_loc(lbound = scn.xyz_lower_bound,
+                                          ubound = scn.xyz_unper_bound,
+                                          select_mode = scn.xyz_selection_mode,
+                                          oords = scn.xyz_coordinate_system)
+            
+            print("Selected " + str(output) + "" + scn.xyz_selection_mode + "s")
+            
+            return {'FINISHED'}
+
+        @classmethod
+        def register(cls):
+            print("Registered class: %s " % cls.bl_label)
+            bpy.types.Scene.xyz_lower_bound = bpy.props.FloatVectorProperty(
+                name = "Lower",
+                description = "Lower bound of selection bounding box",
+                default = (0.0,0.0,0.0),
+                subtype = 'XYZ',
+                size = 3 ,
+                precision = 2
+                )
+            
+            bpy.types.Scene.xyz_upper_bound = bpy.props.FloatVectorProperty(
+                name = "Upper",
+                description = "Upper bound of selection bounding box",
+                default = (1.0,1.0,1.0),
+                subtype = 'XYZ'，
+                size = 3,
+                precision = 2
+                )
+                
+            # Menus for EnumProperty's
+            selection_modes = [
+                ("VERT","Vert","",1),
+                ("EDGE","Edge","",2),
+                ("FACE","Face","",3),
+            ]
+            
+            bpy.types.Scene.xyz_selection_mode = bpy.props.EnumProperty(items = selection_modes,name = "Mode")
+            
+            coordinate_system = [
+                ("GLOBAL","Global","",1),
+                ("LOCAL","Local","",2),
+            ]
+            
+            bpy.types.Scene.xyz_coordinate_system = bpy.props.EnumProperty(items = coordinate_system,name="Coords")
+            
+        @classmethod
+        def unregister(cls):
+            print("Unregistered class: %s " % cls.bl_label)
+            del bpy.context.scene.xyz_coordinate_system
+            del bpy.context.scene.xyz_selection_mode
+            del bpy.context.scene.xyz_upper_bound
+            del bpy.context.scene.xyz_lower_bound
+            
+    # Simple button in Tools panel
+    class xyzPanel(bpy.types.Panel):
+        bl_space_type = "VIEW_3D"
+        bl_region_type = "TOOLS"
+        bl_category = "XYZ-Swlect"
+        bl_label = "Select by Bounding Box"
+        
+        @classmethod
+        def poll(self,context):
+            return context.object.mode == 'EDIT'
+        
+        def draw(self,context):
+            scn = context.scene
+            lay = self.layout
+            lay.operator('object.xyz_select',text='Select Components")
+            lay.prop(scn,'xyz_lower_bound')
+            lay.prop(scn,'xyz_upper_bound')
+            lay.prop(scn,'xyz_selection_mode')
+            lay.prop(scn,'xyz_coordiante_system')
+            
+        @classmethod
+        def register(cls):
+            print("Registered class: %s" % cls.bl_label)
+            
+        @classmethod
+        def unregister(cls):
+            print("Unregistered class: %s " % cls.bl_label)
+
+    def register():
+        # bpy.utils.register_module(__name__)
+        
+        bpy.utils.register_class(xyzSelect)
+        bpy.utils.register_class(xyzPanel)
+        
+        print("%s registration complete\n" % bl_info.get('name'))
+        
+    def unregister():
+        # bpy.utils.unregister_class(xyzPanel)
+        # bpy.utils.unregister_class(xyzSelect)
+        
+        bpy.utils.unregister_module(__name__)
+        print("%s unregister complete\n" % bl_info.get('name'))
+        
+    if __name__ == "__main__":
+        try:
+            unregister()
+        except Exception as e:
+            print(e)
+            pass
+            
+        register()
+        
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/5-5.png?raw=true)    
+
+我们在这个例子中引入了两个新概念——poll()类方法和EnumProperty变量。我们接下来解释这些。
+
+### poll()类方法
+
+poll()类方法是一个函数，通常放在面板声明中的bl_*variables之后。只要3D视窗更新以确定是否显示面板，就会调用该函数。
+如果函数返回任何非空值，则将显示该面板。返回被认为是最佳做法。
+
+如果函数返回任何非空值，则将显示该面板。返回布尔值被认为是最佳实践，即使任何非null都足够。
+回想一下，在Python中，数字0,空字符串和False都被视为null。
+
+在我们的插件中，如果用户处于编辑模式，我们只返回True，如下所示：
+
+    # poll function for eidt-mode-only panels
+    @classmethod
+    def poll(self,context):
+        return context.object.mode == 'EDIT'
+        
+### EnumProperty变量
+
+bpy.props.EnumProperty类是我们通过API显示下拉菜单的方式。它由元组列表实例化，元组中的每个元素代表一个Blender数据值。架构如下：
+
+    my_enum_list = [
+        ("python_1", "dispaly_1", "tooltip_1", "icon_1", 'number_1),
+        ("python_2", "dispaly_2", "tooltip_2", "icon_2", 'number_2),
+        # etc ...
+        ("python_n", "dispaly_n", "tooltip_n", "icon_n", 'number_n)
+    ]
+
+这直接来自API文档：
+    
+    1。第一个参数是Python中bpy.context.scene.my_enum_list返回的值。
+    
+    2。第二个参数是GUI菜单中显示的值。
+    
+    3。第三个值是GUI菜单中显示的工具提示。它可以是一个空字符串。
+    
+    4。(可选)bpy.types.UILayout.icon内部使用的整数或字符串标识符。
+    
+    5。(可选）存储在文件数据中的唯一值，在第一个参数可能是动态时使用。
+    
+### 准备我们的分发插件
+
+要准备我们的分发插件，请按照下列步骤操作：
+    
+    1。根据注释中的说明取消注释导入行。
+    
+    2。将脚本还原为显示注册和显示注销。
+    
+    3。(可选)在完成对加载项的测试后，删除详细的输出语句。这纯粹是为了避免使结束用户的终端混乱。
+    
+    4。替换以下文件层次结构中的模块并将其压缩为.zip文件。
+    
+    xyz-select/
+        |   __init__.py
+        \   ut.py
+
+要安装我们的插件，请导航到Header Menu>File>User Preference>Add-ons>Install From File。
+从那里，选中并取消选中该框以启用和禁用该插件。这将触发__init__.py中的register()和unregister()方法。
+注册应该成功，没有错误。
+
+要直接下载压缩插件，请访问http://blender.chrisconlan.com/xyz-select.zip 。
+
+## 结论
+
+下一章中，我们将讨论用于在3D视窗中可视化数据的blf和bgl模块。在第7章中，我们介绍了高级插件开发概念。
