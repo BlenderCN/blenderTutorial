@@ -150,3 +150,54 @@ bgl和blf模块的教学方式与其他Blender Python模块不同。当通过这
 
 清单6-4显示了如何使用bgl和blf在其原点上绘制对象的名称。
 
+    import bpy
+    from bpy_extras import view3d_utils
+    import bgl 
+    import blf
+    
+    # Color and font size of text
+    rgb_label = (1,0.8,0.1,1.0)
+    font_size = 16
+    font_id = 0
+    font_size = 16
+    font_id = 0
+    
+    # Wrapper for mapping 3D Viewport to OpenGL 2D region
+    
+    def gl_pts(context,v):
+        return view3d_utils.location_3d_to_region_2d(
+            context.region,
+            context.space_data.region_3d,
+            v)
+    # Get the active object,find its 2D points,draw the name
+    
+    def draw_name(context):
+    
+        ob = context.object
+        v = gl_pts(context,ob.location)
+        
+        bgl.glColor4f(*rgb_label)
+        blf.size(font_id,font_size,72)
+        blf.position(font_id,v[0],v[1],0)
+        blf.draw(font_id,ob.name)
+
+    # Add the handler
+    # aruments:
+    # function = draw_name,
+    # tuple of parameters = (bpy.context,),
+    # constant1 = 'WINDOW'，
+    # constant2 = 'POST_PIXEL'
+    bpy.types.SpaceView3D.draw_handler_add(draw_name,(bpy.context,),'WINDOW','POST_PIXEL')
+
+在文本编辑器中运行清单6-4将允许您查看在其原点上绘制的活动对象的名称。
+
+使用bpy.types.SpaceView3D创建的处理程序不像bpy.app.handlers中那样容易访问，并且默认情况下是持久的。
+除非我们创建更好的控件来打开和关闭这些处理程序，否则我们将不得不重新启动Blender以分离此处理程序。
+在下一节中，我们将此处理程序放在一个插件中，该插件允许我们使用按钮来打开和关闭它。此外，
+我们将处理程序存储在bpy.types.Operator中，因此在将函数添加到处理程序后我们不会丢失对该函数的引用。
+
+## 示例插件
+
+此插件是一个独立的脚本，因此可以通过将其复制到文本编辑器或通过用户首选项导入它来运行。
+我们鼓励读者通过文本编辑器运行它，以便进行简单的试验。有关插件，请参见清单6-5,
+有关结果的屏幕截图，请参见图6-2(在编辑模式下)。
