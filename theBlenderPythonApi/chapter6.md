@@ -64,3 +64,89 @@ bgl和blf模块的教学方式与其他Blender Python模块不同。当通过这
 图6-1
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/6-1.png?raw=true)    
+
+### 管理处理程序
+
+在bpy.app.handlers的情况下，我们可以编辑各种函数列表来管理我们的处理程序。这些列表实际上是类型列表的Python类，
+我们可以对它们进行操作。我们可以使用list类方法，如append(),pop(),remove()和clear()来管理我们的处理函数。
+有关一些有用的示例，请参见清单6-2。
+
+清单6-2。管理处理程序列表
+
+    # Will only work if 'tell_time' is in scope
+    bpy.app.handlers.scene_update_pre.remove(tell_time)
+    
+    # Useful in development for a clean slate
+    bpy.app.handlers.scene_update_pre.clear()
+    
+    # Remove handler at the end of the list and return it
+    bpy.app.handlers.scene_update_pre.pop()
+    
+### 处理程序类型
+
+在清单6-1中，我们使用bpy.app.handlers.scene_update_pre在每次更新之前根据内部变量修改网格。
+表6-1详细介绍了官方文档中出现的bpy.app.handlers中的处理程序类型。
+
+表6-1中存在一些功能重叠，并不是每个处理程序都表现出人们的期望。例如，
+使用清单6-1的scene_update_post而不是scene_update_pre根本不起作用。鼓励读者尝试确定哪一个符合他们的需求。
+
+    Table6-1.Type of Handlers
+    ——————————————————————————————————————————————————————————————————————————————
+    Handler                 Called on
+    ——————————————————————————————————————————————————————————————————————————————
+    frame_change_post       After frame change during rendering or playback
+    frame_change_pre        Before frame change during rendering or playback
+    render_cancel           Canceling a render job
+    render_complete         Completing a render job
+    render_init             Initia lizing a render job
+    render_post             After render
+    render_pre              Before render
+    render_stats            Printing render statistics
+    render_write            Directly after frame is written in rendering
+    load_post               After loading a .blend file
+    load_pre                Before loading a .blend file
+    save_post               After saving a .blend file
+    save_pre                Before saving a .blend file
+    scene_update_post       After updating scene data(e.g,3D Viewport)
+    scene_update_pre        Before updating scene data(e.g,3D Viewport)
+    game_pre                Starting the game engine
+    game_post               Ending the game engine
+    ——————————————————————————————————————————————————————————————————————————————
+    
+### 持久处理程序
+
+如果我们希望在加载.blend文件后继续处理程序，我们可以添加@persistent装饰器。通常，
+在加载.blend文件时会释放处理程序，因此像bpy.app.handlers.load_post这样的某些处理程序需要这个修饰器。
+清单6-3使用@persistent装饰器在加载.blend文件后打印文件诊断。
+
+清单6-3。在加载时输出文件诊断。
+
+    import bpy
+    from bpy.app.handlers import persistent
+    
+    @persistent
+    def load_diag(dummy):
+        obs = bpy.context.scene.objects
+        print('\n\n### File Diagnostics ###')
+        print('Objects in Scene:',len(obs))
+        for ob in obs:
+            print(ob.name,'of type',ob.type)
+            
+    bpy.app.handlers.load_post.append(load_diag)
+    
+    # After reloading startup file:
+    #
+    # ### File Diagnostice ###
+    # Objects in Scene: 3
+    # Cube of type MESH
+    # Lamp of type LAMP
+    # Camera of type CAMERA
+    
+## 处理blf和bgl
+
+现在我们已经对处理程序有了基本的了解，我们将详细介绍如何直接在3D视窗上使用OpenGL工具进行绘制。
+用于在3D视窗上绘图的处理程序不是bpy.app.handlers的一部分，而是bpy.types.SpaceView3D的未记录的成员函数。
+为了理解这些成员函数，我们减少了其他开发人员使用它们的实际示例。
+
+清单6-4显示了如何使用bgl和blf在其原点上绘制对象的名称。
+
