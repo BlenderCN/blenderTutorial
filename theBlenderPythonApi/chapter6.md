@@ -60,5 +60,7 @@ bgl和blf模块的教学方式与其他Blender Python模块不同。当通过这
         
     # Add to the list of handler functions "scene_update_pre"
     bpy.app.handlers.scene_update_pre.append(tell_time)
-    
+
+图6-1
+
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/6-1.png?raw=true)    
