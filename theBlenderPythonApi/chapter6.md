@@ -282,7 +282,7 @@ bgl和blf模块的教学方式与其他Blender Python模块不同。当通过这
         # Disable GL drawing and remove handler
         @staticmethod
         def handle_remove(self,context):
-            if glrun.handle is not None:
+            if glrun._handle is not None:
                 bpy.tpes.SpaceView3D.draw_handler_remove(glrun._handle,'WINDOW')
             glrun._handle = None
             context.window_manager.run_opengl = False
