@@ -485,3 +485,33 @@ bgl和blf模块的教学方式与其他Blender Python模块不同。当通过这
             bgl.glVertex2f(*v2)
             bgl.glEnd()
         return            
+
+#### 转换为2D画布
+
+必须事先将点转换为2D画布的坐标系。幸运的是，bpy_extras模块有一个实用程序。
+我们将bpy_extras.view3d_utils.location_3d_to_region_2d()实用程序包装在一个接受bpy.context和3D点作为参数的函数中。
+我们将简单地将任何3D点转换为2D画布，然后再将它们传递给我们的绘图函数。
+
+    # Convert 3D points to OpenGL-compatible 2D points
+    def gl_pts(context,v):
+        return bpy_extras.view3d_utils.location_3d_to_region_2d(
+            context.region,
+            context.space_data.region_3d,
+            v)
+           
+### 声明按钮激活的绘图功能
+
+插件将做三件事：
+    
+    1。使用label_verts()标记任何对象及其索引的顶点。
+    
+    2。使用draw_measurement()显示距离并在对象的任意两个顶点之间绘制一条线。
+    
+    3。使用draw_name()在其原点显示对象的名称。
+    
+这些函数接受bpy.context，对象本身的引用，所需的索引以及传递给draw_line()和draw_text()的颜色和字体信息。
+
+### 声明主绘图功能
+
+draw_main()函数将在每次帧更行时执行。draw_main()函数应该接受self和context。
+它可以接受我们接下来详述的运算符类中存在的任何其他参数，但是鼓励用户声明的参数作为bpy.props对象通过上下文传递。
