@@ -515,3 +515,80 @@ bgl和blf模块的教学方式与其他Blender Python模块不同。当通过这
 
 draw_main()函数将在每次帧更行时执行。draw_main()函数应该接受self和context。
 它可以接受我们接下来详述的运算符类中存在的任何其他参数，但是鼓励用户声明的参数作为bpy.props对象通过上下文传递。
+
+在每个框架中，draw_main() 函数应该：
+
+    1。使用bgl.glEnable(bgl.GL_BLEND)启用OpenGL混合并设置OpenGL参数。对bgl.glEnable()的调用允许在插件中绘制的OpenGL场景与3D视窗中的场景混合。
+    
+    2。绘制每一行和字符。
+    
+    3。使用bgl.glDisable(bgl.GL_BLEND)禁用OpenGL并重置任何OpenGL参数。
+
+尽管可能无法在每个步骤启用和禁用OpenGL，但我们鼓励确保与其他插件合作使用它。
+
+### 使用处理程序声明运算符
+
+draw_main()函数意味着在每次帧更新时执行。为了管理运算符中的处理程序，
+我们使用带有函数handler_add(self,context)和handler_remove(self,context)的@staticmethod装饰器。
+这些函数具有特殊属性，可以在通过execute()调用时帮助它们与处理程序进行良好的交互。正如我们已经提到的，
+许多与此插件相关的组件都没有记录，因此我们将以面值接受它们。在运算符之外，我们还接受与面值相关的bpy.types.WindowManager行。
+
+清单6-5中的glrun()运算符类可以代表Blender Python中大多数如果不是全部OpenGL-enabled 插件。
+我们通常可以通过修改它之外的函数而不是运算符类本身来实现期望的结果。
+
+### 用动态绘图声明面板。
+
+由于我们在第5章讨论了插件，因此面板类非常简单。值得指出的是，清单6-5介绍了组织工具self.layout.box(),
+我们将在第7章中讨论。另外，我们在清单6-5中介绍了动态面板。简而言之，draw()类函数在每次帧更新时调用，
+并且可以动态修改而不会产生任何后果。第7章还讨论了如何使用它来制作更直观的插件。
+
+## 扩展我们的bgl和blf模板
+
+在清单6-5中，我们绘制了对象的名称，标记了它们的顶点，并绘制了一个一个顶点到另一个顶点的线条和测量值。
+使用清单6-5作为模板，我们可以轻松实现更复杂和特定于域的工具。
+
+例如，假设我们想要绘制从每个对象到每个其他对象的距离。这可能有助于研究分子的原子结构或航空公司的飞行模式。
+在这两种情况下，我们都关心某些物体彼此之间的距离。清单6-6显示了我们可以添加到清单6-5中的函数，
+用于绘制提供给它的所有对象之间的距离。结果如图6-3所示。
+
+清单6-6。绘制距离矩阵
+
+    # Draws the distance between the origins of each object supplied
+    def draw_distance_matrix(context,obs,rgb_line,rgb_label,fsize):
+        
+        N = len(obs)
+        for j in range(0,N):
+            for i in range(j + 1,N):
+                a = obs[i].location
+                b = obs[j].location
+                d = dist(a,b)
+                mp = midpoint(a,b)
+                
+                a_2d = gl_pts(context,a)
+                b_2d = gl_pts(context,b)
+                mp_2d = gl_pts(context,mp)
+                
+                bgl.glColor4f(*rgb_line)
+                draw_line(a_2d,b_2d)
+                
+                bgl.glColor4f(*rgb_label)
+                draw_text(mp_2d,'%.3f' % d, fsize)
+    
+    # Add this to draw_main() to draw between all selected objects:
+    # obs = context.selected_ojects
+    # draw_distance_matrix(context,obs,rgb_line,rgb_label,fsize)
+    
+    # Add this to draw_main() to draw between all objects in scene:
+    # obs = context.scene.objects
+    # draw_distance_matrix(context,obs,rgb_line,rgb_label,fsize)
+    
+图6-3
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/6-3.png?raw=true)
+
+## 结论
+
+在本章中，我们讨论了如何使用处理程序bgl和blf在3D视窗中实时显示数据。这是我们可以使用的另一个工具，可用于构建完整且全面的插件。
+
+在下一章中，我们将讨论高级插件。我们学习如何完全忽略文本编辑其，并直接在Blender的文件树中构建复杂的插件。此外，
+我们研究了一些流行的开源插件，以了解它们如何解决我们迄今为止面临的许多开发挑战。
