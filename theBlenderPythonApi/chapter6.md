@@ -460,3 +460,28 @@ bgl和blf模块的教学方式与其他Blender Python模块不同。当通过这
             register()
             
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/6-2.png?raw=true)            
+
+从这里开始，我们通过对清单6-5的引用来解释使用bgl和blf的核心概念。
+我们将从最低级代码(核心bgl和blf)转移到最高级代码(面板和处理程序声明)。
+
+### 绘制线条和文本
+
+我们的目标是在画布上绘制线条和文字。
+清单6-5中的draw_text()和draw_line()函数通过将2D画布坐标作为输入并将信息传递给bgl和blf来实现此目的。
+
+    # Generic function for drawing text on screen
+    def draw_text(v,display_text,fsize,font_id=0):
+        if v:
+            blf.size(font_id,fsize,72)
+            blf.position(font_id,v[0],v[1],0)
+            blf.draw(font_id,display_text)
+        return
+        
+    # Generic function for drawing line on screen
+    def draw_line(v1,v2):
+        if v1 and v2:
+            bgl.glBegin(bgl.GL_LINES)
+            bgl.glVertex2f(*v1)
+            bgl.glVertex2f(*v2)
+            bgl.glEnd()
+        return            
