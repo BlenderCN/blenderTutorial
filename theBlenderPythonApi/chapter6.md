@@ -415,6 +415,53 @@ bgl和blf模块的教学方式与其他Blender Python模块不同。当通过这
             context.region,
             context.space_data.region_3d,
             v)
+    
+    ##### Core drawing functions ####
+    # Generic function for  drawing text on screen
+    def draw_text(v,display_text,fsize,font_id=0):
+        if v：
+            blf.size(font_id,fsize,72)
+            blf.position(font_id,v[0],v[1],0)
+            blf.draw(font_id,display_text)
+        return            
+    # Generic function for drawing line on screen
+    def draw_line(v1,v2):
+        if v1 and v2:
+            bgl.glBegin(bgl.GL_LINES)
+            bgl.glVertex2f(*v1)
+            bgl.glVertex2f(*v2)
+            bgl.glEnd()
+        return
+        
+    ##### Utilities ########
+    
+    # Returns all coordinates or single coordinate of object
+    # Can toggle between GLOBAL and LOCAL coordinates
+    def coords(obj,ind=None,space='GLOBAL'):
+        if obj.mode == 'EDIT':
+            v = bmesh.from_edit_mesh(obj.data).verts
+        elif obj.mode == 'OBJECT':
+            v = obj.data.vertices
+        
+        if space == 'GLOBAL':
+            if isinstance(ind,int):
+                return (obj.matrix_world * v[ind].co).to_tuple()
+            else return [(obj.matrix_world * v.co).to_tuple() for v in v]
+            
+        elif space == 'LOCAL':
+            if isinstance(ind,int):
+                return (v[ind].co).to_tuple()
+            else:
+                return [v.co.to_tuple() for v in v]
+    
+    # Returns Euclidean distance between two 3D points
+    def dist(x,y):
+        return ((x[0] -y[0]**2 + (x[1] -y[1])**2 + (x[2] -y[2]**2)**0.5
+    
+    # Returns midpoint between two 3D points
+    def midpoint(x,y):
+        return ((x[0] + y[0])/2,(x[1] + y[1])/2,(x[2] + y[2])/2)
+    
     ##### Registration ########
     def register():
         """Register objects inheriting bpy.types in current file and scope"""
