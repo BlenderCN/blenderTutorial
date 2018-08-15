@@ -275,7 +275,7 @@ bgl和blf模块的教学方式与其他Blender Python模块不同。当通过这
         # Enable GL drawing and add handler
         @staticmethod
         def handle_add(self,context):
-            if glrun._handle if None:
+            if glrun._handle is None:
                 glrun._handle = bpy.types.SpaceView3D.draw_handler_add(draw_main,(self,context),'WINDOW','POST_PXEL')
                 context.window_manager.run_opengl = True
         
@@ -321,7 +321,7 @@ bgl和blf模块的教学方式与其他Blender Python模块不同。当通过这
             
             if context.window_manager.run_opengl is False:
                 icon = 'PLAY'
-                txt = Display'
+                txt = 'Display'
             else:
                 icon = 'PAUSE'
                 txt = 'Hide'
