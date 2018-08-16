@@ -59,7 +59,7 @@ by[Chris Conlan](https://github.com/chrisconlan)
 
 本文介绍知识并依据它构建，以创建越来越完整和复杂的软件解决方案。我们介绍和讨论以下主要议题
 
-## 第一章 Blender 接口
+## [第一章 Blender 接口](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter1.md)
 
 Blender有许多独立的接口。核心接口具有容易交互因为几乎所有可能的用户都直接与Python函数相关联。
 我们对Python编程特别重要的部分建立了相似性。
@@ -69,7 +69,7 @@ Blender接口将充当你的软件的部署和开发环境。我们讨论了在B
 为了尽量减少整篇文章中截图的使用，我们引入了重要的词汇来讨论Blender接口。使用这个词汇表，我们可以专注于Python代码，
 同时允许用户在他们自己喜欢的Blender接口的首选布局中工作。
 
-## 第二章 bpy模块
+## [第二章 bpy模块](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter2.md)
 
 bpy模块是Blender Python API的核心。学习浏览此模块将大大提高你对Blender和API的理解。在本书的早期，
 我们专注于构造对象和操纵其关联元数据bpy中的类。在本书的后面，我们访问bpy模块中的新类，将脚本转换为插件。
@@ -77,7 +77,7 @@ bpy模块是Blender Python API的核心。学习浏览此模块将大大提高�
 模块本身非常冗长。早期的脚本既复杂又重复。在完成对象创建和操作后，我们将开始为我们将在本书中构建的工具包添加有用的函数。
 我们将在工具包中存储复杂且常用的算法，但鼓励读者将bpy模块的核心元素提交到内存中。通过这种方式，我们创建了易于编写且易于共享的代码。
 
-## 第三章 bmesh模块
+## [第三章 bmesh模块](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter3.md)
 
 bmesh模块是一个相对较新的模块，它试图简化对象数据的复杂顶点级操作。对于那些熟悉Blender的读者来说，
 bmesh中的大多数操作只能在编辑模式而不是对象模式下运行。这有助于强制bmesh中的函数用于粒度变化而不是网格数据的全局变换。
@@ -85,7 +85,7 @@ bmesh中的大多数操作只能在编辑模式而不是对象模式下运行。
 作者认为，该模块将Blender Python API与其他自动3D建模软件区分开来。bmesh模块为我们提供了对Blender的大型编辑模式工具的算法访问，
 用于顶点级，边级和面级对象操作。它允许我们为数百而不是数千代码的非常复杂的对象编写程序生成算法。
 
-## 第四章 建模和渲染主题
+## [第四章 建模和渲染主题](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter4.md)
 
 对于从事3D建模工作的人来说，必须对我们依赖的机制有一个基本的了解，以便呈现和和可视化我们的工作产品。
 我们将讨论渲染管道的基础知识以及Blender Python开发的重要渲染主题。
@@ -95,7 +95,7 @@ Blender和我们导出的可视化器中的许多感知错误和奇怪行为实�
 我们讨论常见和不常见的文件格式，Z-fighting，法向量，软件和硬件渲染之间的差异等等。
 这将帮助我们根据我们在各种渲染软件中看到的行为来调试Python代码。
 
-## 第五章 插件开发简介
+## [第五章 插件开发简介](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter5.md)
 
 弥和脚本和可分发插件之间的差距可能是一个困难的过程，它依赖于非常具体的开发实践、谨慎的代码组织和偶尔的元编程。
 其中许多概念反映了标准的Python模块开发实践，而其他许多概念则依赖于Blender脚本接口的独特行为。
@@ -104,7 +104,7 @@ Blender和我们导出的可视化器中的许多感知错误和奇怪行为实�
 我们讨论了插件的组织以及增加不同版本Blender的可移植性的方法。在本文的这一点上，读者将能够创建扩展Blender的插件，
 以获得具有Python经验的建模者的好处。
 
-## 第六章 bgl和blf模块
+## [第六章 bgl和blf模块](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter6.md)
 
 bgl模块是Blender的OpenGL包装器，通过Blender接口可用于标记、测量和可视化对象和数据。blf模块用于使用Blender接口绘制文本和字体，
 很少在没有bgl模块的情况下使用。这里我们使用bpy_extrs和mathutils模块来帮助我们
@@ -112,12 +112,12 @@ bgl模块是Blender的OpenGL包装器，通过Blender接口可用于标记、测
 这些模块对于插件开发非常有用，因为我们可以影响用户看到的数据而不会影响模型本身。我们在本文的这一点上介绍它们，
 因为它们的有效性取决于将它们作为插件运行的能力。
 
-## 第七章 高级插件开发
+## [第七章 高级插件开发](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter7.md)
 
 到目前为止，我们将使用Blender的文本编辑器来创建脚本和插件。文本编辑器介绍了我们在此处克服的插件形式的各种限制。
 我们还引用了流行的社区插件，讨论了数据存储和模块管理的最佳实践。我们在本章结束时讨论了高级GUI开发。
 
-## 第八章 纹理和渲染
+## [第八章 纹理和渲染](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter8.md)
 
 到目前为止，我们将完全使用Blender中的网格。在本章中，我们通过纹理和渲染将场景变为现实。我们讨论程序uv映射，
 光照布置和相机定位。通过此讨论，概述了照明类型，摄像机视角动态和边界框算法。
