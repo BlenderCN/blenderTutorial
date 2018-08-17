@@ -152,3 +152,4 @@
         '--__pycache__
             '--__init__.cpython-35.pyc
 
+__pycache__文件夹是Python
