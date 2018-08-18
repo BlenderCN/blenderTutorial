@@ -376,3 +376,70 @@ Antonio Vazquez(antonioya)的Archimesh插件允许用户使用自定义用户界
 硬编码大量数据可能不是程序生成的最Pythonic方法，但它在Archimesh中得到了很好的利用。可以认为硬编码是不必要的，
 并且数据可以容易地存储在外部文件中，同时仍然允许使用from_pydata()。
     
+### 基元的算法操作。
+
+将网格数据引入Blender的最终方法是对基元进行算法处理。在这种情况下，基元默认引用3D Viewport Header>add中的对象。
+例如，可以通过算法调用平面上的编辑模式操作，将它们转换为窗口的详细模型。通过不断细分，平移和挤压平面，我们可以得到一个复杂的窗口模型。
+当我们这样做时，算法成为网格的描述符，i并且可以修改它以创建网格的不同变体。
+
+当我们编写算法过程来创建网格时，它们几乎是自然模块化的。例如，如果我们创建了一个算法来构建一个宽度为6英寸的20个柱子的围栏，
+它自然会延伸到一个算法，该算法可以构建具有宽度为w的n个柱子的围栏。
+
+有关算法生成迷宫的示例，请参见清单7-6.我们可以调整maze_size,maze_height,fp和buf来改变迷宫的构建方式。
+脚本中有许多要点我们可以i自定义以进一步改变迷宫的生成方式。这就是程序生成的本质。参数化很自然。
+有关输出的示例，请参见图7-2。请注意，这需要http://blender.chrisconlan.com/ut.py 上提供的ut.py模块。
+
+清单7-2。平面，随机迷宫的算法操作。
+
+    import bpy 
+    import ut
+    import random
+    
+    # Clear scene,must be in object mode
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.object.delete()
+    
+    # size of maze
+    maze_height = 1.0
+    
+    # Create NxN plane
+    bpy.ops.mesh.primitive_plane_add(radius = maze_size/2,location=(0,0,0.1))
+    
+    # Subdivide and deselect mesh
+    bpy.ops.object.mode_set(mode = 'EDIT'))
+    bpy.ops.mesh.subdivide(number_cuts = maze_size -1)
+    bpy.ops.mesh.select_all(action = 'DESELECT')
+    
+    # Set starting point
+    v = [-maze_size / 2,-maze_size / 2]
+    
+    # Stop iterating if point strays buf away from plane
+    buf = 5
+    b = [-maze_size / 2 - buf, maze_size /2 + buf ]
+    
+    # Probability of point moving forward
+    fp = 0.6
+    
+    while b[0] <= v[0] <= b[1] and b[0] <= v[1] <= b[1]:
+        
+        # Select square in front of v
+        ut.act.select_by_loc(lbound = (v[0] - 0.5, v[1] - 0.5, 0),
+                             ubound = (v[0] + 1.5, v[1] + 1.5, 0),
+                             select_mode = 'FACE',
+                             coords = 'GLOBAL',
+                             additive = True)
+
+        # Returns 0 or 1
+        ind = random.randint(0,1)
+        
+        # Return -1 or 1 with probability 1 -fp or fp
+        dir = (int(random.random() > 1 - fp)*2) -1
+        
+        # Adjusts point
+        v[ind] += dir
+        
+    bpy.ops.mesh.select_all(action = 'INVERT')
+    bpy.ops.mesh.extrude_region_move(TRANSFORM_OT_translate = {"value" : (0,0,maze_height),
+                                                               "constraint_axis" : (False,False,True)}
+                                     )
+    bpy.ops.object.mode_set(mode = 'OBJECT')                                     
