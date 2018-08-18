@@ -301,3 +301,78 @@ Asset Flinger插件通过.obj文件将网格导入Blender。如果我们筛选�
 
 此插件允许用户通过添加自己的.obj文件来扩展它。使用交换格式是使用清晰的Python代码构建可扩展插件的最佳实践。
 清单7-4中的函数是将.obj文件导入Blender场景所需的全部内容。
+
+清单7-4。将obj文件导入到场景
+
+    bpy.ops.import_scene.obj(filepath = myAbsolutefilepath)
+    
+正如我们将要看到的，导入数据的其他方法可能会混乱您的Python代码，并使其他开发人员难以进行协作。
+
+### 使用硬编码的Python变量
+
+正如我们在第4章讨论的那样，无论使用哪种文件格式，3D网格都需要最少的信息集来完全指定它。
+一些开发人员将这些知识硬编码网格用作代码中的Python变量。
+
+Antonio Vazquez(antonioya)的Archimesh插件允许用户使用自定义用户界面创建和编辑建筑物网格物体，
+如墙壁，窗户和门。他没有以文件交换格式从外部保存这些门和窗口，而是将这些网格物体硬编码为元组列表。
+有关此示例，请参阅https://github.com/Antonioya/blender/blob/master/archimesh/src/ 上的ArchimeshGitHub Repo。
+此repo中许多Python文件的尾端包含由浮点数和整数表示的顶点和面数据元组的硬编码列表。
+
+这种设计选择并非没有动机或后果。为了创建具有任意数量的墙和具有任意数量窗格的窗口的房间，这些Python变量以复杂的方式被复制，
+子集化和变换多次。结果，这些物体不能容易地彼此替代。它们专门用于处理插件中列出的算法。
+
+这里的核心API调用是bpy.data.meshes.new()和my_mesh_object.from_pydata().插件创建一个空白网格，
+操纵大量Python数据以形成对象，然后使用网格上的from_pydata()函数实例化网格。有关此加载项如何操作的最小示例，请参见清单7-5。
+清单7-5的底部显示了使用bpy.ops.object.add()的替代方法。
+
+清单7-5。使用from_pydata()创建网格。
+
+    # Adapted from antonio Vazquez's Archimesh
+    import bpy
+    
+    # Clear scene
+    bpy.ops.object.mode_set(mode='OBJECT')
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.object.delete()
+    
+    # Manipulate Python lists of vertex and face data...
+    # Sample here creates a triangular pyramid
+    myvertex = [(0.0,0.0,0.0),(1.0,0.0,0.0),(0.0,1.0,0.0),(0.0,0.0,1.0)]
+    myfaces = [(1,2,3),(1,2,4),(1,3,4),(2,3,4)]
+    
+    ############################################
+    
+    # Option #1 -bpy.ops.object.add()
+    bpy.ops.object.add(type = 'MESH')
+    mainobject = bpy.context.object
+    mainmesh = mainobject.data
+    mainmesh.name = 'WindowMesh'
+    mainobject.name = 'WindowObject'
+    
+    # Write the Python data to the mesh and update it 
+    mainmesh.from_pydata(myvertex,[],myfaces)
+    mainmesh.update(calc_deges=True)
+    
+    ###############################################
+    
+    # WARNING:Known to cause crashes and segmentation faults in
+    # certain opetating systems. Linux builds are safe.
+    # Option #2 —— bpy.data.meshes.new()
+    mainmesh  = bpy.data.meshes.new("WindowMesh")
+    mainobject = bpy.data.objects.new("WindowObject",mainmesh)
+    
+    # Link the object to the scene,activate it,and select it
+    bpy.context.scene.objects.link(mainobject)
+    bpy.context.scene.obeject.active = mainobject
+    mainobject.select = True
+    
+    # Write the Python data to the mesh and update it
+    mainmesh.from_pydata(myvertex,[],myfaces)
+    mainmesh.update(calc_edges = True)
+    
+    ################################################
+    
+通过阅读Archimesh源代码，我们可以看到哦如清单7-5中的一个简单示例如何演变成能够在程序上生成架构模型的东西。
+硬编码大量数据可能不是程序生成的最Pythonic方法，但它在Archimesh中得到了很好的利用。可以认为硬编码是不必要的，
+并且数据可以容易地存储在外部文件中，同时仍然允许使用from_pydata()。
+    
