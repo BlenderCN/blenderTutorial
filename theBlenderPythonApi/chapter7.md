@@ -406,7 +406,7 @@ Antonio Vazquez(antonioya)的Archimesh插件允许用户使用自定义用户界
     bpy.ops.mesh.primitive_plane_add(radius = maze_size/2,location=(0,0,0.1))
     
     # Subdivide and deselect mesh
-    bpy.ops.object.mode_set(mode = 'EDIT'))
+    bpy.ops.object.mode_set(mode = 'EDIT')
     bpy.ops.mesh.subdivide(number_cuts = maze_size -1)
     bpy.ops.mesh.select_all(action = 'DESELECT')
     
@@ -443,3 +443,15 @@ Antonio Vazquez(antonioya)的Archimesh插件允许用户使用自定义用户界
                                                                "constraint_axis" : (False,False,True)}
                                      )
     bpy.ops.object.mode_set(mode = 'OBJECT')                                     
+
+图7-2
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/7-2.png?raw=true)
+
+清单7-6使用随机性和算法操作来生成对象。还应注意，算法操纵通常用于生成确定性对象。
+
+### 概述
+
+作为最佳实践，作者认为应该避免使用硬编码Python变量来支持其他两种方法：外部交换文件和算法操作。
+应该避免硬编码，主要是因为外部交换文件是它的优越替代品。通过读取交换文件并将其数据保存在Python变量中，
+可以实现硬编码的所有好处。
