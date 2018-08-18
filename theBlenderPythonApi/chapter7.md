@@ -455,3 +455,131 @@ Antonio Vazquez(antonioya)的Archimesh插件允许用户使用自定义用户界
 作为最佳实践，作者认为应该避免使用硬编码Python变量来支持其他两种方法：外部交换文件和算法操作。
 应该避免硬编码，主要是因为外部交换文件是它的优越替代品。通过读取交换文件并将其数据保存在Python变量中，
 可以实现硬编码的所有好处。
+
+作为一个实际问题，作者认为作者认为应该使用外部交换文件来代替不需要大量参数化的算法操作。
+事实上，任何一个对象都可以用任何一种方法获得，但在参数化是第二个想法的情况下，算法操作可能变得过于复杂(没有好处)。
+例如，如果我们需要一个非常详细的窗口(1000个顶点)并且我们想要参数化的唯一事情是它的大小，
+那么通过算法生成这个窗口将很难使用开发时间。这里首选的方法是从外部交换文件加载窗口并使用Blender工具调整大小。
+
+相反，很容易识别外部交换文件何时不够。如果插件的原始目标是参数化网格，那么选择算法操作几乎总是最好的。
+
+## 高级面板创建
+
+我们在本章结束时讨论了高级面板创建。bpy.types.Panel类有一些有用的类方法，用于组织面板上的按钮。
+在本讨论中，我们使用第五章中的插件模板。
+可以在http://blender.chrisconlan.com/addon_template.py 下载用于此讨论的版本。
+
+为了解释高级面板自定义，我们使用模板中已注册的属性和运算符。换句话说，我们完全专注于SimplePanel类draw()函数。
+
+### 面板组织
+
+我们已经讨论过如何调用operator()和prop()来分别i向画布添加按钮和特定于类型的GUI元素。
+根据我们到目前为止所介绍的内容，读者只能在其面板中创建垂直堆叠的按钮和属性列表。
+清单7-7显示了如何使用组织功能来自定义面板。结果见图7-3。
+
+清单7-7。组织面板
+
+    # Simple button in Tools panel
+    class SimplePanel(bpy.types.Panel)
+        bl_space_type = "VIEW_3D"
+        bl_region_type = "TOOLS"
+        bl_category = "Simple Addon"
+        bl_label = "Call Simple Operator"
+        
+        def draw(self,context):
+            # Store reference to context.scene
+            scn = context.scene
+            
+            # Store reference ot self.layout
+            lay = self.layout
+            
+            # Create box
+            box = lay.box()
+            box.operator("object.simple_operator",text= "Print #1")
+            box.prop(scn,'encouraging_message')
+            
+            # Create another box
+            box = lay.box()
+            # Create a row within it
+            row = box.row()
+            # We can jam a few things on the same raw
+            row.operator("object.simple_operator",text="Print #2")
+            row.prop(scn,'encouraging_message')
+            
+            # Create yet another box
+            box = lay.box()
+            # Create a row just for a label
+            row = box.row()
+            row.label('There is a split row below me!')
+            # Create a split row within it
+            row = box.row()
+            splitrow = row.split(percentage=0.2)
+            # Store references to each column of the split row
+            left_col = splitrow.column()
+            right_col = splitrow.column()
+            left_col.operator("object.simple_operator",text = "Print #3")
+            right_col.prop(scn,'encouraging_message')
+            
+            # Throw a separator in for white space...
+            lay.separator()
+            
+            # We can create columns within rows
+            row = lay.row()
+            col = row.column()
+            col.prop(scn,'my_int_porp')
+            col.prop(scn,'my_int_prop')
+            col.prop(scn,'my_int_prop')
+            col = row.column()
+            col.prop(scn,'my_float_prop')
+            col.label("I'm in the middle of a column")
+            col.prop(scn,'my_float_prop')
+            
+            # Throw a  few separators in ...
+            lay.separator()
+            lay.separator()
+            lay.separator()
+            
+            # Same as above but with boxes...
+            row = lay.row()
+            box = row.box()
+            box.prop(scn,'my_int_prop')
+            box.label("I'm in the box,bottom left.")
+            box = row.box()
+            box.prop(scn,'my_bool_prop')
+            box.operator("object.simple_operator",text = "Print #4")
+            
+bpy.types.Panel的核心组织函数是box(),row(),column(),separator()和label()。
+这五个函数中的每一个都可以嵌套在box(),row()或column()中，以实现更精细的组织。总的来说，
+这是一个非常直观的GUI开发工具包。它可以轻松构建美观的GUI。
+
+图7-3。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/7-3.png?raw=true)
+
+### 面板图标
+
+环顾Blender GUI，我们注意到按钮左侧有许多不同的图标。Blender内置了超过550个图标，我们可以在自己的按钮旁边使用它们。
+按钮由字符串表示，我们将通过icon=argument传递给prop()函数。在撰写本文时，
+对可用图标的最全面的参考与Blender一起打包的图标插件。激活它后，在Blender文本编辑器中按Ctrl + F以查看属性面板，
+它将位于底部。清单7-8显示了我们如何在操作符旁边的面板中绘制图标。结果见图7-4。
+
+清单7-8。面板图标。
+
+    class SimplePanel(bpy.types.Panel):
+        bl_space_type = "VIEW_3D"
+        bl_region_type = "TOOLS"
+        
+
+图7-4
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/7-4.png?raw=true)
+
+## 结论
+
+这样就结束了我们对高级插件的讨论。本指南并不全面，因为插件开发方面有很多地方和可能性可供探索。
+重要的是要记住，Blender GUI本身是基于我们一直在讨论的Python类，因此我们看到的每个功能都可以被复制。
+
+本章中有关插件组织的背景知识应该让读者更容易理解其他开发人员的源代码。Blender是一个开源平台，
+鼓励用户共享代码并相互学习。鼓励读者复制和修改其他开发人员的工作，然后分享他们的工作供他人学习。
+
+下一章以纹理和渲染的处理结束本文。
