@@ -64,3 +64,21 @@ uv坐标的精确规范就相当简单。我们通过清单8-1中的示例进行
 图8-3
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-3.png?raw=true)
+
+清单8-3。加载纹理和生成uv映射。
+
+   import bpy
+   import bmesh
+   from mathutils import Color
+   
+   #
+   
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-4.png?raw=true)   
+
+### Blender中的纹理与材质
+
+纹理是3D建模中的一个广义术语。它可以指漫反射纹理，颜色纹理，渐变纹理，凹凸贴图等。重要的是要注意，
+我们可以同时将所有这些纹理形式映射到对象。例如，房屋屋顶上的一组瓦可能需要图像纹理，漫反射贴图和凹凸贴图，
+以便在渲染时显得逼真。
+
+另外，
