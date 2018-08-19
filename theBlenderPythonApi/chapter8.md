@@ -67,11 +67,22 @@ uv坐标的精确规范就相当简单。我们通过清单8-1中的示例进行
 
 清单8-3。加载纹理和生成uv映射。
 
-   import bpy
-   import bmesh
-   from mathutils import Color
+    import bpy
+    import bmesh
+    from mathutils import Color
    
-   #
+    # Clear scene
+    bpy.ops.object.mode_set(mode = 'OBJECT')
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.object.delete()
+    
+    # Create cube
+    bpy.ops.mesh.primitive_cube_add(radius = 1,location = (0,0,0))
+    
+    bpy.ops.object.mode_set(mode = 'EDIT')
+    
+    # Create material to hold textures
+    material_obj = bpy.data.materials.new('number_q_material')
    
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-4.png?raw=true)   
 
@@ -103,3 +114,58 @@ Blender中的材质是纹理相关数据的集合。它可能包括前面提到�
 
 幸运的是，Blender中的循环数据对象与bmesh.faces[].verts[]对象具有1对1的对应关系，我们习惯使用它们。
 换句话说，任意两个整数，f和v，bm.faces[f].loops[v][uv_layer].uv访问的(u,v)坐标对应于bm.faces[f].verts[v].co访问的(x,y,z)坐标。
+
+重要的是要注意两个整数f和v可能不指定3D空间中的唯一点。在默认的Blender2.78c立方体中，
+因为它出现在启动文件中，f:v对0:2,3:3和4:0都对应于3D空间中的点(-1.0,-1.0,-1.0)。
+当立方体被纹理化时，这些uv坐标通常是唯一的，因为它们都将对应于纹理贴图的不同部分。
+
+### 关于索引和交叉兼容性的另一个注释
+
+当动态地处理对象时，我们遇到类似于第3章”关于索引和交叉兼容性的注释“中提到的问题。在该部分中，
+我们注意到顶点索引的行为是可复制但不可篡改的，因此可以通过特性作为变通方法(在清单3-13中实现)进行选择。
+这里适用相同的概念，除了我们必须使用bm.faces[f].verts[v].co而不是bm.verts[v].co。
+
+例如，假设我们想要在立方体顶部的y轴上竖立纹理。
+一种可能的解决方案是使用ut.py工具包中的ut.act.select_by_loc()根据其位置选择立方体的顶面。
+从这里开始，我们可以使用f_ind = [f.index for fm in bm.faces if f.select][0]来返回所选的面索引。使用面索引，
+我们可以将面部的顶点存储为vert_vectors = [vm for b in bm.faces[f_ind.verts]]并使用此信息沿立方体来定向我们的纹理
+
+我们的另一个选择是通过假设我们在对纹理进行纹理化之前知道对象的面顶点的位置和方向来违背第3章”关于索引和交叉兼容性的注释“的建议。
+我们通常可以提前确定这些信息并将其硬编码到我们的纹理脚本中，如清单8-1所示。这是受控和内部使用的可行选项，
+但建议不要使用我们将与社区共享的代码以及针对跨版本兼容性进行测试的代码。
+
+根据我们到目前为止的讨论，读者应该拥有可用的工具和知识来实现他们所需的动态(或非动态)纹理脚本。
+第3章的参考部分及其以下部分与读者可能承担的任何动态纹理化任务相似。
+
+我们现在继续讨论Blender中的渲染及其一些用途。
+
+## 删除未使用的纹理和材质
+
+我们已经讨论了许多用于在Blender中删除网格和对象的有用函数。随着我们不断测试脚本，
+我们的材料和纹理数据很快就会变得混乱而我们没有意识到。当我们忽略删除它们时，
+Blender会将纹理重命名为my_textrue.001,my_texture.002等。
+
+纹理和材料必须没有用户才有资格删除。在这种情况下，用户引用当前分配的对象数。要删除纹理和材质，
+我们循环遍历bpy.data.materials和bpy.data.textures数据块，并在未使用的那些上调用.remove()。有关此实现，请参见清单8-2。
+
+清单8-2。加载纹理和生成UV映射。
+
+    import bpy
+   
+    mats = bpy.data.materials
+    for dblock in mats:
+        if not dblock.users:
+            mats.remove(dblock)
+            
+    texs = bpy.data.textures
+    for dblock in mats:
+        if not dblock.users:
+            texs.remove(dblock)
+            
+## 使用Blender渲染渲染
+
+使用Blender的内置渲染功能非常简单。我们介绍并解释如何在场景中定位灯光和相机，然后调用渲染功能来创建图像。
+我们的大部分讨论都集中在相机和灯光的语义和辅助功能上。
+
+### 添加灯光
+
