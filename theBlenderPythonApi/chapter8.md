@@ -30,3 +30,37 @@
 图8-1
   
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-1.png?raw=true)
+
+### Blender中的纹理类型
+
+虽然我们主要使用图像纹理，但Blender有许多我们可以选择的可自定义纹理。这些是从图8-2所示的Properties>Materials>Type菜单中选择的。
+
+图8-2
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-2.png?raw=true)
+
+图像和视频和环境贴图选项可以导入图像和视频文件。剩余的纹理可以在Blender中进行参数化，以获得所需的结果。
+我们没有详细说明如何使用这些参数化纹理中的任何一个，就像要讨论的许多参数一样。
+清单8-1解释了如何使用Image和Video类型来给对象纹理。从这里开始，
+读者应该能够使用Blender的Python工具提示为任何剩余类型复制此过程。
+
+## 添加和配置纹理
+
+在讨论文件交换格式时，我们在第4章中讨论了纹理的定义。纹理通过uv坐标映射到3D空间中的面。
+要将方形图像作为纹理映射到网格的正方形面，
+我们将uv坐标[(0,0),(1,0),(0,1),(1,1)]分别指定到网格的左下角，，右下角，左上角和右上角。
+随着面的形状变得更加复杂，实现期望的纹理所需的过程也变得更加复杂。我们接下来讨论将uv坐标映射到常见形状的方法。
+
+### 加载纹理和生成UV映射
+
+由于Blender处理纹理导入和材质的方式，uv映射不是一个完全简单的任务。我们必须克服一些程序障碍，
+以便在我们的脚本中达到我们可以在我们的对象上明确定义uv坐标的点。一旦我们达到这一点，
+uv坐标的精确规范就相当简单。我们通过清单8-1中的示例进行解释。
+
+我们在示例中使用了数字1和数字2的示例图像，
+可以从http://blender.chrisconlan.com/number_1.png 和 http://blender.chrisconlan.com/number_2.png 下载。
+读者可以使用这些图像或清单8-1中的任何其他所需图像。结果见图8-4.我们将在以下部分讨论清单8-1中使用的函数。
+
+图8-3
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-3.png?raw=true)
