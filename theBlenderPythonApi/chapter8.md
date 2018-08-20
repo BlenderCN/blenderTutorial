@@ -169,3 +169,56 @@ Blender会将纹理重命名为my_textrue.001,my_texture.002等。
 
 ### 添加灯光
 
+在清单8-1中，我们在多维数据集周围添加六个灯，以便在Blender的3D视窗中的渲染视图中查看它。正确使用此视图和渲染通常需要灯光。
+照明在3D建模本身就是一个重要的，大的领域。在本节中，我们将重点放在与照明相关的Blender Python功能上，而不是美学上令人愉悦的照明的一般实践。
+
+在3D视窗标题中，我们可以导航到Add>Lamp以选择任何Blender的内置灯。使用Python工具提示，
+我们可以看到它们都依赖于函数bpy.ops.object.lamp_add(),type=parameter确定光的类型。我们有SUN，POINT，SPOT，HEMI和AREA选项。
+每种类型都有自己的参数集来配置。
+
+在程序生成的照明方面，我们首要关注的是放置和方向。我们将介绍一些用于管理布局和方向的实用程序。
+例如，为了懒洋洋地照亮整个场景，我们可能想要在场景的聚合边界框周围创建点光源。此外，
+我们可能希望将聚光灯指向另一个任意放置的对象。有关可能有助于程序添加灯光的实用程序列表，请参见清单8-3。
+我们在清单8-3中声明的所有函数都已添加到我们的工具包ut.py中，可以从http://blender.chrisconlan.com/ut.py 下载。
+
+有关每种类型灯的基本说明，请参阅表8-1。
+
+    Table 8-1。灯光类型
+    ——————————————————————————————————————————————————————————————————————————————————————
+    Type        Description
+    ——————————————————————————————————————————————————————————————————————————————————————
+    Point       Emits lights equally in all directions;rotation has no effect
+    Spot        Emits a cone of light in a particular direction
+    Area        Emits light from a rectangular area;follows a Lambert distribution
+    Hemisperic  Similar to area,but has spherical curvature
+    Sun         Emits orthogonal light in a particular direction;position has no effect
+    ——————————————————————————————————————————————————————————————————————————————————————
+    
+### 添加摄像机
+
+渲染场景需要相机。要在程序上添加相机，我们必须定位它，调整其方向，并修改其参数。
+我们将使用清单8-3中的函数来定位和定向摄像机以及灯光。
+
+在程序生成相机时我们必须解决的最大问题是确定距离和视野，以便捕获整个场景而不会在渲染中显得太小。
+我们将使用一些基本的三角学来解决这些问题。
+
+视野(FoV)是从相机向外投射的一对两个角度(θx , θy ),其无限延伸的四棱锥。如果前面没有任何东西，
+相机可以看到位于这个四棱锥内的所有东西。为了给出一些观点，在横向模式下，iPhone6相机的FoV大约为(63°,47°)度。
+请注意，当摄影师通俗地提及FoV时，它们通常仅指两个角中较大的一个。
+
+我们必须了解FoV,以便我们可以确保摄像机的放置和校准捕获我们想要渲染的场景。
+
+给定具有FoV (θx,θy)的相机并且面向具有高度h和宽度w的边界框的场景，与捕获场景所需的场景d的距离是max(dx , dy )。
+对于次讨论，dx和dy分别表示沿水平和垂直维度捕获场景的必要距离。有关可视化表示，请参见图8-5。使用基本的三角学，我们有
+
+                                                     w     θx
+                                                dx = — cot(——)
+                                                     2      2
+                                                     
+                                                     h     θy    
+                                                dy = — cot(——)
+                                                     2      2
+                                                     
+ 图8-5
+ 
+ ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-5.png?raw=true)                                              
