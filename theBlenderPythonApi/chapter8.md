@@ -222,3 +222,51 @@ Blender会将纹理重命名为my_textrue.001,my_texture.002等。
  图8-5
  
  ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-5.png?raw=true)                                              
+
+这仅仅说明了相机沿x轴或y轴指向的简单情况，但它足以满足我们的目的。在清单8-4中，
+我们使用先前建立的实用程序函数来引导相机，使其可以渲染整个场景。
+
+清单8-3。灯光和相机的实用程序。
+   
+    # Point a light or camera at a location specified by "target"
+    daf point_at(ob,target):
+        ob_loc = ob.location
+        dir_vec = target - ob.location
+        ob.rotation_euler = dir_vec.to_track_quat('-Z','Y').to_duler()
+        
+    
+### 渲染图像
+
+渲染是计算给定3D数据的高分辨率图像和视频的过程。渲染不是即时的。虽然Blender中的3D视窗在我们平移和旋转相机时似乎流畅地移动，
+但渲染可能需要相当长的时间。3D视窗是3D数据的即时渲染，但它不代表与传统渲染相同的质量或定义级别。
+
+在代码清单8-4中，我们使用Blender Render和OpenGL渲染渲染清单8-1的输出。该示例假设相机从场景的中间位置沿着x轴指向上方，
+从场景的yz中位数开始，使得它将捕获整个场景。我们使用前面讨论的方程来完成此任务。回想一下，这些方程假设我们沿着轴指向相机的简单情况。
+
+结果以帧直接渲染捕获对象。有关在清单8-1中创建的立方体的Blender Render，请参见图8-6/对于Blender Render，
+场景的相机用作渲染相机。这就是了解如何在程序上设置摄像机位置的重要原因。如果我们想循环并渲染许多场景，我们需要确信场景将在帧内捕获。
+
+图8-6
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-6.png?raw=true)
+
+我们还可以使用OpenGL渲染渲染3D视窗的快照。这将捕获场景的基本特征，类似于我们在具有实体视图的对象模式下看到3D视窗的方式。
+结果见图8-7。请注意，在此视图中，我们可以看到灯光和相机，但不能看到材质。当我们调用bpy.ops.render.opengl()时，
+设置view_context=True将导致Blender使用3D视窗相机(用户的视图)而不是场景相机。
+
+清单8-4。使用Blender渲染和OpenGL渲染渲染
+
+    ### Aussumes output of Listing8-1 is in scene at runtime ###
+    
+    import bpy
+    import bmesh
+    import ut
+    
+    from math import pi,tan
+    from mathutils import Vector
+
+图8-7
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-7.png?raw=true)    
+
+## 结论
