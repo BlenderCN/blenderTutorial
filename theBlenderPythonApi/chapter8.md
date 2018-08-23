@@ -270,3 +270,6 @@ Blender会将纹理重命名为my_textrue.001,my_texture.002等。
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/8-7.png?raw=true)    
 
 ## 结论
+
+本章总结了我们对Blender Python API的讨论。即使有很多例子，本文也不是一本全面的指南。
+这证明了Blender的复杂性和模块性比什么都重要。可以使用Python API编辑，调整，自定义和扩展Blender。本书的作者和协助其发展的专业人员希望这些知识有助于鼓励Blender社区的研究和开发。
