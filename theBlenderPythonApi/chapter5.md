@@ -167,22 +167,22 @@ Blender的内部引擎使用此字典中的数据来填充与插件本身相关�
 
 重要的是要注意bl_info字典加载项对插件没有任何功能，而是确定最终用户如何在此窗口中找到并激活它。请参阅此处的详细说明：
 
-    1。name——插件的名称，显示在用户首选项的插件选项卡中（例如，Math Vis（控制台），动作捕捉工具。它被写成一个单独的字符串。
+*   name——插件的名称，显示在用户首选项的插件选项卡中（例如，Math Vis（控制台），动作捕捉工具。它被写成一个单独的字符串。
 
-    2。author——出现在用户偏好中的作者姓名(例如，Campbell Barton，Fabian Fricke)。它可以是带逗号或元组的字符串
+*   author——出现在用户偏好中的作者姓名(例如，Campbell Barton，Fabian Fricke)。它可以是带逗号或元组的字符串
 
-    3。location——插件GUI的主要位置。常用语法是工具，属性和工具架面板中Window>Panel>Tab>Section。
+*   location——插件GUI的主要位置。常用语法是工具，属性和工具架面板中Window>Panel>Tab>Section。
 如有疑问，请遵循其他插件建立的惯例。
 
-    4。version——作为元组的插件的版本号。
+*   version——作为元组的插件的版本号。
 
-    5。blender——根据Blender Wiki，这是运行插件所需的最小Blender版本号。社区插件经常被错误地列出(2,7,8)作为较低版本可以支持插件的版本。在许多情况下，数字是指开发人员选择支持的最低版本。
+*   blender——根据Blender Wiki，这是运行插件所需的最小Blender版本号。社区插件经常被错误地列出(2,7,8)作为较低版本可以支持插件的版本。在许多情况下，数字是指开发人员选择支持的最低版本。
 
-    6。description——显示在指定为单个字符串的用户首选项窗口中的简要说明。
+*   description——显示在指定为单个字符串的用户首选项窗口中的简要说明。
 
-    7。wiki_url——指向指定为单个字符串的插件的手册或指南的URL。
+*   wiki_url——指向指定为单个字符串的插件的手册或指南的URL。
 
-    8。category——字符串指定表5-1中列出的类别之一。
+*   category——字符串指定表5-1中列出的类别之一。
 
     Table 5-1。The bl-info Category Options
     ——————————————————————————————————————————————————————————————————————————————————
@@ -194,11 +194,11 @@ Blender的内部引擎使用此字典中的数据来填充与插件本身相关�
 
 还有一些不常见的bl_info选项。
 
-    1。support——OFFICIAL,COMMUNITY或TESTING。如果官方提到官方支持的Blender插件，则社区引用社区支持的插件，而测试则指的是应该故意从Blender版本中排除的未完成或新添加的插件。
+*   support——OFFICIAL,COMMUNITY或TESTING。如果官方提到官方支持的Blender插件，则社区引用社区支持的插件，而测试则指的是应该故意从Blender版本中排除的未完成或新添加的插件。
     
-    2。tracker_url——指向bug追踪器的URL(例如Github issues或类似的)
+*   tracker_url——指向bug追踪器的URL(例如Github issues或类似的)
     
-    3。warning——字符串指定将出现在用户首选项窗口中的一些警告。
+*   warning——字符串指定将出现在用户首选项窗口中的一些警告。
 
 ### 运算符和类继承(bpy.types.Operator)
 
@@ -543,15 +543,17 @@ bpy.props类具有大多数数据类型的选项，包括浮点数，整数，�
     
     4。添加自定义模块导入协议。请参阅清单5-5，从if “bpy” in locals():开始。很简单，为了测试我们是否处于部署模式或开发模式，我们检查bpy是否在当前命名空间中。
     
-        (1)如果脚本中此时bpy位于命名空间中，我们之前已加载了插件及其相关模块。在这种情况下，使用importlib.reload()重新加载对象。
+*       如果脚本中此时bpy位于命名空间中，我们之前已加载了插件及其相关模块。在这种情况下，使用importlib.reload()重新加载对象。
 
-        (2)如果此时bpy不在命名空间中，那么我们是第一次加载插件。导入模块，假设它与文件系统中的__init__.py位于同一目录中。要从与主脚本相同的目录导入，我们使用from .import custommodule
+*       如果此时bpy不在命名空间中，那么我们是第一次加载插件。导入模块，假设它与文件系统中的__init__.py位于同一目录中。要从与主脚本相同的目录导入，我们使用from .import custommodule
         
     5。通常导入任何本机Blender和/或本机Python模块。
     
     6。声明我们的核心运算符类SelectByLocation。我们将使用合理输入将ut.act.select_by_loc()参数化为场景属性。
-        (1)使用bpy.props.FloatVectorProperty注册边界框
-        (2)使用bpy.props.EnumProperty注册选择模式和坐标系的菜单。有关这些参数的说明，请参阅第3章中的清单3-8到3-10。
+
+*       使用bpy.props.FloatVectorProperty注册边界框
+
+*       使用bpy.props.EnumProperty注册选择模式和坐标系的菜单。有关这些参数的说明，请参阅第3章中的清单3-8到3-10。
         
     7。声明我们的核心面板类XYZSelect。我们将在此处组织与operator相关的按钮和参数。在这种情况下，默认菜单布局看起来非常直观。声明poll()类方法仅在模式为编辑模式时返回True。
     
