@@ -219,51 +219,51 @@ F8键将通过调用unregister()重新加载所有活动的插件，必要时重
 
 我们希望在Blender Python的IDE中使用的工具和功能:
     
-    * 选项卡完成或自动完成，通常使用Ctrl+Space在交互式控制台中访问。
+*   选项卡完成或自动完成，通常使用Ctrl+Space在交互式控制台中访问。
     
-    * 使用bpy，bmesh，bgl等时不会创建错误标记或红色波浪线。
+*   使用bpy，bmesh，bgl等时不会创建错误标记或红色波浪线。
     
-    * Python代码高亮显示，可能是特定于Blender的代码高亮显示，稍后我们将在几类选项中进行讨论。
+*   Python代码高亮显示，可能是特定于Blender的代码高亮显示，稍后我们将在几类选项中进行讨论。
     
 ### 轻量级(Notepad++,Gedit和vim)    
 
 轻量级文本编辑器适用于简单的插件和脚本。通常，它们具有以下特征：
     
-    * 支持Python的语法高亮显示。
+*   支持Python的语法高亮显示。
     
-    * 不会为Blender模块创建错误标签和红色波浪线。
+*   不会为Blender模块创建错误标签和红色波浪线。
     
-    * 不支持项目管理和目录浏览
+*   不支持项目管理和目录浏览
     
-    * 没有内置的tab-completion
+*   没有内置的tab-completion
     
 ### 中量级(Sublime Text，Atom,和Spyder)
 
 对于不想花太多时间配置IDE的程序员来说，中量级编辑器是一个很好的默认选择。通常，它们与轻量级IDE相同，但具有项目管理工具。它们具有以下特征:
 
-    * 支持Python的语法高亮
+*   支持Python的语法高亮
     
-    * 通常不会为Blender模块创建错误标签和红色波浪线
+*   通常不会为Blender模块创建错误标签和红色波浪线
     
-    * 具有内建项目管理和目录浏览
+*   具有内建项目管理和目录浏览
     
-    * 通常没有为Python内置的的tab-completion
+*   通常没有为Python内置的的tab-completion
     
 ### 重量级(Eclipse PyDev,PyCharm和NetBeans)
 
 重量级编辑对已经习惯的程序员有好处。他们可能需要一些配置才能与Blender Python插件很好地协作。配置选项并非始终可用。它们具有以下特征：
 
-    * 支持Python的语法高亮
+*   支持Python的语法高亮
     
-    * 通常会为Blender模块创建错误标签和红色波浪线
+*   通常会为Blender模块创建错误标签和红色波浪线
     
-    * 具有内建项目管和目录浏览
+*   具有内建项目管和目录浏览
     
-    * 具有为Python内置的tab-completion
+*   具有为Python内置的tab-completion
     
-    * 没有为Blender Python内置的tab-completion
+*   没有为Blender Python内置的tab-completion
     
-    * 可以配置为使用Blender Python干净利落地工作
+*   可以配置为使用Blender Python干净利落地工作
 
 Eclipse PyDev在开发人员社区中很受欢迎，开发人员经常会问如何配置它以使用Blender Python。
 特别是Eclipse在Blender Python模块调用上创建错误标记非常麻烦。
