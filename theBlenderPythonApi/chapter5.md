@@ -551,9 +551,9 @@ bpy.props类具有大多数数据类型的选项，包括浮点数，整数，�
     
     6。声明我们的核心运算符类SelectByLocation。我们将使用合理输入将ut.act.select_by_loc()参数化为场景属性。
 
-    *    使用bpy.props.FloatVectorProperty注册边界框
+        *使用bpy.props.FloatVectorProperty注册边界框
 
-    *    使用bpy.props.EnumProperty注册选择模式和坐标系的菜单。有关这些参数的说明，请参阅第3章中的清单3-8到3-10。
+        *使用bpy.props.EnumProperty注册选择模式和坐标系的菜单。有关这些参数的说明，请参阅第3章中的清单3-8到3-10。
         
     7。声明我们的核心面板类XYZSelect。我们将在此处组织与operator相关的按钮和参数。在这种情况下，默认菜单布局看起来非常直观。声明poll()类方法仅在模式为编辑模式时返回True。
     
