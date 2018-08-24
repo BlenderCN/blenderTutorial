@@ -57,4 +57,5 @@ Blender的传统用户群是从事建模和动画工作的3D图形专家。然�
 *   Composites and rendering
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/1-1.png?raw=true)
-图1-1。此流程图显示了Blender工作流程图如何用于科学可视化。整本书将分析Blender GUI和API的不同方面，以展示各个部分如何在项目中组合在一起。
+    
+    图1-1。此流程图显示了Blender工作流程图如何用于科学可视化。整本书将分析Blender GUI和API的不同方面，以展示各个部分如何在项目中组合在一起。
