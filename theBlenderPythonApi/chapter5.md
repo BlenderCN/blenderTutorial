@@ -543,17 +543,17 @@ bpy.props类具有大多数数据类型的选项，包括浮点数，整数，�
     
     4。添加自定义模块导入协议。请参阅清单5-5，从if “bpy” in locals():开始。很简单，为了测试我们是否处于部署模式或开发模式，我们检查bpy是否在当前命名空间中。
     
-**   如果脚本中此时bpy位于命名空间中，我们之前已加载了插件及其相关模块。在这种情况下，使用importlib.reload()重新加载对象。
+*      如果脚本中此时bpy位于命名空间中，我们之前已加载了插件及其相关模块。在这种情况下，使用importlib.reload()重新加载对象。
 
-**   如果此时bpy不在命名空间中，那么我们是第一次加载插件。导入模块，假设它与文件系统中的__init__.py位于同一目录中。要从与主脚本相同的目录导入，我们使用from .import custommodule
+*      如果此时bpy不在命名空间中，那么我们是第一次加载插件。导入模块，假设它与文件系统中的__init__.py位于同一目录中。要从与主脚本相同的目录导入，我们使用from .import custommodule
         
     5。通常导入任何本机Blender和/或本机Python模块。
     
     6。声明我们的核心运算符类SelectByLocation。我们将使用合理输入将ut.act.select_by_loc()参数化为场景属性。
 
-**    使用bpy.props.FloatVectorProperty注册边界框
+*       使用bpy.props.FloatVectorProperty注册边界框
 
-**    使用bpy.props.EnumProperty注册选择模式和坐标系的菜单。有关这些参数的说明，请参阅第3章中的清单3-8到3-10。
+*       使用bpy.props.EnumProperty注册选择模式和坐标系的菜单。有关这些参数的说明，请参阅第3章中的清单3-8到3-10。
         
     7。声明我们的核心面板类XYZSelect。我们将在此处组织与operator相关的按钮和参数。在这种情况下，默认菜单布局看起来非常直观。声明poll()类方法仅在模式为编辑模式时返回True。
     
