@@ -13,20 +13,26 @@
 
 许多科学学科的许多前沿研究都受益于科学可视化。
 
-![天文]() 跨越电磁波谱的望远镜观测现在每小时产生数TB的数据。存储和管理原始数据是一项挑战，
+[天文](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#11-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96) 跨越电磁波谱的望远镜观测现在每小时产生数TB的数据。存储和管理原始数据是一项挑战，
 更不用说可视化已通过必要的校准程序推送的已处理数据。
 对来自单一波长范围的一百万个星系的调查将具有适当组织和索引以便有效搜索的元数据。 
 利用射电望远镜的宽带无线光谱提供有关天空发射的2D信息以及沿第三轴的频率信息。
 
-![物理]() 诸如大型强子对撞机等尖端项目需要先进的可视化软件。粒子物理中的理论模型，固态物理中的晶格，
+[物理](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#11-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96) 诸如大型强子对撞机等尖端项目需要先进的可视化软件。粒子物理中的理论模型，固态物理中的晶格，
 高温等离子体和引力波的物理特性都受益于新的可视化技术。在设计科学仪器之前对其进行可视化可以帮助优化实验的工程和设计。
 
-![化学/生物]() 可以使用3D动画检查反应期间的复杂分子和分子动力学。使用来自核磁共振（NMR）研究的数据研究蛋白质可以揭示它们的结构。
+[化学/生物](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#11-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96) 可以使用3D动画检查反应期间的复杂分子和分子动力学。使用来自核磁共振（NMR）研究的数据研究蛋白质可以揭示它们的结构。
 GPU加速处理允许可视化复杂病毒的可扩展解决方案。
 
-![地理/行星科学]() 存在大量的测绘数据，不仅适用于地球，也适用于我们太阳系中其他被调查的行星。使用特殊数据存储模型和GPU处理，
+[地理/行星科学](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#11-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96) 存在大量的测绘数据，不仅适用于地球，也适用于我们太阳系中其他被调查的行星。使用特殊数据存储模型和GPU处理，
 现在可以实时渲染行星表面的3D地图。
 
-![医学]() 可视化计算机轴向断层扫描（CAT扫描）可以显示有机结构的透明视图。
+[医学](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#11-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96) 可视化计算机轴向断层扫描（CAT扫描）可以显示有机结构的透明视图。
 通过执行诊断的分类和特征提取可以极大地从能够查看内部器官的实时3D影视中获益
 
+## 1.2 Blender是什么？
+
+Blender是一种开源软件，允许用户创建高质量的3D模型和数据动画。它在视频游戏和娱乐行业中有广泛的用途。
+该软件对于生成高质量的科学可视化非常有用。通过组织良好的Python应用程序接口（API），
+可以编写叫本来从数值模拟中加载数据。当用户完全控制摄像机角度，视野和渲染最终动画的各个方面时，
+Blender的强大功能变得明显。
