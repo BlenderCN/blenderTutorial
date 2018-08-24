@@ -59,3 +59,14 @@ Blender的传统用户群是从事建模和动画工作的3D图形专家。然�
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/1-1.png?raw=true)
     
     图1-1。此流程图显示了Blender工作流程图如何用于科学可视化。整本书将分析Blender GUI和API的不同方面，以展示各个部分如何在项目中组合在一起。
+
+还有可与Blender一起使用的外部渲染引擎。虽然本书中的示例和练习将使用内部Blender引擎Render和Cycle，
+但我们鼓励读者检查不同场景的其他渲染选项。
+
+Blender可以利用多核中央处理单元（CPU)。该软件还利用加速GPU渲染为NVidia CUDA和OpenCL提供了钩子。这可以将渲染时间减少三倍或四倍。
+
+Blender还包含两个用于构建可视化的强大工具-节点合成器和视频序列器。
+节点合成器允许通过使用节点将多层可视化合成最终动画——可视化类型的流程图样式访问Blender API和功能。视频序列器可用于编辑和组合动画以进行演示。
+
+该软件具有适度的桌面和笔记本电脑硬件要求，具体取决于可视化的复杂程度。该软件在Windows，Mac OS X和许多Linux版本上运行良好。
+有关硬件要求，在线帮助文档以及软件本身。请访问 http://www.blender.org
