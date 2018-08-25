@@ -80,15 +80,15 @@ Blender还包含两个用于构建可视化的强大工具-节点合成器和视
 
 虽然绝大多数可视化都可以使用内部Blender渲染引擎及其下一代引擎Cycles进行处理，但是一些流行的第三方应用程序值得探索。
 
-[Render]() 科学家将遇到的大多数通用数据可视化都可以使用默认渲染器找到。该引擎支持GPU处理和体积渲染。 http://wiki.blender.org/index.php/Doc:2.6/Manual/Render
+[Render](http://wiki.blender.org/index.php/Doc:2.6/Manual/Render) 科学家将遇到的大多数通用数据可视化都可以使用默认渲染器找到。该引擎支持GPU处理和体积渲染。 
 
-[Cycles]() 可以在Cycles中基于节点的合成器中配置渲染路径，以便快速进行场景原型设计。使用渲染算法添加更逼真的焦散。 http://wiki.blender.org/index.php/Doc:2.6/Manual/Render/Cycles
+[Cycles](http://wiki.blender.org/index.php/Doc:2.6/Manual/Render/Cycles) 可以在Cycles中基于节点的合成器中配置渲染路径，以便快速进行场景原型设计。使用渲染算法添加更逼真的焦散。 
 
-[LuxRender]() 这个开源的第三方渲染引擎具有Blender的插件，并通过GPU处理实现光线跟踪（参见http://www.luxrender.net/ 中的参考资料）
+[LuxRender](http://www.luxrender.net/) 这个开源的第三方渲染引擎具有Blender的插件，并通过GPU处理实现光线跟踪（参见中的参考资料）
 
-[Mitsuba]() 基于物理的渲染引擎，可以处理体积渲染。http://www.mitsuba-renderer.org/
+[Mitsuba](http://www.mitsuba-renderer.org/) 基于物理的渲染引擎，可以处理体积渲染。
 
-[YafaRay]() 光线追踪和将文件保存为高动态范围图像格式的能力是Yafaray(http://www.yafaray.org/)的特征。
+[YafaRay](http://www.yafaray.org/) 光线追踪和将文件保存为高动态范围图像格式的能力是Yafaray的特征。
 
 ## 1.4 社区支持
 
@@ -105,3 +105,4 @@ Blender拥有广泛的社区支持，知识库和论坛，以帮助新用户开�
 [BlenderCookie](http://cgcookie.com/blender)
 
 ## 1.5 科学中的数据可视化类型
+
