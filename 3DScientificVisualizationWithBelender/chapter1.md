@@ -76,3 +76,32 @@ Blender还包含两个用于构建可视化的强大工具-节点合成器和视
 如果用户在笔记本电脑上，则可以在菜单File——>User Preferences——>Input中选择顶行数字键，然后选中“模拟小键盘”。
 我们将在后面的部分中介绍如何使用这些数字键。
 
+## 1.3 渲染引擎
+
+虽然绝大多数可视化都可以使用内部Blender渲染引擎及其下一代引擎Cycles进行处理，但是一些流行的第三方应用程序值得探索。
+
+[Render]() 科学家将遇到的大多数通用数据可视化都可以使用默认渲染器找到。该引擎支持GPU处理和体积渲染。 http://wiki.blender.org/index.php/Doc:2.6/Manual/Render
+
+[Cycles]() 可以在Cycles中基于节点的合成器中配置渲染路径，以便快速进行场景原型设计。使用渲染算法添加更逼真的焦散。 http://wiki.blender.org/index.php/Doc:2.6/Manual/Render/Cycles
+
+[LuxRender]() 这个开源的第三方渲染引擎具有Blender的插件，并通过GPU处理实现光线跟踪（参见http://www.luxrender.net/ 中的参考资料）
+
+[Mitsuba]() 基于物理的渲染引擎，可以处理体积渲染。http://www.mitsuba-renderer.org/
+
+[YafaRay]() 光线追踪和将文件保存为高动态范围图像格式的能力是Yafaray(http://www.yafaray.org/)的特征。
+
+## 1.4 社区支持
+
+Blender拥有广泛的社区支持，知识库和论坛，以帮助新用户开始和先进的Blender爱好者希望将他们的3D可视化技能提升到一个新的水平。一些热门网站包括：
+
+[Blender Guru](http://www.blenderguru.com/)
+
+[Blender Artists](http://blenderartists.org/)
+
+[NASA 3D Model repository](http://nasa3d.arc.nasa.gov/)
+
+[BlenderNation](http://www.blendernation.com/)
+
+[BlenderCookie](http://cgcookie.com/blender)
+
+## 1.5 科学中的数据可视化类型
