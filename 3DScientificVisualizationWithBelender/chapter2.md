@@ -31,3 +31,31 @@
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-3.png?raw=true)
 
     图2-3。标准键盘的示意键盘视图。2,4,6和8键允许用户以15°增量旋转所选对象或数据容器。3,1和7键分别沿X，Y和Z轴的视线移动视图。5键可在正交和透视模式之间切换3D视窗。
+
+通过平移，旋转和缩放（图2-4），可以在GUI中或通过键盘快捷键进行对象移动。GUI的底部有许多下拉菜单，
+用于在对象和网格编辑模式之间切换，选择渲染样式（线框，实体，纹理，完整）和更改参考框架（图2-5）。
+在网格编辑模式下，可以选择单个或一组顶点，线条或面（图2-6）。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-4.png?raw=true)
+
+    图2-4。
+    
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-5.png?raw=true)  
+
+    图2-5
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-6.png?raw=true)
+
+    图2-6
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-7.png?raw=true)
+
+    图2-7
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-8.png?raw=true)
+
+    图2-8
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-9.png?raw=true)
+
+    图2-9
