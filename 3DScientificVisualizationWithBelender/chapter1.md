@@ -108,17 +108,19 @@ Blender拥有广泛的社区支持，知识库和论坛，以帮助新用户开�
 
 需要考虑不同类型的科学可视化，每种都在使用3D图形时呈现独特的技术方案。每个可视化类型将用于解释和公开Blender的有用的功能。
 
-[实体模型/表面/刚体模拟]() 曲面适用于2D波形，刚体力学和3D轮廓曲面。在处理地理信息系统（GIS）地图时，它们也很有用。
+[实体模型/表面/刚体模拟](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#15-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B1%BB%E5%9E%8B) 曲面适用于2D波形，刚体力学和3D轮廓曲面。在处理地理信息系统（GIS）地图时，它们也很有用。
 这些类型的可视化通常具有纹理，以模拟真实世界的表面和外部照明。如果使用玻璃或反射表面，则光线追踪将增加渲染时间。
 
-[数据立方体/透明/半透明]()
+[数据立方体/透明/半透明](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#15-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B1%BB%E5%9E%8B) 如果数据是3D并且需要使用传递函数在某个给定噪声水平之上渲染，则可以使用透明渲染。这在医学和天文成像中很有用。对于医学成像，研究者希望从CAT扫描中看到多个层。利用天文成像，数据立方体的3D特性揭示了天空上的位置以及多普勒频移，这可以显示旋转物体的动态。
 
-[3D目录]()
+[3D目录](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#15-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B1%BB%E5%9E%8B) 这些可视化类似于3D散点图。它们对于具有最基本曲线坐标中的三个参数的目录是有用的，包括笛卡尔坐标系，圆柱坐标系或球面系统。
 
-[N体模拟]()
+[N体模拟](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#15-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B1%BB%E5%9E%8B) 这些对于显示点质量之间的重力相互作用的结果是有用的。Blender中的数据结构利用率与目录类似，只是形状键用于为模拟设置动画。形状键用于提高效率并减少Blender文件中元数据的内存占用。
 
-[软体模拟]()
+[软体模拟](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#15-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B1%BB%E5%9E%8B) 这些用于在Blender内部模拟可变形对象的物理。结果通常用于直观地模拟所述物体的外观，并且对于无法通过分析解决的数值模拟是有用的。
 
-[表面/地形图]()
+[表面/地形图](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#15-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B1%BB%E5%9E%8B) 可以加载GIS地图并进行颜色编码以显示地形的差异。顶点绘画可用于覆盖各种特征和颜色编码的地图。稍后的章节将使用火星映射数据给出一个示例。
 
-[现象学模型]()
+[现象学模型](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter1.md#15-%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B1%BB%E5%9E%8B) Blender在创建分子模型方面具有一些实用性，如BioBlender项目所示。化学相互作用可以动画和研究。
+
+本书介绍了重要的Blender概念，并在此过程中向用户展示了他们完成可视化所需了解的界面的关键部分。
