@@ -129,3 +129,34 @@
 为了便于移动模拟或动画，Blender GUI提供动画控件（图2-11）。动画时间线类似于一组经典的磁带卡座控件。
 快退，播放，快进，单击并拖动以查看3D视口中发生的所有动画和摄像机移动。此外，一旦设置了关键帧并选择了一个对象，
 用户就可以在这些关键帧之间跳转，并在时间线上将它们视为黄线。
+
+## 2.2 Python的窗口设置
+
+到目前为止提到的任何GUI元素都可以通过存在于每个窗口元素的角落中的下拉窗口选择器进行交换和更改。此外，
+可以通过在窗口元素的右上角按住SHIFT键来分隔窗口。在新窗口中，可以单击并拖动同一个角，将窗口分成两部分。
+top元素可以更改为Python脚本编辑器，底部可以更改为Python终端控制台。使用Blender Python API，
+这可以用于脚本对场景对象和网格构造的更改，将数据导入Blender容器对象并批量运行任务，否则这些任务将在GUI中执行。
+
+## 2.3 数据类型和Python模块
+
+使用Blender时，应考虑许多重要的数据格式和关键的Python模块。这些在数据导入或执行数值计算时很有用。
+
+[OBJ file（type text/plain）]() OBJ文件是一个简单的ASCLL文本文件，其中包含有关3D几何体的信息。从每个顶点和法线的UV坐标位置，可以创建3D模型。
+
+[FITS]() 天文学中使用的科学数据格式——灵活的图像传输系统（FITS）。这些文件可以包含2D和3D成像，光谱和时间序列。
+
+[GIS Shapefiles]() 地理信息系统的矢量数据格式。https://github.com/domlysz/BlenderGIS
+
+[MDL Molfile]() 具有原子坐标和键形成的化学文件，用于构建分子。
+
+[Image formats]() 使用UV编辑器和材质/纹理选项卡，可以导入JPEG，GIF，PNG和BMP文件，以用作3D表面的纹理图像。
+
+## Python库
+
+[numpy](http://www.numpy.org/) 用于数值分析的库。Numpy默认包含在Blender中
+
+[scipy](http://www.scipy.org/) 使用numpy的数学工具和库。
+
+[astropy](http://www.astropy.org/) 使用Python的天文学家的一套优秀的核心工具
+
+[BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) 解析XML和HTML数据表的有用工具
