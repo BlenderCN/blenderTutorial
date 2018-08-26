@@ -38,24 +38,38 @@
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-4.png?raw=true)
 
-    图2-4。
+    图2-4。显示鼠标手柄的三个Blender网格对象（a）平移，（b）旋转和（c）缩放。这些GUI元素允许用户在3D视口中操纵和定位对象。
     
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-5.png?raw=true)  
 
-    图2-5
+    图2-5。模式选择的下拉菜单。本书中的练习将主要关注对象和网格编辑模式。
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-6.png?raw=true)
 
-    图2-6
+    图2-6。左侧面板以对象模式显示UV球体。右侧面板显示在网格编辑模式下选择单个面的相同球体。
+    
+### 2.1.3 四视图
+
+一个特别有用的GUI设置是四边形视图。这可以通过CTRL-ALT-Q完成，然后显示沿X,Y和Z视线的等距视图，以及来自活动摄像机的视图（图2-7）
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-7.png?raw=true)
 
-    图2-7
+    图2-7。示例Blender GUI以四边形视图配置，显示具有顶视图，侧视图和前视图的碰撞星系的N体模拟，以及来自当前所选摄像机的视图。四边形视图对于从多个方向进行可视化分析以及最终渲染的视野将显示的内容非常有用。
+
+### 2.1.4 UV视图
+
+可以通过Blender屏幕顶部的下拉菜单访问UV编辑GUI。这将主窗口界面拆分为3D视图端口和UV编辑界面，可在数据映射到网格曲面时使用。
+这通常通过使用TAB键进入网格编辑模式来完成，右键单击以选择所需的顶点，然后按U键以使用其中一种投影方法将图像映射到曲面。
+
+### 2.1.5 对象工具工具栏
+
+对象工具工具栏与TAB键一起允许用户修改网格对象的属性。工具栏将根据所选对象而改变;所选摄像机或照明元素的属性将与网格对象不同（图2.8（a））。
+在后面的部分中，我们将利用方位角对称性并演示旋转工具（和其他工具）在建筑模型中节省时间的效用
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-8.png?raw=true)
 
-    图2-8
+    图2-8。对象工具和变换工具栏，用于在3D视图端口中精确定位对象和光标。每个对象属性都可以从变换工具栏进行关键帧设置。通过按TAB键并进入网格编辑模式，可以通过对象工具工具栏操作各个元素。
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/2-9.png?raw=true)
 
-    图2-9
+    图2-9。Blender中的数据大纲提供它们之间所有对象和关联的全局视图。子/父关系，渲染状态和3D视图端口状态都反映在这个有用的GUI元素中。
