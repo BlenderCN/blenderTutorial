@@ -54,3 +54,11 @@ Blender中的3D对象通常称为网格。每个网格基本上由顶点，线�
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/3-4.png?raw=true)   
 
     图3-4。使用来自于http://earthobservatory.nasa.gov 的图像投射地球投影。这里以最终的复合材料呈现几个层，包括地球的日夜侧图和大气层。
+
+### 示例：向球体添加纹理
+
+我们可以使用以下过程将地图投影到球体上。这需要在球体上标记将要分离对象的接缝。然后可以将网格的投影与图像或地图匹配。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/3-5.png?raw=true)
+
+    图3-5。
