@@ -27,10 +27,30 @@ Blender中的3D对象通常称为网格。每个网格基本上由顶点，线�
 
 *   GUI右侧的变换工具栏允许精确定位网格对象。
 
-我们可以通过多种方式进一步操纵网格的各个元素。这可以帮助用户精确定位
+我们可以通过多种方式进一步操纵网格的各个元素。这可以帮助用户精确定位可视化的场景元素和数据对象
 
-*   
-*
-*
-*
-*
+*   在3D视图端口的底部，单击下拉菜单并选择编辑模式。或者，按键盘上的TAB键  
+
+*   网格元素的面，线和顶点将以橙色高亮显示。顶点，线或面选择的模式如图3-2所示。可以使用辅助鼠标按钮（通常是鼠标右键）选择网格元素。按住SHIFT键可以选择多个元素。
+
+*   可以通过按键盘上的B键（用于框选择），然后在所选点上单击并拖动一个框来选择元素组。
+
+*   通过CTRL左键单击需要放置新顶点的位置添加由线连接的顶点。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/3-2.png?raw=true)
+
+    图3-2。选择Blender Mesh Edit模式，并显示顶点，线和面模式按钮。这允许用户操纵网格对象的各个部分。
+    
+## 3.2 2D材料和纹理
+
+纹理可以在各种场景中应用。2D纹理可用于为面部提供更逼真的表面外观，应用贴图数据以及更改数据的可见性和颜色。
+凹凸贴图也可以应用于网格以模拟3D表面。这对于通过较低的多边形来提高渲染时间的速度具有重要的应用。
+2D材料和纹理可以应用于UV平面中的各种投影中的单个面或整个网格对象。地球的正投影如图3-3和3-4所示。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/3-3.png?raw=true)
+
+    图3-3。此视图显示用于将地球的2D地图投影到UV球体上的设置。
+    
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/3-4.png?raw=true)   
+
+    图3-4。使用来自于http://earthobservatory.nasa.gov 的图像投射地球投影。这里以最终的复合材料呈现几个层，包括地球的日夜侧图和大气层。
