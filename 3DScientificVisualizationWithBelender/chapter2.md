@@ -141,15 +141,15 @@ top元素可以更改为Python脚本编辑器，底部可以更改为Python终�
 
 使用Blender时，应考虑许多重要的数据格式和关键的Python模块。这些在数据导入或执行数值计算时很有用。
 
-[OBJ file（type text/plain）]() OBJ文件是一个简单的ASCLL文本文件，其中包含有关3D几何体的信息。从每个顶点和法线的UV坐标位置，可以创建3D模型。
+[OBJ file（type text/plain）](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter2.md#23-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8Cpython%E6%A8%A1%E5%9D%97) OBJ文件是一个简单的ASCLL文本文件，其中包含有关3D几何体的信息。从每个顶点和法线的UV坐标位置，可以创建3D模型。
 
-[FITS]() 天文学中使用的科学数据格式——灵活的图像传输系统（FITS）。这些文件可以包含2D和3D成像，光谱和时间序列。
+[FITS](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter2.md#23-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8Cpython%E6%A8%A1%E5%9D%97) 天文学中使用的科学数据格式——灵活的图像传输系统（FITS）。这些文件可以包含2D和3D成像，光谱和时间序列。
 
-[GIS Shapefiles]() 地理信息系统的矢量数据格式。https://github.com/domlysz/BlenderGIS
+[GIS Shapefiles](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter2.md#23-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8Cpython%E6%A8%A1%E5%9D%97) 地理信息系统的矢量数据格式。https://github.com/domlysz/BlenderGIS
 
-[MDL Molfile]() 具有原子坐标和键形成的化学文件，用于构建分子。
+[MDL Molfile](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter2.md#23-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8Cpython%E6%A8%A1%E5%9D%97) 具有原子坐标和键形成的化学文件，用于构建分子。
 
-[Image formats]() 使用UV编辑器和材质/纹理选项卡，可以导入JPEG，GIF，PNG和BMP文件，以用作3D表面的纹理图像。
+[Image formats](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/chapter2.md#23-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8Cpython%E6%A8%A1%E5%9D%97) 使用UV编辑器和材质/纹理选项卡，可以导入JPEG，GIF，PNG和BMP文件，以用作3D表面的纹理图像。
 
 ## Python库
 
