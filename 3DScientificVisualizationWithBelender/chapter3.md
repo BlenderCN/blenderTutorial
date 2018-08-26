@@ -15,13 +15,21 @@ Blender中的3D对象通常称为网格。每个网格基本上由顶点，线�
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/3-1.png?raw=true)
 
-    Blender网格示例，构成科学可视化中数据容器和网格构造的基础。这些基本形状——立方体，圆锥体，UV球体，环面，圆柱体和球体——可以在Blender 3D视口中进行操作
+    图3-1。Blender网格示例，构成科学可视化中数据容器和网格构造的基础。这些基本形状——立方体，圆锥体，UV球体，环面，圆柱体和球体——可以在Blender 3D视口中进行操作
     
-*
-*
-*
-*
-*
+*   单击Add——>Mesh——>Cube创建新的立方体网格。或者，使用键盘快捷键SHIFT-A。
+
+*   使用R键在垂直于视线的平面中旋转立方体。
+
+*   使用S键缩放立方体。
+
+*   使用G键在垂直于视线的平面中平移立方体。
+
+*   GUI右侧的变换工具栏允许精确定位网格对象。
+
+我们可以通过多种方式进一步操纵网格的各个元素。这可以帮助用户精确定位
+
+*   
 *
 *
 *
