@@ -93,8 +93,8 @@ FFMPEG是适用于任何操作系统的有用视频转换实用程序。下面�
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/5-5.png?raw=true)
 
-    图5-5。
+    图5-5。用于合成的示例节点。每个节点都有成像输入和输出，可以通向连接节点。这里的示例节点给出了开始渲染层，RGB颜色校正，混合节点到符合层以及连接到渲染引擎的输出节点。
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/5-6.png?raw=true)
 
-    图5-6。
+    图5-6。此窗口显示三个渲染层被组合并通过颜色平衡和RGB节点，然后传递给合成器。可以通过使用鼠标左键从一个输出到另一个图像输入绘制来连接节点。可以使用CTRL键销毁线，并使用X键删除节点。
