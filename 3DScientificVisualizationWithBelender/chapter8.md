@@ -219,4 +219,22 @@
     import csv
     obj = bpy.data.objects['MagneticField']
     
-使用    
+使用拉伸工具创建电流环。
+
+*   使用Add——>Mesh——>Circle添加网格。
+
+*   使用E键挤出顶点，然后单击鼠标。
+
+*   使用S键缩放新的顶点集，然后使用TAB键返回到对象模式
+
+*   在变换工具栏上，将尺寸设置为1.5个单位，以匹配模型中使用的值。
+
+*   使用蓝色材料为当前循环着色。
+
+由于方位角对称性，可以通过旋转工具扩展轮廓（图8-6）。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/8-6.png?raw=true)
+
+    图8-6.沿每个轴的四视图以及磁势的摄像机视图。
+    
+    
