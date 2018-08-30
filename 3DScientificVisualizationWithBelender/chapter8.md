@@ -193,3 +193,30 @@
 
 *   为潜在的轮廓添加彩色线材。
 
+从经典动力学中我们知道，电流密度J在半径为a的环中具有方位角分量。回顾这些基本方程式，我们有：
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/81.png?raw=true)
+
+矢量势的解决方案写为：
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/82.png?raw=true)
+
+由于配置的对称性，我们可以将方位角分量写为：
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/83.png?raw=true)
+
+其中K(k)和E(k)是完全椭圆积分。可以通过以下近似扩展解决方案：
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/84.png?raw=true)
+
+我们将评估此表达式，计算轮廓并使用顶点编辑模式绘制轮廓。由于场景是方位角对程的，我们可以使用Blender旋转工具围绕Z轴旋转磁势曲线。
+最后，我们将添加当前循环并为可视化设置动画。生成8.4中的数据i并通过以下Blender Python脚本读入：
+
+    import pickle
+    import numpy
+    import bpy
+    import bmesh
+    import csv
+    obj = bpy.data.objects['MagneticField']
+    
+使用    
