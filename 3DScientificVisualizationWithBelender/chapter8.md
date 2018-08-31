@@ -520,4 +520,6 @@ Blender物理模块允许用户使用内置的微分方程求解器将场添加�
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/8-20.png?raw=true) 
 
-    图8-20。物理菜单允许向
+    图8-20。物理菜单允许向可视化场景添加字段。这些特殊菜单显示了具有刚性和弹性值的固定被动表面的配置。由重力引起的加速度设置为SI值9.8ms-2,并且场景菜单下的微分方程求解器设置为每秒60步。
+    
+对于更长时间的模拟，烘焙将花费更长的时间，具体取决于模拟中顶点数和字段等因素。然而，通过在动态中烘焙并先验地执行计算，渲染时间将显著减少。
