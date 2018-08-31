@@ -513,4 +513,11 @@ Blender物理模块允许用户使用内置的微分方程求解器将场添加�
     
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/8-19.png?raw=true)    
 
-    图8-19.
+    图8-19.在物理模块中设置的具有球形碰撞形状的UV球形网格对象与SHIFT-D复制。对象和属性被复制并设置为碰撞
+
+我们的刚体动力学模拟的简单元素已经到位。最后一步是烘焙模拟元素并计算所有位置。如图8-17所示，
+按Free ALL Bakes 按钮，然后按Bake。按动画时间线上的播放按钮查看模拟（图8-20）
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DScientificVisualizationWithBelender/8-20.png?raw=true) 
+
+    图8-20。物理菜单允许向
