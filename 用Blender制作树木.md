@@ -78,8 +78,8 @@
         baseSplits=0, 
         segSplits=(0, 0, 0, 0), 
         splitByLen=True, 
-        rMode='rotate', s
-        plitAngle=(8, 20, 25, 30), 
+        rMode='rotate', 
+        splitAngle=(8, 20, 25, 30), 
         splitAngleV=(2, 5, 5, 5), 
         scale=13, scaleV=3, 
         attractUp=(0, -1, 0.5, 0.5), 
