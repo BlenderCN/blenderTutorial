@@ -51,3 +51,5 @@
 接着我们在设置中选择Leaves。我们来制作树叶，首先我们都选Show Leaves,然后修改Leaves数值，并对下面的其他数值进行调整，调整出满意的效果。
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/tree15.jpeg?raw=true)
+
+[link](https://mp.weixin.qq.com/s/di-X6OOB6UrXRzTMI-605g)
