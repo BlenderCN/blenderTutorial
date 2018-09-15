@@ -265,3 +265,65 @@ LMB并将其向内拖动分割区域。你可以通过水平或垂直拖动来�
 热键：Alt-F10
 
 全屏区域仅包含主区域。仍可使用快捷键方式切换方式切换标题可见性。要退出，请将鼠标移动到区域的右上角以显示返回或使用快捷键Alt-F10。
+
+# 1.5。Regions
+
+编辑器细分为区域
+
+## 1.5.1 Main Region
+
+至少有一个区域始终可见。它被称为主要区域，是编辑器中最突出的部分。
+
+每个编辑器都有一个特定的目的，因此主要区域和其他区域的可用性在编辑器之间是不同的。请参阅编辑器章节中有关每个编辑器的特定文档。
+
+## 1.5.2 Header
+
+标题是一个较小的水平条带，背景较浅，位于该区域的顶部或底部。所有编辑器都有一个标题作为菜单和常用工具的容器。菜单和按钮将随编辑器类型和所选对象和模式变化而变化。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/modeling_meshes_introduction_3d-view-header-object-mode.png?raw=true)
+
+    图8.The Header of the 3D View editor
+    
+如果如果将鼠标移动到某个区域上，则其编辑器的标题会变为略浅的灰色阴影。这意味着它是聚焦的。你按下的所有热键将影响此编辑器的内容。可以使用Alt-F9隐藏标题。 
+
+## 1.5.3 Tool Shelf
+
+默认情况下，左侧的工具架包含工具设置。T切换工具架区域的可见性。
+
+### 1.5.3.1。Operator Panel
+
+操作器面板是仅包含一个面板的工具架的一部分。在3D试图中，它显示最后执行的操作器的属性，在文件浏览器中显示文件导入/导出选项。
+
+## 1.5.4.Properties Region
+
+默认情况下，属性区域位于右侧。它包含面板，其中包含编辑器中的对象设置和编辑器本身。N切换属性区域的可见性。
+
+## 1.5.5.Arranging
+
+### 1.5.5.1 Scrolling
+
+通过使用MMB拖动区域，可以垂直和或水平滚动区域。如果该区域没有缩放级别，则可以使用滚轮滚动它，同时鼠标悬停在它上方。
+
+### 1.5.5.2 Changing the Size and Hiding
+
+通过拖动边框，调整区域的大小与区域的工作方式相同。
+
+隐藏区域可将其缩小至零。隐藏区域留下一点点加号（见图）。通过LMB对此，该区域将重新出现。
+
+工具架和属性区域具有指定用于在隐藏和显示之间切换的快捷方式。
+
+    Hiding and showing the Header
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/interface-window_system-headers-hide.png?raw=true)
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/interface-window_system-headers-show_02.png?raw=true)
+
+### 1.5.5.3 Position
+
+要将区域从一侧翻转到另一侧，请按F5，同时区域位于鼠标指针下方。
+
+标题也可以通过RMB翻转并从弹出菜单中选择适当的项目。如果标题位于顶部，则项目文本将显示为Flip to Bottom，如果标题位于底部，则项目文本将显示为Flip to Top。
+
+# 1.6 common Shortcuts
+
+许多按钮类型之间共享快捷方式。
+
+## 1.6.1.Mouse
