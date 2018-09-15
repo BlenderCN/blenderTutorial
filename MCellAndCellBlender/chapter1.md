@@ -203,3 +203,65 @@ Blender使用新颖的屏幕分割方法来安排区域。我们的想法是将�
 在一个区域的右上角和左下角是区域分割小部件，它们看起来像一个小山脊拇指握把。它既分裂又结合了区域。将鼠标悬停在其上时，光标将变为十字
 
 LMB并将其向内拖动分割区域。你可以通过水平或垂直拖动来自定义该边框的方向。
+
+为了连接两个区域，LMB单击并向外拖动区域分割器。它们必须在你想要连接的方向上具有相同的尺寸（宽度或高度）。这使得组合的区域空间产生矩形。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/interface-window_system-arranging_areas-join_areas.png?raw=true)
+
+    图7。The Properties Editor is being merged over the Outliner
+    
+将关闭的区域用箭头覆盖黑色。现在，你可以i通过将鼠标移动到它上面来选择要关闭的区域。
+
+释放LMB以完成加入。如果在释放鼠标之前按Esc或RMB，则操作将中止。
+
+#### 1.4.1.2.2 Area Options
+
+边界的RMB打开区域选项。
+
+[Split Area]()
+
+显示一条指示线，可让你选择区域和位置以进行拆分。标签在垂直/水平之间切换。
+
+[Join Areas]()
+
+显示连接方向覆盖。
+
+如上所述确认或取消操作。
+
+### 1.4.1.3 Swapping contents
+
+你可以在初始区域的一个分割器上使用Ctrl-LMB在两个区域之间交换内容，向目标区域拖动，然后在那里释放鼠标。这两个区域不需要并排，但它们必须位于同一个窗口内。
+
+## 1.4.2 Duplicate Area into new Window
+
+菜单：View>Duplicate Area into new Window
+
+新窗口是一个功能齐全的窗口，它是Blender的同一个实例的一部分。这可能是有用的，例如.如果你有多个显示器。
+
+可以从View>Duplicate Area创建一个新窗口到新窗口。
+
+你还可以通过区域拆分器小部件上的Shift-LMB从现有区域创建新窗口，然后稍微拖动。
+
+可以使用OS Close Window按钮关闭窗口。
+
+## 1.4.3 Toggle Maximize Area
+
+菜单：View>Toggle Masimize Area
+
+热键：Ctrl-Up，Shift-Spacebar
+
+最大化区域填充整个应用程序窗口。它包含信息编辑器和选择区域。
+
+你可以使用View>ToggleMaximize Area菜单项条目最大化区域。要返回正常大小，请再次使用菜单项或编辑器标题上的RMB，然后选择最大化区域和平铺区域以返回。在Info Editor标题中，菜单右侧的Back to Previous按钮也返回到平铺区域。
+
+更快捷的方法是使用快捷方式：Shift-Spacebar，Ctrl-Down或Ctrl-Up在最大区域和普通区域之间切换。
+
+    Note：鼠标当前悬停的区域是使用键盘快捷键最大化的区域。
+    
+## 1.4.4 Toggle Fullscreen Area 
+
+菜单：View>Toggle Full Screen
+
+热键：Alt-F10
+
+全屏区域仅包含主区域。仍可使用快捷键方式切换方式切换标题可见性。要退出，请将鼠标移动到区域的右上角以显示返回或使用快捷键Alt-F10。
