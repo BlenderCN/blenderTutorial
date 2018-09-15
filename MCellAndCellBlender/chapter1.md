@@ -45,3 +45,161 @@ Git Hash。在诊断问题时，这对于支持人员是有用的。
 [Recover Last Session]()
 
 Blender将尝试根据临时文件恢复上一个会话
+
+# 1.2 Know What you're looking at
+
+启动Blender并关闭启动画面后，你的Blender窗口应该与下图类似。Blender的用户界面在所有平台上都是一致的。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/interface_default_startup.png?raw=true)
+
+    图2.The default startup Blender window。
+    
+## 1.2.1 Interface Elements
+
+    Window â€£ Screen â€£ Areas â€£ Editors â€£ Regions â€£ (Tabs) â€£ Panels â€£ Controls
+
+可以使用屏幕布局自定义界面以匹配特定任务，然后io可以对其进行命名和保存以供以后使用。默认屏幕如下所述。
+
+屏幕被组织到一个或多个区域中，每个区域包含一个编辑器。
+
+## 1.2.2 The Default Screen
+
+默认情况下，Blender会启动显示默认屏幕，该屏幕分为五个区域，其中包含下面列出的编辑器：
+
+*   The Info Editor at the top
+
+*   A large 3D View
+
+*   A Timeline at the bottom
+
+*   An Outliner at the top right
+
+*   A Properties Editor at the bottom right.
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/interface_introduction_default_screen.png?raw=true)
+    
+    图3。Blender's default Screen Layout with five Editors。
+    
+Info（1），3D View（2），Outliner(3),Properties(4)and Timeline(5).
+
+## 1.2.3 Components of an Editor
+
+通常，编辑器提供了一种通过Blender的特定部分查看和修改你的工作的方法。编辑分为几个区域。区域可以具有较小的结构元素，例如标签和面板，其中放置有按钮，控件和小部件。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/interface_introduction_editor.png?raw=true)
+
+    图4：The 3D View editor
+    
+Yellow:Main Region,green:Header,blue:Tool Shelf,purple:Operator Panel,red:Properties Region 
+
+## 1.2.4. User Interface Principles
+
+[Non Overlapping]()
+
+用户界面旨在让你一目了然地查看所有相关选项和工具，而无需推或拖动编辑器。
+
+[Non Blocking]()
+
+工具和界面选项不会阻止用户使用Blender的任何其他部分。Blender通常不使用弹出框（要求用户在运行操作之前填写数据）。
+
+[Non Modal Tools]()
+
+无需花时间在不同工具之间进行选择即可高效访问工具。许多工具使用一致且可预测的鼠标和键盘操作进行交互。
+
+## 1.2.5.Customization
+
+Blender还大量使用键盘快捷键来加快工作速度。这些也可以在Keymap Editor中自定义。
+
+[Theme colors]()
+
+Blender允许更改其大多数界面颜色设置以满足用户的需要。如果你发现屏幕上显示的颜色与手册中提到颜色不匹配，则可能是你的默认主题已被更改。可以通过选择用户首选项编辑器并单击主题选项卡来创建新主题或选择/更改预先存在的主题。
+
+# 1.3.Screens
+
+屏幕本质上是预定义的窗口布局。Blender的区域灵活性使你可以为不同的任务（如建模，动画和脚本）创建自定义的工作环境。在同一文件中的不同环境之间快速切换通常很有用。
+
+屏幕数据块菜单允许你选择布局。位于信息编辑器标题中。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/interface_screen_data-block.png?raw=true)
+
+## 1.3.1.Controls
+
+[Screen Layout]()
+
+可用屏幕布局列表如下所示
+
+[Add]() +
+
+单击添加按钮，将根据你当前的布局创建新的框架布局
+
+[Delete]() X
+
+你可以使用删除按钮删除所选屏幕
+
+    Hint：默认情况下，每个屏幕布局都会记住上次使用的场景。选择不同的屏幕将切换到布局并跳转到该场景
+    
+### 1.3.1.1 Shortcuts    
+
+要在屏幕之间循环，请使用Ctrl-Right和Ctrl-Left
+
+    Note:在macOS上，你可能需要在计算机的首选项中禁用Mission Control的快捷方式。这些可以在System Preferences>Keyboard>Shortcuts.
+    
+### 1.3.1.2 Default Screens
+
+3D View Full:全屏3D视图，用于预览场景。
+
+Animation：让演员和其他物体四处移动，改变形状或颜色等。
+
+Compositing:组合场景的不同部分（例如背景，演员，特效）并过滤它们（例如色彩校正）。
+
+Default:Blender用于新文件的默认布局。用于建模新对象。
+
+Game Logic:在Blender中规划和编程游戏。
+
+Motion Tracking:用于使用影片剪辑编辑器进行运动跟踪。
+
+Scripting：记录你的工作和或编写自定义脚本以自动化Blender。
+
+UV Editing:在2D中展平对象网格的投影以控制纹理如何映射到曲面。
+
+Video Editing:剪切和编辑动画序列。
+
+## 1.3.2. Save and Override
+
+屏幕布局保存在blend文件中。打开文件时，在文件浏览器中启用加载UI表示Blender应使用文件的屏幕布局并覆盖当前布局。
+
+一组自定义的屏幕布局可以保存为startup_file的一部分。
+
+## 1.3.3 Additional Layouts
+
+随着你对Blender的熟练程度越来越高，请考虑添加一些其他屏幕布局以适应你的工作流程，因为这有助于提高你的工作效率。一些例子可能包括：
+
+Modeling：四个3D视图（顶部，正面，侧面和透视），用于编辑的属性编辑器。
+
+Lighting：用于移动灯光的3D视图，用于显示渲染结果的UV/Image编辑器，用于渲染的属性编辑器以及灯泡属性和控件。
+
+Materials：材质设置的属性编辑器，用于选择对象的3D视图，大纲视图，库脚本（如果使用），节点编辑器（如果使用基于节点的材质）。
+
+Painting：用于纹理绘制图像的UV/Image编辑器，用于在UV面部选择模式下直接在对象上绘制的3D视图，在背面参考图片设置为全强度的三个迷你3D视图，属性编辑器。
+
+# 1.4 Areas
+
+应用程序窗口始终是桌面上的矩形。它被划分为许多可调整大小的区域。区域包含特定类型编辑器的工作空间，如3D视图编辑器或大纲视图。
+
+## 1.4.1 Arranging
+
+Blender使用新颖的屏幕分割方法来安排区域。我们的想法是将大应用程序窗口拆分为任意数量的较小（但仍为矩形）非重叠区域。这样，每个区域总是完全可见，并且很容易在一个区域中工作并跳转到另一个区域中工作。
+
+### 1.4.1.1 Changing the Size
+
+你可以通过使用LMB拖动边框来调整区域大小。只需将鼠标光标移动到两个区域之间的边框上，直到它变为双头箭头，然后单击并拖动即可。
+
+### 1.4.1.2 Splitting and Joining
+
+#### 1.4.1.2.1 Area Split Widget
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/interface-window_system-arranging_areas-split_widget.png?raw=true)
+
+在一个区域的右上角和左下角是区域分割小部件，它们看起来像一个小山脊拇指握把。它既分裂又结合了区域。将鼠标悬停在其上时，光标将变为十字
+
+LMB并将其向内拖动分割区域。你可以通过水平或垂直拖动来自定义该边框的方向。
