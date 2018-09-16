@@ -57,6 +57,7 @@
 ### 3.3.4 Simulate the Model
 
 *   单击Run Simulation按钮
+
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/run_sim_button.png?raw=true)
 
 *   单击Run按钮
@@ -69,12 +70,45 @@
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/reload_viz_data.png?raw=true)
 
+### 3.3.5 Change Settings to See Results
+
+*   隐藏屏幕底部中间附近的Manipulator。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/manipulater_location.png?raw=true)
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/hide_manipulator.png?raw=true)
+
+*   单击Molecules按钮。
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/molecules.png?raw=true)
+
+*   打开Display Options子面板  
+
+*   将Sphere_1改为Torus
+
+*   将Scale更改为5
+
+*   将颜色更改为亮黄色
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/display_options.png?raw=true)
+
+    你会注意到实际上有两个圆环物体。其中一个应该在播放模拟时移动，另一个应该在原点静止。原点上的圆环实际上是Blender使用的模板分子。对于你定义的每个分子种类，在原点始终会有一个模板分子。
+    
+### 3.3.6 Use the Time Line
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/timeline.png?raw=true)
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
+
+*   按时间线下方的播放![play](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/play.png?raw=true)按钮
+
+*   使用滚轮放大，直到你可以看到移动的圆环
+
+![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/single_diffusing_molec.png?raw=true)
+
+*   单击时间线下方的暂停![pause](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/pause.png?raw=true)按钮停止模拟
+
+*   单击时间线上的各个位置以查看当时的分子状态
+
+*   在时间线中单击并拖动以随时间scrub模拟
+
+### 3.3.7.Save Your File
+
+*   File>Save
