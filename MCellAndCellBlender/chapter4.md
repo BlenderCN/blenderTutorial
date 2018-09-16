@@ -4,7 +4,7 @@
 
 本教程将定义单个单分子反应。
 
-## 4.2Intitial Configuration
+## 4.2。Intitial Configuration
 
 本教程建立在[Single Molecule Diffusion](http://mcell.org/tutorials/single_molecule_diffusion.html#single-molecule-diffusion)的基础上。要么自己完成教程，要么使用[single_molecule.blend](http://mcell.org/tutorials/blends/single_molecule.blend)文件开始。
 
