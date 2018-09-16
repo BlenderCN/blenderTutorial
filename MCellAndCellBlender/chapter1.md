@@ -330,8 +330,99 @@ LMB并将其向内拖动分割区域。你可以通过水平或垂直拖动来�
 
 在Blender中，RMB（鼠标右键）通常用于选择，LMB（鼠标左键）启动或确认操作。
 
-|--|--|
-|--|--|
 |RMB|To select an item|
+|--|--|
 |Shift-RMB|To add more items to the selection|
 |LMB|To perform an action on the selection|
+
+    有一些极端情况下LMB用于选择。例如文件浏览器
+    
+## 1.6.2.Hovering  
+
+悬停时（当光标悬停在按钮上时）。
+
+### 1.6.2.1.Properties
+
+*   Ctrl-C——复制按钮的值
+
+*   Ctrl-V——粘贴按钮的值
+
+*   RMB——打开上下文菜单
+
+*   Backspace——清除值（设置为零或清除文本字段）。
+
+*   Minus——数值取反（乘以-1.0）
+
+*   Ctrl-Wheel——更改增量步骤。
+
+对于弹出选项菜单按钮，这将循环该值。
+
+*   Enter——激活菜单或切换值
+
+### 1.6.2.2 Animation
+
+*   I——插入一个关键帧
+
+*   Alt-I——清除快捷键
+
+*   Alt-Shift-I——清除所有快捷键（删除所有F曲线）。
+
+*   Ctrl-D——分配驱动程序。
+
+*   Ctrl-Alt-D——清除驱动程序
+
+*   K——添加一个键集
+
+*   Alt-K——清除键集
+
+### 1.6.2.3 Python Scripting
+
+*   Ctrl-C——在任何操作按钮上将其Python命令复制到剪贴板中。
+
+在编写脚本时，可以在Python控制台或文本编辑器中使用它。
+
+*   Ctrl-Shift-C——在属性按钮上复制其属性的数据路径（也可从右键单击菜单中获得）。
+
+编写驱动程序或脚本时很有用。
+
+*   Ctrl-Alt-Shift-C——在属性按钮上复制数据块和属性的完整数据路径。
+
+请注意，在大多数情况下，最好根据上下文而不是名称来访问值。
+
+## 1.6.3.Dragging
+
+*   Ctrl——拖动捕捉不连续的步骤
+
+*   Shift——对值进行精确控制。
+
+*   Crtl-Shift——精确捕捉将高精度地移动对象以及捕捉约束。
+
+## 1.6.4.Text Editing
+
+*   Home——转到开始
+
+*   End——转到结束
+
+*   Left,Right——将光标移动一个字符。
+
+*   Ctrl-Left，Ctrl-Right——将光标移动到整个单词。
+
+*   Backspace，Delete——删除字符
+
+*   Ctrl-Backspace,Ctrl-Delete——删除单词。
+
+*   Shift——按住键并移动光标选择。
+
+*   Ctrl-A——选择所有文本
+
+*   Ctrl-C——复制所选文本
+
+*   Ctrl-X——剪切选定文本
+
+*   Ctrl-V——在光标位置粘贴文本
+
+## 1.6.5.Confirm and Chancel
+
+*   Esc,RMB——取消
+
+*   Enter,LMB——继续
