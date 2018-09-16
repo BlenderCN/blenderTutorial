@@ -6,7 +6,7 @@
 
 ## 6.2.Initial Configuration
 
-本教程建立在Add Simple Mesh Geometrry的基础上。要么自己完成该教程，要么使用add_meshgeom.blend文件开始。
+本教程建立在[Add Simple Mesh Geometrry](http://mcell.org/tutorials/add_meshgeom.html#add-meshgeom)的基础上。要么自己完成该教程，要么使用[add_meshgeom.blend](http://mcell.org/tutorials/blends/add_meshgeom.blend)文件开始。
 
 ### 6.2.1.Save the File with a New Name In Your Working Directory
 
