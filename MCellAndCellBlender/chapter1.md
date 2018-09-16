@@ -327,3 +327,10 @@ LMB并将其向内拖动分割区域。你可以通过水平或垂直拖动来�
 许多按钮类型之间共享快捷方式。
 
 ## 1.6.1.Mouse
+
+在Blender中，RMB（鼠标右键）通常用于选择，LMB（鼠标左键）启动或确认操作。
+
+|--|--|
+|RMB|To select an item|
+|Shift-RMB|To add more items to the selection|
+|LMB|To perform an action on the selection|
