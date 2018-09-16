@@ -426,3 +426,18 @@ LMB并将其向内拖动分割区域。你可以通过水平或垂直拖动来�
 *   Esc,RMB——取消
 
 *   Enter,LMB——继续
+
+# 1.7 Mesh editing
+
+## 1.7.1 Mesh basics
+
+### 1.7.1.1.Translation,Rotation,Scale
+
+Mode:Edit Mode
+
+Panel:Tool Shelf>Tools>Transform
+
+Menu:Mesh>Transform>Grab/Move,Rotate,Scale,...
+
+Hotkey:G,R,S
+
