@@ -64,7 +64,7 @@
 
 *   点击空absorb_vol1属性列表旁边的+按钮。
 
-*   从Molecules字段选择vol1
+*   从Molecules字段选择Single Molecule
 
 *   从Molecule Name字段选择vol1
 
