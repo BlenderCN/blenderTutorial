@@ -5,6 +5,7 @@ blender示例教程
 
 [blender.freemovies.co.uk](http://blender.freemovies.co.uk/)
 
+[BlenderPythonRecipes](https://github.com/zeffii/BlenderPythonRecipes.wiki.git)
 
 # [blender python api源码](https://github.com/Apress/blender-python-api)
 
