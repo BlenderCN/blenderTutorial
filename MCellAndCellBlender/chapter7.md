@@ -8,7 +8,7 @@
 
 ## Create a New Project
 
-项目目录设置为保存当前混合文件的位置。让我们立即保存文件，方法是Ctrl-s，在目录字段中输入～/mcell_tutorial/sc(或Windows上的C:\mcell_tutorial\sc),将sc.blend输入到文件名字段，然后点击另存为Blender文件按钮。
+项目目录设置为保存当前blend文件的位置。让我们立即保存文件，方法是Ctrl-s，在目录字段中输入～/mcell_tutorial/sc(或Windows上的C:\mcell_tutorial\sc),将sc.blend输入到文件名字段，然后点击另存为Blender文件按钮。
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/save_blend.png?raw=true)
 
