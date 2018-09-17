@@ -10,15 +10,15 @@
 
 # [6.Bimolecular Reacions](https://github.com/BlenderCN/blenderTutorial/blob/master/MCellAndCellBlender/chapter6.md)
 
-# [Advanced Models]()
+# [Advanced Models](https://github.com/BlenderCN/blenderTutorial/blob/master/MCellAndCellBlender/chapter7.md)
 
-# [Optimizing Your Simulation]()
+# [Optimizing Your Simulation](https://github.com/BlenderCN/blenderTutorial/blob/master/MCellAndCellBlender/chapter8.md)
 
-# [Mesh Analysis]()
+# [Mesh Analysis](https://github.com/BlenderCN/blenderTutorial/blob/master/MCellAndCellBlender/chapter9.md)
 
-# [Repairing Meshes]()
+# [Repairing Meshes](https://github.com/BlenderCN/blenderTutorial/blob/master/MCellAndCellBlender/chapter10.md)
 
-# [Editing MDLs and Analysis with python]()
+# [Editing MDLs and Analysis with python](https://github.com/BlenderCN/blenderTutorial/blob/master/MCellAndCellBlender/chapter11.md)
 
 # [FAQ]()
 
