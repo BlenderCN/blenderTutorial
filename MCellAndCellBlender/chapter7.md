@@ -30,13 +30,13 @@
 
 *   使用以下属性创建发布站点  
 
-**    将Site Name设置为vol_rel.
+**      将Site Name设置为vol_rel.
 
-**    将Release Shape设置为Object/Region。
+**      将Release Shape设置为Object/Region。
 
-**    将Object/Region设置为Cube。
+**      将Object/Region设置为Cube。
 
-**    将Quantity to Release设置为2000.
+**      将Quantity to Release设置为2000.
 
 ![](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/MCellAndCellBlender/molecule_rel.png?raw=true)
 
