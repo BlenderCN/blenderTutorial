@@ -14,3 +14,5 @@ blender示例教程
 # [3D Scientific Visualization with Blender试译](https://github.com/BlenderCN/blenderTutorial/blob/master/3DScientificVisualizationWithBelender/README.md)
 
 # [MCell and Cell Blender试译](https://github.com/BlenderCN/blenderTutorial/blob/master/MCellAndCellBlender/README.md)
+
+# [Sverchok教程试译](https://github.com/BlenderCN/blenderTutorial/blob/master/sverchok/README.md)
