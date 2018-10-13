@@ -43,16 +43,15 @@
 	- [Onward](#Onward)
 
 # Chapter 1: Getting Started <a id="Chapter_1_Getting_Started"></a>
-Here is something you don't know about Mike. He has read more Linux books than he cares to admit. Unfortunately, Mike rarely makes it past chapter 2. Given that the first two chapters usually contain nothing more than a warm introduction and a history of the software, this practice has two profound consequences. The first is that Mike can articulate the history of Linux far better than almost anyone. The second is that he still does not know how to actually use Linux. Granted, the former happens to be far more useful at a party than knowing the difference between "tar cvfz" and "lshw."
+这是你不了解Mike的事情。他阅读的Linux书籍比他承认的要多。不幸的是，Mike很少超过第2章。鉴于前两章通常只包含热情的介绍和软件的历史，这种做法有两个深刻的后果。首先，Mike可以比任何人都更好地表达Linux的历史。第二是他仍然不知道如何实际使用Linux。当然，前者碰巧在聚会上比知道tar cvfz和lshw之间的区别更有用。
 
-In keeping with this tech book tradition, this book won't be any different. In this chapter, you will learn Blender's rich history and be introduced to the very basics of this application.
+为了与这本教科书的传统保持一致，这本书将没有任何不同。在本章中，您将学习Blender丰富的历史，并介绍该应用程序的基础知识。
 
 ## An Origin Story <a id="An_Origin_Story"></a>
-
-It was the mid-1990s, and the personal computer was taking off faster than anyone had anticipated. With it, there arose the advent of animated graphics and 3D games.
+那是在20世纪90年代中期，个人电脑的起飞速度超过了任何人的预期。随之而来的是动画图形和3D游戏的出现。
 
 ### Blender Begins <a id="Blender_Begins"></a>
-It was at this ripe time that Blender came into being. Blender started off as an in-house 3D animation software created by a small Dutch animation studio called NeoGeo. Perhaps it was because of the lack of a cheap and capable substitute; perhaps it was due to sheer ambition, NeoGeo decided to create its own animation software from scratch rather than using what was available. The chief programmer of Blender was *Ton Roosendaal*, who was responsible for writing a large part of the core Blender functionalities.
+.
 
 For the next few years, Blender remained the internal tool of a very successful animation studio. The software became so good that in 1998, Blender was made available to the public. A new company, Not a Number (NaN), was formed to oversee the development and distribution of Blender. Largely via the Internet, Blender was distributed as two separate versions: a free version with limited functionality and a version that was not free (called Blender Publisher) that had a few additional features. Being the only complete 3D animation and game creation package available for free at a time when computer graphics was still in its infancy, Blender started gaining popularity, and many online communities developed that allowed artists to share knowledge and their work.
 
