@@ -1100,3 +1100,6 @@ In the past few years, there have been community organized game engine contests.
 Actually, even if you are planning to use Python over plain Logic Bricks, it's important to understand both systems and how they work together. In the end, which tools you use will depend on the project you are working on, your team, and your workflow.
 
 Finally, in one way or another, the next chapters all relate back to this one. You might review some parts of this chapter while learning the game engine aspects of animation, graphics, physics, constraints, and Python.
+
+
+# [Preview](02-FirstGame.md) <img src="https://camo.githubusercontent.com/10c220bc8f2362b964b4a93497e5ed340afd12d0/687474703a2f2f7069632e7169616e747563646e2e636f6d2f35387069632f31342f38362f33332f31315335385049436d69325f313032342e6a7067"  width = "72%" align="center"> [Next](04-Animation.md)
