@@ -540,3 +540,7 @@ Due to the Blender Python API change in Blender 2.5, old scripts written for 2.4
 ## Onward <a id="Onward"></a>
 
 This concludes the crash course on Blender and the game engine. By now, you should have a cursory understanding of the function of a game engine and be familiar with the Blender interface. In the next chapter, you will get your hands dirty and build a simple game by following the step-by-step tutorial.
+
+
+<img alt="Preview" src="" width="33%" align="lelt">
+<img alt="Next" src="" width="33%" align="right">
