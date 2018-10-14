@@ -543,4 +543,4 @@ This concludes the crash course on Blender and the game engine. By now, you shou
 
 
 # [Preview](https://github.com/mikepan/GameEngineBook/blob/master/text/01-GettingStarted.md) 
-<img src="../figures/Chapter1/Fig01-03.png" width="50%" align="center"> [Next](https://github.com/mikepan/GameEngineBook/blob/master/text/03-LogicBricks.md)"
+<img src="https://avatars1.githubusercontent.com/u/2807333?s=60&v=4" width="50%" align="center"> [Next](https://github.com/mikepan/GameEngineBook/blob/master/text/03-LogicBricks.md)
