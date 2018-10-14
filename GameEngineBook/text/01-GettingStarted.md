@@ -542,5 +542,5 @@ Due to the Blender Python API change in Blender 2.5, old scripts written for 2.4
 This concludes the crash course on Blender and the game engine. By now, you should have a cursory understanding of the function of a game engine and be familiar with the Blender interface. In the next chapter, you will get your hands dirty and build a simple game by following the step-by-step tutorial.
 
 
-# [Preview](01-GettingStarted.md) <img src="https://camo.githubusercontent.com/10c220bc8f2362b964b4a93497e5ed340afd12d0/687474703a2f2f7069632e7169616e747563646e2e636f6d2f35387069632f31342f38362f33332f31315335385049436d69325f313032342e6a7067"  width = "72%" align="center"> [Next](03-LogicBricks.md)
+# [Preview](../README.md) <img src="https://camo.githubusercontent.com/10c220bc8f2362b964b4a93497e5ed340afd12d0/687474703a2f2f7069632e7169616e747563646e2e636f6d2f35387069632f31342f38362f33332f31315335385049436d69325f313032342e6a7067"  width = "72%" align="center"> [Next](03-LogicBricks.md)
 
