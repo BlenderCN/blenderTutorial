@@ -51,14 +51,14 @@
 那是在20世纪90年代中期，个人电脑的起飞速度超过了任何人的预期。随之而来的是动画图形和3D游戏的出现。
 
 ### Blender Begins <a id="Blender_Begins"></a>
-.
+正是在这个成熟的时期，Blender应运而生。Blender最初是由一家名为NeoGeo的荷兰小型动画工作室创建的内部3D动画软件。也许是因为缺乏廉价而有能力的替代品，也许是因为纯粹的抱负，NeoGeo决定从零开始创建自己的动画软件，而不是使用现有的。Blender的首席程序员是Ton Roosendaal，他负责编写核心Blender功能的大部分内容。
 
-For the next few years, Blender remained the internal tool of a very successful animation studio. The software became so good that in 1998, Blender was made available to the public. A new company, Not a Number (NaN), was formed to oversee the development and distribution of Blender. Largely via the Internet, Blender was distributed as two separate versions: a free version with limited functionality and a version that was not free (called Blender Publisher) that had a few additional features. Being the only complete 3D animation and game creation package available for free at a time when computer graphics was still in its infancy, Blender started gaining popularity, and many online communities developed that allowed artists to share knowledge and their work.
+在接下来的几年里，Blender仍然是一个非常成功的动画工作室的内部工具。该软件变得非常好，1998年，Blender向公众开放。一家新的公司Not a NaN（NaN）成立，以监督Blender的开发和分销。很大程度上通过互联网，Blender分为两个独立的版本：一个功能有限的免费版本和一个不免费的版本（称为Blender Publisher），它有一些额外的功能。作为唯一一个在计算机图形处于起步阶段时免费提供的完整3D动画和游戏创建软件包，Blender开始越来越受欢迎，许多在线社区开发出来，允许艺术家分享知识和他们的工作。
 
 ![Left: Blender 1.6. Right: Blender 2.65](../figures/Chapter1/Fig01-01.jpg)
 
 ###  The Dark Nights <a id="The_Dark_Nights"></a>
-Alas, with the collapse of the Internet bubble and some other unfortunate circumstances, Not a Number (NaN) filed for bankruptcy in 2002. Since Blender was the intellectual property of the company at the time, dissolving the company meant an uncertain future for Blender. The Blender community did not want to see their favorite software go down with NaN. So a deal was struck in which NaN would release the source code of Blender to the public for a payment of €100,000. A "Free the Blender" fundraising campaign was started. The online community responded very generously. A few months later, enough money was collected to convince NaN to re-release Blender as an open source software to the newly established Blender Foundation. The foundation was created specifically to manage the now open source Blender. Ton Roosendaal, the original creator of Blender, heads the foundation.
+唉，随着互联网泡沫的破灭和其他一些不幸的情况，Not a Number(NaN)2002年宣告破产。由于Blender当时是公司的知识产权，因此解散公司意味着Blender的未来前景不明朗。Blender社区不希望看到他们最喜欢的软件与NaN一起消失。因此达成了一项协议，支付NaN100000欧元NaN将向公众发布Blender的源代码。一场“Free the Blender"筹款活动开始了。在线社区非常慷慨的回应。几个月后，收集了足够的钱来说服NaN重新发布Blender作为新成立的Blender Foundation的开源软件。该基金会专门用于管理现在的开源Blender。作为Blender创始人，Ton Roosendaal领导了该基金会。
 
 ### Blender Rises <a id="Blender_Rises"></a>
 Located in beautiful Amsterdam, the Blender Foundation now oversees the development, distribution, and marketing of Blender. But because of the open source nature of the software, its development has been driven largely by volunteer contributors from across the world.
