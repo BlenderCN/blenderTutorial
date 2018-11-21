@@ -54,7 +54,7 @@
 
         return json.dumps({"atoms": atoms, "bonds": bonds})
 
-
+github存储库中存在一些额外的混乱来处理极端情况，但是这个函数通常应该可以工作。
     
 
 [link](https://patrickfuller.github.io/molecules-from-smiles-molfiles-in-blender/)
