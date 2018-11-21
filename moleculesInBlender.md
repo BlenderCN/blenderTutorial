@@ -24,6 +24,37 @@
 
     pirnt（data["atoms"][0]["location"][1]).
 
+这将在以后派上用场。
 
+现在，回到手头的问题。我们希望为数百种文件格式提供支持（molfiles,smiles,sdf,cif,pdb等，但解析他们都是绝对的噩梦。
+在这篇文章那的先前版本中，我建议直接解析molfile。我现在收回我的话。那太愚蠢了。让我们使用Pybel，一个
+[openbabel](http://openbabel.org/wiki/Main_Page)
+库的Python包。下载它，然后我们可以在一行代码中统一所有这些文件格式。
+
+    molecule = pybel.readstring(format,sting).
+
+如果输入文件格式中没有位置数据，我们可以通过简单地调用来生成它。
+
+    molecule.make3D()
+    
+现在，我们可以将这种统一格式转换为json，我们将拥有统一的数据格式，而无需再编写任何解析逻辑
+
+    def molecule_to_json(molecule):
+        """Converts an OpenBabel molecule to json for use in Blender."""
+
+        # Save atom element type and 3D location.
+        atoms = [{"element": atom.type,
+                "location": atom.coords}
+                for atom in molecule.atoms]
+
+        # Save number of bonds and indices of endpoint atoms
+        bonds = [{"atoms": [b.GetBeginAtom().GetIndex(), b.GetEndAtom().GetIndex()],
+                "order": b.GetBondOrder()}
+                for b in openbabel.OBMolBondIter(molecule.OBMol)]
+
+        return json.dumps({"atoms": atoms, "bonds": bonds})
+
+
+    
 
 [link](https://patrickfuller.github.io/molecules-from-smiles-molfiles-in-blender/)
