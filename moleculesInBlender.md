@@ -55,6 +55,8 @@
         return json.dumps({"atoms": atoms, "bonds": bonds})
 
 github存储库中存在一些额外的混乱来处理极端情况，但是这个函数通常应该可以工作。
-    
+
+从分子对象转换为json将在很多方面帮助我们。例如，我们可以测试文件格式转换器的质量，
+甚至不需要涉及blender（在隔离块中调试代码比调试整个事件更好）。
 
 [link](https://patrickfuller.github.io/molecules-from-smiles-molfiles-in-blender/)
