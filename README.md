@@ -17,4 +17,4 @@ blender示例教程
 
 # [Sverchok教程试译](https://github.com/BlenderCN/blenderTutorial/blob/master/sverchok/README.md)
 
-# [Procedural generation of tree models for use in computer graphics](https://github.com/BlenderCN/blenderTutorial/blob/master/ProceduralGenerationOfTreeModelsForUseInComputerGraphics/README.md)
+# [Procedural generation of tree models for use in computer graphics试译](https://github.com/BlenderCN/blenderTutorial/blob/master/ProceduralGenerationOfTreeModelsForUseInComputerGraphics/README.md)
