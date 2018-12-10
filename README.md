@@ -16,3 +16,5 @@ blender示例教程
 # [MCell and Cell Blender试译](https://github.com/BlenderCN/blenderTutorial/blob/master/MCellAndCellBlender/README.md)
 
 # [Sverchok教程试译](https://github.com/BlenderCN/blenderTutorial/blob/master/sverchok/README.md)
+
+# [Procedural generation of tree models for use in computer graphics](https://github.com/BlenderCN/blenderTutorial/blob/master/ProceduralGenerationOfTreeModelsForUseInComputerGraphics/README.wiki)
