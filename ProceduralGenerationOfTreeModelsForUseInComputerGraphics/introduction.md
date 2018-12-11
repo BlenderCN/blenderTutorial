@@ -22,5 +22,17 @@ Honda是第一个提出通过使用多个简单参数来表示树木的[Hon71](h
 
 Weber和Penn后来为树模型引入了更为全面的参数描述，并取得了令人印象深刻的结果[Wp 95](http://www.cs.duke.edu/courses/cps124/spring08/assign/07_papers/p119-weber.pdf)。他们的系统递归地构建一个基于数字输入参数列表的3D模型。现有的实现，例如Arbaro[Die 15](http://arbaro.sourceforge.net/),一个独立java应用程序，输出到标准3D文件格式，以及Sapling Tree插件[Hal](https://en.blender.org/index.php/Extensions:2.6/Py/Scripts/Curve/Sapling_Tree),一个blender插件，都是相当成功的。
 
+我选择了基于Weber和Penn的方法来实现一个系统，考虑到它的相对易用性和令人印象深刻的视觉效果。第[2.3.2](https://github.com/BlenderCN/blenderTutorial/blob/master/ProceduralGenerationOfTreeModelsForUseInComputerGraphics/preparation.md#232)节概述了Weber和Penn的模型，附录c概述了所有参数。
+
+## 1.2.3 Modular Approach
+
+另一种最近的方法是从许多较小的块构建树模型，通常是从真实的树中手工建模或3D扫描。这些块的排列和合并方式使得每个连接都是连续的，因此得到的完整的树模型在视觉上是令人愉悦的。这允许具有许多复杂元素的非常详细和视觉感兴趣的模型，但将生成限制在手动获得的树段上。
+
+使用这种方法[Xie+15](https://www.cs.bgu.ac.il/~asharf/tree.pdf)已经取得了令人印象深刻的结果,而用于Blender的[Modular Tree](https://github.com/MaximeHerpin/modular_tree)插件使用了这种方法的许多方面，但我们决定不关注这种方法，因为它需要一个重要的建模/扫描树部件库，这是我无法轻易获得的。
+
+## 1.2.4 Space Colonisation
+
+Runions等人最近提出了一个完全不同的系统，这涉及到使用空间殖民算法[RLP07]
+
 
 
