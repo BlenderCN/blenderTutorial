@@ -32,7 +32,10 @@ Weber和Penn后来为树模型引入了更为全面的参数描述，并取得�
 
 ## 1.2.4 Space Colonisation
 
-Runions等人最近提出了一个完全不同的系统，这涉及到使用空间殖民算法[RLP07]
+Runions等人最近提出了一个完全不同的系统，这涉及到使用space colonisation算法[RLP07](http://algorithmicbotany.org/papers/colonization.egwnp2007.pdf)对树木进行建模。该算法采用了植物信息的生长过程，对封闭的包络进行了定植，并由Palubicki等人对其进行了极大的改进[Pal+09](http://algorithmicbotany.org/papers/selforg.sig2009.small.pdf)
 
+自那时以来，已经有了许多成功的实现，如[TreeSketch](http://algorithmicbotany.org/papers/TreeSketch.SBM2012.large.pdf)和Blender的[SpaceTree](https://github.com/varkenvarken/spacetree)插件。使用这种方法产生的结果在现实上肯定可以与Weber和Penn的方法相媲美，但由于时间限制，我决定在这个项目中不采用space colonisation。
+
+## 1.2.5 Botanical Simulation
 
 
