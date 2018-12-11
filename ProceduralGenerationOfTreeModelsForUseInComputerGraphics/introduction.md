@@ -20,7 +20,7 @@
 
 Honda是第一个提出通过使用多个简单参数来表示树木的[Hon71](http://www.speedtree.com/)。Aono和Knii采用了这种方法来生成3D模型[AK 84](http://dx.doi.org/10.1109/MCG.1984.276141)。Oppenheimer也开始采用这种方法[Opp 86](moz-extension://893a0fe3-8072-40ae-b8cb-cd873af8d934/content_scripts/pdfjs/web/viewer.html#cite.0@oppen),尽管两者仍然使用基于分形的结构，从而产生了一些不现实的模型。
 
-Weber和Penn后来为树模型引入了更为全面的参数描述，并取得了令人印象深刻的结果[Wp 95](http://www.cs.duke.edu/courses/cps124/spring08/assign/07_papers/p119-weber.pdf)。他们的系统递归地构建一个基于数字输入参数列表的3D模型。现有的实现，例如Arbaro[Die 15](http://arbaro.sourceforge.net/),一个独立java应用程序，输出到标准3D文件格式，以及Sapling Tree插件[Hal](http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Curve/Sapling_Tree),一个blender插件，都是相当成功的。
+Weber和Penn后来为树模型引入了更为全面的参数描述，并取得了令人印象深刻的结果[Wp 95](http://www.cs.duke.edu/courses/cps124/spring08/assign/07_papers/p119-weber.pdf)。他们的系统递归地构建一个基于数字输入参数列表的3D模型。现有的实现，例如Arbaro[Die 15](http://arbaro.sourceforge.net/),一个独立java应用程序，输出到标准3D文件格式，以及Sapling Tree插件[Hal](https://en.blender.org/index.php/Extensions:2.6/Py/Scripts/Curve/Sapling_Tree),一个blender插件，都是相当成功的。
 
 
 
