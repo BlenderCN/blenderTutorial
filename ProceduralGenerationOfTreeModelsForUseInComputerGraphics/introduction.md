@@ -39,3 +39,7 @@ Runions等人最近提出了一个完全不同的系统，这涉及到使用spac
 ## 1.2.5 Botanical Simulation
 
 一种不太突出的方法是试图精确地模拟树的生长过程，以便创建一个三维模型。De Reffye等人这一方法取得了相对成功[Ref+88](http://doi.acm.org/10.1145/54852.378505),尽管最近在这方面的工作很少。这很可能是由于模拟增长过程的计算复杂性，当可以用更简单的模型，如上面提出的那些模型实现可比较的视觉结果时。因此，我决定不探讨这一方法。
+
+[<——](https://github.com/BlenderCN/blenderTutorial/blob/master/ProceduralGenerationOfTreeModelsForUseInComputerGraphics/README.md)
+
+[——>](https://github.com/BlenderCN/blenderTutorial/blob/master/ProceduralGenerationOfTreeModelsForUseInComputerGraphics/preparation.md)
