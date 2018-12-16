@@ -47,15 +47,15 @@ Chapter 9，Bang Bang – Let's Make It Explode，结束本书，看看使用声
 ## 在这本书你需要什么
 
 这本书需要下列硬件和软件：
-•   Desktop PC or Mac
-•   Windows 7 64-bit or Mac OS X 10.10 or later
-•   Quad-core Intel or AMD processor, 2.5 GHz, or faster
-•   NVIDIA GeForce 470 GTX or AMD Radeon 6870 HD series card or a higher version
-•   8 GB RAM
-•   A three-button mouse
-•   Unreal Engine 4.9 or a later version
-•   Blender 2.76 Release Candidate 3 or a later version
-•   Substance Painter 1.7 30 day free trial or a later version
+*   Desktop PC or Mac
+*   Windows 7 64-bit or Mac OS X 10.10 or later
+*   Quad-core Intel or AMD processor, 2.5 GHz, or faster
+*   NVIDIA GeForce 470 GTX or AMD Radeon 6870 HD series card or a higher version
+*   8 GB RAM
+*   A three-button mouse
+*   Unreal Engine 4.9 or a later version
+*   Blender 2.76 Release Candidate 3 or a later version
+*   Substance Painter 1.7 30 day free trial or a later version
 
 
 
