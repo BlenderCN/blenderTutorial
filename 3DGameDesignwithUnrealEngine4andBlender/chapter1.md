@@ -28,3 +28,11 @@
 5. Follow the installation prompts.They are pretty straightforward and do not need additional configuration
 
 一旦安装好所有内容，请继续运行程序。你会看到闪屏。现在让我们来看看界面。
+
+## Exploring the interface
+
+当你运行Blender时，你会看到启动画面。你最近处理过的文件列表将在左侧列出，以及一些指向各种内容的快速链接，例如文档和网站。单击闪屏两侧的空格以将其删除。现在让我们来看看默认场景。
+
+Blender已经开始使用场景中的三个基本对象：立方体，灯光和相机，如下面的屏幕截图所示
+
+
