@@ -26,3 +26,18 @@ blender示例教程
 # [Blender For Dummies试译](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderForDummies/README.md)
 
 # [Building a Game with Unity and Blender试译](https://github.com/BlenderCN/blenderTutorial/blob/master/BuildingaGamewithUnityandBlender/README.md)
+
+# [Blender Cycles: Materials and Textures Cookbook, Third Edition](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderCyclesMaterialsandTexturesCookbookThirdEdition/README.md)
+# [Blender 3D Incredible Machines](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender3DIncredibleMachines/README.md)
+# [Blender 3D Basics Beginner’s Guide](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender3DBasicsBeginnersGuide/README.md)
+# [Blender 3D 2.49 Incredible Machines](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender3D249IncredibleMachines/README.md)
+# [Blender 2.5 Lightning and Rendering](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender25LightningandRendering/README.md)
+# [Blender 3D Cookbook](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender3DCookbook/README.md)
+# [Blender for Animation and Film-Based Production](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderforAnimationandFilmBasedProduction/README.md)
+# [Blender 3D Printing Essentials](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender3DPrintingEssentials/README.md)
+# [Blender 3D Basics, 2nd Edition](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender3DBasics2ndEdition/README.md)
+# [Blender 2.6 Cycles: Materials and Textures Cookbook](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender26CyclesMaterialsandTexturesCookbook/README.md)
+# [Blender Cycles: Lighting and Rendering Cookbook](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderCyclesLightingandRenderingCookbook/README.md)
+# [Beginning Blender](https://github.com/BlenderCN/blenderTutorial/blob/master/BeginningBlender/README.md)
+
+
