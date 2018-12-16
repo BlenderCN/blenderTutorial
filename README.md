@@ -21,4 +21,8 @@ blender示例教程
 
 # [3D Game Design with Unreal Engine 4 and Blender试译](https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/READMD.md)
 
-# [Blender 3D by Example试译]()
+# [Blender 3D by Example试译](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender3DbyExample/README.md)
+
+# [Blender For Dummies试译](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderForDummies/README.md)
+
+# [Building a Game with Unity and Blender试译](https://github.com/BlenderCN/blenderTutorial/blob/master/BuildingaGamewithUnityandBlender/README.md)
