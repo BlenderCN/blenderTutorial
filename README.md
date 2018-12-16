@@ -1,16 +1,16 @@
 # blenderTutorial
 
 ### 这是关于blender的一些英文书籍的翻译以及一些教程的汇总,由于时间及能力有限，过程中难免会出现一些错误,每本书籍或教程后一般会附有[link]()，这是相关资源的网址，你可自行参阅
-## blender示例教程
+# blender示例教程
 [tutorialsforblender3d.com](http://www.tutorialsforblender3d.com/)
 
 [blender.freemovies.co.uk](http://blender.freemovies.co.uk/)
 
 [BlenderPythonRecipes](https://github.com/zeffii/BlenderPythonRecipes/wiki/Empty-(null-object))
 
-# [blender python api源码](https://github.com/Apress/blender-python-api)
+[blender python api源码](https://github.com/Apress/blender-python-api)
 
-## blender相关书籍试译
+# blender相关书籍试译
 
 ### [The Blender Python API: Precision 3D Modeling and Add-on Development试译](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/README.md)
 
