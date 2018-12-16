@@ -69,6 +69,34 @@ Blender是全球开发人员使用的一个强大的开源3D软件包；它以�
 
 文本中的代码字，数据库表名，文件夹名，文件名，文件扩展名，路径名，虚拟URL，用户输入和Twitter句柄如下所示：可以通过在“查找节点”搜索框中键入E来找到它。
 
+新术语和重要单词以粗体显示。你在屏幕上看到的单词（例如，在菜单或对话框中）会在文本中显示如下：“单击”添加修改器“下拉列表并选择镜像”。
+
+## 读者反馈
+
+欢迎来自我们读者打反馈。让我们知道你对这本书的看法——你喜欢或不喜欢的内容。读者反馈对我们很重要，因为它可以帮助我们开发你将真正获得最大利益打标题。
+
+要向我们发送一般反馈，只需发送电子邮件至Feedback@packpub.com,并在邮件主题中提及该书打标题。
+
+如果你有专业知识，并且你有兴趣撰写或撰写书籍，请参阅我们的作者指南，网址为www.packpub.com/authors
+
+## Customer support
+
+既然你是Packt书籍打骄傲所有者，我们有很多东西可以帮助你从购买中获得最大收益。
+
+## Downloading the color images of this book
+
+我们还为你提供了一个PDF文件，其中包含本书中使用的屏幕截图/图表打彩色图像。彩色图想将帮助你更好地了解输出打变化。你可以从http://ww.packtpub.com/sites/default/files/downloads/3DGameDesignwithUnrealEngine4andBlender_coloredImages.pdf下载此文件。
+
+## 勘误表
+
+虽然我们已经尽力确保内容的准确性，但确实会发生错误。如果你在我们打某本书中发现了错误——可能是文本或代码中打错误——如果你能向我们报告，我们将不胜感激。通过这样做，你可以使其它读者免于沮丧，并帮助我们改进本书的后续版本。如果你发现任何勘误表，请访问http://ww.packtpubcom/submit-errata 报告，选择你的图书，点击勘误表提交表格链接，然后输入你的勘误表打详细信息。一旦你的勘误表得到验证，你的提交将被接受，勘误表江上传到我们的网站或添加到该标题打勘误表部分下的任何现有勘误表列表中。
+
+要查看以前提交的勘误表，请访问https://www.packpub.com/books/content/support 并在搜索字段中输入该书的名称。所需信息将显示在勘误表部部分下。
+
+## Questions
+
+如果你对本书打任何方面有疑问，可以发送电子邮件至questions@packtpub.com与我们联系，我们将尽力解决问题
+
 
 
 [link](http://file.allitebooks.com/20170803/3D%20Game%20Design%20with%20Unreal%20Engine%204%20and%20Blender.pdf)
