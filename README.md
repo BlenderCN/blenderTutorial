@@ -10,6 +10,8 @@
 
 ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[blender python api源码](https://github.com/Apress/blender-python-api)
 
+![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[blender经验](https://github.com/BlenderCN/blenderTutorial/blob/master/blender%E7%BB%8F%E9%AA%8C.md)
+
 # blender相关书籍试译
 
 ### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[The Blender Python API: Precision 3D Modeling and Add-on Development试译](https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/README.md)
