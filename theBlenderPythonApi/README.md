@@ -139,3 +139,6 @@ Blender2.50和forward将于2009年发布，它将使用纯Python将编辑任务�
 随着我们在2010年初开始，Blender艺术家将越来越意识到Python脚本对建模体验的影响。某些插件将成为对某些领域感兴趣的艺术家的必备品。
 其他3D建模软件的开发人员正在开发输出端口，将Blender移植到他们的软件中。今天，Blender有其模块化，以感谢其庞大的人才库，
 高薪的职业就业机会和积极的发展社区。
+
+
+[link](http://file.allitebooks.com/20170616/The%20Blender%20Python%20API.pdf)
