@@ -35,17 +35,17 @@
 
 Blender已经开始使用场景中的三个基本对象：立方体，灯光和相机，如下面的屏幕截图所示
 
-![屏幕截图]()
+![屏幕截图](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png)
 
 右键单击对象，选择其中任何一个。这将以橙色突出显示。尝试右键单击场景中的其他对象。
 
-![数字键]()
+![数字键](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/%E6%95%B0%E5%AD%97%E9%94%AE.png)
 
 我们可以通过按住鼠标中键（MMB）来围绕中心旋转我们的视角。我们可以通过按住Shift+MMB并使用鼠标滚轮或+和-在数字键盘上进行缩放来滑动视图。最后，数字键盘还可以用于查看对象的特定角度
 
 现在让我们来看一看软件界面菜单：
 
-![界面菜单]()
+![界面菜单](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/%E7%95%8C%E9%9D%A2%E8%8F%9C%E5%8D%95.png)
 
 1. Mnu bar
 
@@ -83,13 +83,13 @@ Blender已经开始使用场景中的三个基本对象：立方体，灯光和�
 
 下面截屏显示了Blender User Preferences窗口：
 
-![右键选择]()
+![右键选择](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/%E5%8F%B3%E9%94%AE%E9%80%89%E6%8B%A9.png)
 
 要更改此下一个设置，我们将查看Properties窗格。窗口看起来像这样：
 
 窗格顶部有几个小标签。我们正在寻找此图标表示的场景选项卡：
 
-![选项卡]()
+![选项卡](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/%E9%80%89%E9%A1%B9%E5%8D%A1.png)
 
 此窗格允许我们更改与场景相关的多个选项，例如比例。虚幻引擎4使用厘米作为其默认度量，因此我们希望在此处匹配。这将使我们的游戏资产适合我们的水平，而无需在游戏引擎中扩展他们。跟着这些步骤：
 
@@ -107,7 +107,7 @@ Blender已经开始使用场景中的三个基本对象：立方体，灯光和�
 
 Blender还有一个我们还没有谈过的菜单。这是一个位于3D视图的小菜单栏，如下所示：
 
-![菜单]()
+![菜单](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/%E8%8F%9C%E5%8D%95.png)
 
 它包含了View，Select，Add和Object菜单。它还包含模式下拉列表。我们将本书中使用许多不同模式，但我们将大部分时间都花在编辑模式上。这种模式允许我们将基本形状推入和拉出到我们的新创作中。Blender允许我们通过Tab键轻松在Object模式（默认模式）和Edit模式之间切换。仅当你有一个可在场景中选择的对象时，此功能才有效。你会注意到更改模式时许多菜单都会发生变化。当我们在第三章创建第一个对象时，我们将更多地探索这个，这是自定义的时间！
 
@@ -135,11 +135,11 @@ Blender还有一个我们还没有谈过的菜单。这是一个位于3D视图�
 
 接下来，单击屏幕左侧的Library按钮。在标有引擎版本的部分中，单击版本4.9.2上的启动(撰写本文时的最新版崩）。如果没有引擎可见，请选择添加版本并按照提示操作：
 
-![Unreal 版本]()
+![Unreal 版本](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/Unreal%E7%89%88%E6%9C%AC.png)
 
 一旦引擎加载，你将看到你正在处理的所有项目。对于这个，让我们开始一个新项目。单击顶部的New Project选项卡，如以下屏幕截图所示：
 
-![Unreal 加载]()
+![Unreal 加载](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/Unreal%E5%8A%A0%E8%BD%BD.png)
 
 在这一点上，Unreal为你提供了一些选择。该引擎附带了许多免费的入门项目，可以帮助你开始使用多种不同类型的项目。对于我们的项目，我们将使用First Person启动项目。确保Starter Content按钮显示WWith Starter content并为项目指定一个没有空格的唯一名称。完成所有设置后，单击右下方的Create Project。虚幻引擎将加载，我们将设置为启动我们的级别。
 
