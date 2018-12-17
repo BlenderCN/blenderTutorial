@@ -141,7 +141,7 @@ Blender还有一个我们还没有谈过的菜单。这是一个位于3D视图�
 
 ![Unreal 加载](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/Unreal%E5%8A%A0%E8%BD%BD.png)
 
-在这一点上，Unreal为你提供了一些选择。该引擎附带了许多免费的入门项目，可以帮助你开始使用多种不同类型的项目。对于我们的项目，我们将使用First Person启动项目。确保Starter Content按钮显示WWith Starter content并为项目指定一个没有空格的唯一名称。完成所有设置后，单击右下方的Create Project。虚幻引擎将加载，我们将设置为启动我们的级别。
+在这一点上，Unreal为你提供了一些选择。该引擎附带了许多免费的入门项目，可以帮助你开始使用多种不同类型的项目。对于我们的项目，我们将使用First Person启动项目。确保Starter Content按钮显示With Starter content并为项目指定一个没有空格的唯一名称。完成所有设置后，单击右下方的Create Project。虚幻引擎将加载，我们将设置为启动我们的级别。
 
 ## Summary
 
