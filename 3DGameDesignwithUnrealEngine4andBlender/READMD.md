@@ -34,7 +34,7 @@ Blender是全球开发人员使用的一个强大的开源3D软件包；它以�
 
 [Chapter 4，Getting the Assets to the Level](https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/READMD.md#chapter-4getting-the-assets-to-level)，将讨论从Blender导出我们的箱子并将其导入虚幻引擎的过程，以便我们可以在我们的货轮级别内使用它。
 
-[Chapter 5，Taking This Level Up a Notch](https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/READMD.md#chapter-5takinh-this-level-up-a-notch)，我们将看到我们从货轮转到建造空间站级别，完成脚本事件，为玩家的体验增添情感。我们将在Blueprint中查看更高级的脚本编写技术，并准备我们的级别以获得更高级的游戏资产。
+[Chapter 5，Taking This Level Up a Notch](https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/READMD.md#chapter-5takinh-this-level-up-a-notch)，我们将看到我们从货轮转到建造空间站level，完成脚本事件，为玩家的体验增添情感。我们将在Blueprint中查看更高级的脚本编写技术，并准备我们的level以获得更高级的游戏资产。
 
 [Chapter 6，Monster Assets——The Level Totally Needs One of These](https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/READMD.md#chapter-6monster-assetsthe-level-totally-needs)，带我们完成设计过程，创造出更高级的游戏资产——神器。我们将看看几个3D建模工具，你将了解如何从多个组件构建你的游戏资产。
 
