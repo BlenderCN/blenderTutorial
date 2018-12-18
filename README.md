@@ -4,7 +4,7 @@
 
 # blender官方文档
 
-[Blender Reference Manual](https://docs.blender.org/manual/en/latest/)——[Developer Documentation](https://wiki.blender.org/wiki/Main_Page)——[Blender/Python API Documentation]()
+[Blender Reference Manual](https://docs.blender.org/manual/zh-hans/dev/index.html)——[Developer Documentation](https://wiki.blender.org/wiki/Main_Page)——[Blender/Python API Documentation]()
 
 # blender示例教程
 ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[tutorialsforblender3d.com](http://www.tutorialsforblender3d.com/)
