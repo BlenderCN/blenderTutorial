@@ -1,6 +1,11 @@
 # blenderTutorial
 
 ### 这是关于blender的一些英文书籍的翻译以及一些教程的汇总,由于时间及能力有限，过程中难免会出现一些错误,每本书籍或教程后一般会附有[link](#)，这是相关资源的网址，你可自行参阅
+
+# blender官方文档
+
+[Blender Reference Manual](https://docs.blender.org/manual/en/latest/)——[Developer Documentation](https://wiki.blender.org/wiki/Main_Page)——[Blender/Python API Documentation]()
+
 # blender示例教程
 ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[tutorialsforblender3d.com](http://www.tutorialsforblender3d.com/)
 
