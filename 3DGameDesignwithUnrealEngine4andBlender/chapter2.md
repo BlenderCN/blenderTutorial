@@ -191,3 +191,14 @@ Blueprint是虚幻游戏引擎中内置的可视化脚本引擎，允许艺术�
 ![蓝图节点]()
 
 7.单击其选项卡返回事件图表。现在我们需要通过让我们的门移动来利用我们的动画值。我们在这里寻找的节点叫做Set Actor Location。在时间轴附近单击鼠标右键，然后
+
+
+
+
+
+<div align="left">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/left.png">
+</div>
+<div align="right">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/right.png">
+</div>
