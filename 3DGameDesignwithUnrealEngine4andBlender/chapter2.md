@@ -195,11 +195,9 @@ Blueprint是虚幻游戏引擎中内置的可视化脚本引擎，允许艺术�
 
 
 
-<div>
-<div align="left">
-  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/left.png">
-</div>
-<div align="right">
-  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/right.png">
-</div>
-</div>  
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/chapter1.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/left.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/chapter3.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/right.png" align="right">
+</a> 
