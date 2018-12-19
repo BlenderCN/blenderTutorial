@@ -210,10 +210,33 @@ Blueprint是虚幻游戏引擎中内置的可视化脚本引擎，允许艺术�
 
 ![Matinee界面](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/Matinee%E7%95%8C%E9%9D%A2.png)
 
+4. 当你创建Movement轨迹时，Unreal创建了第一个关键帧为0.这将是我们的向下位置。要为我们的向上位置创建第二个键，请单击Matinee屏幕左上角的Add Key按钮。右键单击该键，然后选择Set Time。在框中输入2，然后按Enter键。在我们的第二把钥匙仍然被选中的情况下，进入level并将我们的电梯移至上升位置。当我们看到创建的虚线从我们的下行位置到新的上升位置时，我们会知道它有效。最后，通过抓住5附近时间栏底部的红色标签并将其拖动到2来更改总Matinee序列的长度。完成后，让我们关闭我们的Matinee：
+
 ![完成电梯](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/%E5%AE%8C%E6%88%90%E7%94%B5%E6%A2%AF.png)
+
+在这一点上，我们需要一些按钮来控制我们的电梯。继续前进到Shapes文件夹，就像我们过去所做的那样，抓住几个我们可以用作调用按钮的形状。我使用了一个金字塔，它已经缩小了一点，以适应平台附近的柱子和墙壁。我们还需要在每个按钮周围添加BoxTriggers，以创建玩家需要使用的激活区域：
 
 ![电梯蓝图](https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/3DGameDesignwithUnrealEngine4andBlender/%E7%94%B5%E6%A2%AF%E8%93%9D%E5%9B%BE.png)
 
+6. 在我们的所有按钮和Box Triggers到位后，是时候组装Blueprint序列了。在level中，选择我们将要使用的所有Box触发器。在Blueprint窗口中，右键单击并选择为所选Actor添加事件。这允许你同时为所有触发器框创建On Actor Begin Overlap和On Actor End Overlap。我们还需要搜索输入事件以按E。
+
+7. 我们需要的下一个节点是Gate。这些节点允许你通过序列控制信息流。信息通过Enter输入进入门，并且仅在门打开时才继续。在我们的电梯控制中（见上图），按E键将信息发送到门，但只有当玩家站在其中一个电梯控制按钮时才会打开门。
+
+8. 在Gate节点之后，我们需要一个恰当命名的Flip Flop节点。此节点将执行A或B，具体取决于上次执行的分支。这将允许我们通过播放和倒转我们的Matinee来上下切换电梯。
+
+9. 现在我们要告诉我们的顺序是播放和反转Matinee。在我们的关卡中单击Matinee对象。回到蓝图并右键单击，然后选择创建对我们的Matinee Actor的引用。从Matinee Actor拖出一条线并搜索Play和Reverse节点。将这些添加到Blueprint中。
+
+10. 现在按照你在图像中看到的Blueprint连接，单击编译按钮，然后为该level进行测试！
+
+## Playtesting our level
+
+我们设计的过程的下一步是与朋友，家人以及最重要的是玩游戏的人一起测试我们的原型level。Playtesting是设计过程中最重要和最被忽视的步骤之一。许多游戏和关卡设计师都希望赶紧进行最终设计，并且通过这样做，错过了其他不参与游戏设计和构造的人可以提供的有价值的反馈。重要的是记住，尽管level可能对你来说很有趣，但其他人可能会发现它令人困惑或缺少关键功能。通过允许他们尝试原型获得的反馈可以帮助我们看到我们认为理所当然的事情，因为我们是设计师。
+
+如果这个level是针对商业游戏，我们会花一些时间与朋友和同事一起测试，并在我们去的时候收集反馈。造明可能太暗或按钮太难找到。我们可能会添加更多房间或拼图，以使level更具挑战性。我们甚至可以废弃整个事情重新开始，如果我们受到一致的反馈，人们不理解它在那里的原因。游戏测试需要记住的重要的一点是，玩家的反馈不是对你或你的想法的批评。你从他们那里收集的信息旨在提高你的水平并加强你的设计，所以千万不要错过收集这些重要数据的机会！
+
+## Summary
+
+在本章中，我们基于我们在纸上绘制的设计，使用虚幻引擎4构建了一个关卡。水平本身很简单：两个房间通过走廊连接，门，楼梯和电梯。我们使用Starter Content文件夹中的一系列形状和道具来装饰我们的空间，以适应我们的科幻主题。我们还研究了如何在关卡中使用灯光来创造紧张感并传达情绪。通过Blueprint，我们能通过动画门和电梯来探索level编程。最后，我们讨论了游戏测试的重要性以及我们的玩家的建设性批评如何才能让我们的level和游戏变得更好。在下一章中，我们将开始使用Blender并根据我们在白盒过程中用来装饰船的一些基本形状为我们的level创建道具。
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/chapter1.md">
   <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
