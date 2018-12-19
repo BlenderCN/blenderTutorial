@@ -102,3 +102,9 @@ Blender是全球开发人员使用的一个强大的开源3D软件包；它以�
 [link](http://file.allitebooks.com/20170803/3D%20Game%20Design%20with%20Unreal%20Engine%204%20and%20Blender.pdf)
 
 
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/README.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/chapter1.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>
