@@ -150,16 +150,12 @@ Blender还有一个我们还没有谈过的菜单。这是一个位于3D视图�
 
 
 
-
-
-
-
-
-
-
-
-
-
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/README.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/3DGameDesignwithUnrealEngine4andBlender/chapter2.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>
 
 
 
