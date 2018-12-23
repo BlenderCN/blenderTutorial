@@ -772,3 +772,10 @@ bpy.props.EnumProperty类是我们通过API显示下拉菜单的方式。它由�
 ## 结论
 
 下一章中，我们将讨论用于在3D视窗中可视化数据的blf和bgl模块。在第7章中，我们介绍了高级插件开发概念。
+
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter4.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter6.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>
