@@ -640,6 +640,11 @@ obj.matrix_world是表示我们的变换矩阵T的Python矩阵。
 在接下来的章节中，我们将讨论Blender中有效的插件开发所需的基本渲染概念。
 
                         
-    
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter2.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter4.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>    
     
   
