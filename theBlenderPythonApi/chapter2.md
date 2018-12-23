@@ -561,3 +561,9 @@ bpy.data.objects数据块有一个非常有趣的属性，突出了为Blender Py
  我们将详细讨论编辑模式和bmesh模块。到第三章结束时，用户应该能够使用API创建任何形状。
  随着我们引入更复杂和相互依赖的过程，抽象将变得更加重要和更加费力。
  
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter1.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter3.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>
