@@ -68,5 +68,5 @@
 
 ### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Beginning Blender试译](https://github.com/BlenderCN/blenderTutorial/blob/master/BeginningBlender/README.md)
 
-### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Blender Python API 官方文档 试译]
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Blender Python API 官方文档 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md)
 
