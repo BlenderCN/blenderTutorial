@@ -217,5 +217,10 @@ location指定位置。要对此进行测试，请在交互式控制台中运行
 我们将能够在Blender Python脚本中讨论高级概念。
 
 
-
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/README.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter2.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>
 
