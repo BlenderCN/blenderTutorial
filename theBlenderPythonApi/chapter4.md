@@ -676,3 +676,10 @@ Z-fighting是一种常见的渲染问题，它会产生毛刺的对象而不会�
 重要的是要记住，Blender已经从这里讨论的许多低级3D建模概念中抽象出来。对我们有帮助的是，我们不必担心数据表示，
 着色语义和绝大部分时间的Z-fighting。尽管如此，我们还是会介绍这些概念，但在调试时，
 对这些问题及其驱动程序的了解可以避免很多麻烦。
+
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter3.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter5.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>
