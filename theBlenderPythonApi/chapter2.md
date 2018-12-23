@@ -2,8 +2,8 @@
 
 本章介绍和详细介绍了bpy模块的主要组件。在这样做时，我们解释了Blender的许多重要行为。我们涵盖选择和激活，创建和删除，场景管理和代码抽象。
 
-可以通过在http://www.blender.org/api/上选择Blender版本来找到Blender Python API的官方文档。我们在本文中使用了Blender2.78c，
-因此我们的文档可以在http://www.blender.org/api/blender_python_api_2_78c_release/找到。
+可以通过在http://www.blender.org/api/ 上选择Blender版本来找到Blender Python API的官方文档。我们在本文中使用了Blender2.78c，
+因此我们的文档可以在http://www.blender.org/api/blender_python_api_2_78c_release/ 找到。
 
 ## 模块概述
 
