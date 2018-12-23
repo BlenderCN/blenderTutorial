@@ -632,3 +632,10 @@ bpy.types.Panel的核心组织函数是box(),row(),column(),separator()和label(
 鼓励用户共享代码并相互学习。鼓励读者复制和修改其他开发人员的工作，然后分享他们的工作供他人学习。
 
 下一章以纹理和渲染的处理结束本文。
+
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter6.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter8.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>
