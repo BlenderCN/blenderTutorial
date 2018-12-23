@@ -142,3 +142,11 @@ Blender2.50和forward将于2009年发布，它将使用纯Python将编辑任务�
 
 
 [link](http://file.allitebooks.com/20170616/The%20Blender%20Python%20API.pdf)
+
+
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/README.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter1.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>
