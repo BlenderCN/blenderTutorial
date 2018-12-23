@@ -592,3 +592,11 @@ draw_main()函数意味着在每次帧更新时执行。为了管理运算符中
 
 在下一章中，我们将讨论高级插件。我们学习如何完全忽略文本编辑其，并直接在Blender的文件树中构建复杂的插件。此外，
 我们研究了一些流行的开源插件，以了解它们如何解决我们迄今为止面临的许多开发挑战。
+
+
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter5.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/theBlenderPythonApi/chapter7.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>
