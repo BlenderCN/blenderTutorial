@@ -297,6 +297,85 @@ python脚本可以通过以下方式与Blender集成：
 
 8. 单击搜索中的Simple Operator项。
 
+!See also
+    
+    具有bl_前缀的类成员记录在API参考bpy.types.Operator中。
+    
+！Note
+
+    主函数的输出发送到终端；为了看到这一点，一定要[使用终端](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/TipsandTricksHintstohelpyouwhilewritingscriptsforBlender.md)。
+
+### Example Panel
+
+面板将自己注册为类，就像operator一样。注意额外的bl_变量用于设置它们显示的context。
+
+    import bpy
+    
+    class HelloWorldPanel(bpy.types.Panel):
+        """Creates a Panel in the Object properties window"""
+        bl_label = "Hello World Panel"
+        bl_idname = "OBJECT_PT_hello"
+        bl_space_type = "PROPERTIES"
+        bl_region_type = "WINDOW"
+        bl_context = "object"
+        
+        def draw(self,context):
+            layout = self.layout
+            
+            obj = context.object
+            
+            row = layout.row()
+            row.label(text="Hello world!",icon="WORLD_DATA")
+            
+            row.layout.row()
+            row.label(text="Active object is: " + obj.name)
+            row = layout.row()
+            row.prop(obj,"name")
+            
+            row = layout.row()
+            row.operator("mesh.primitive_cube_add")
+            
+    def register():
+        bpy.utils.register_class(HelloWorldPanel)
+        
+    def unregister():
+        bpy.utils.unregister_class(HelloWorldPanel)
+        
+    if __name__ == "__main__":
+        register()
+        
+要运行脚本：
+
+
+1. 突出显示上面的代码，然后按Ctrl-C复制它。
+
+2. 启动Blender。
+
+3. 单击Scripting工作区的选项卡
+
+4. 单击标记为新建的按钮以创建新文本块。
+
+5. 按Ctrl-V将代码粘贴到文本面板（左上方框架）。
+
+6. 单击Run Script按钮。
+        
+查看结果：
+
+1. 选择默认立方体
+
+2. 单击按钮面板中的对象属性图标（最右侧；显示为一个小立方体）。
+
+3. 向下滚动以查看名为Hello World Panel的面板。
+
+4. 更改对象名称还会更新Hello World Panel的名称：字段。
+
+请注意行分布以及代码中可用的标签和属性。
+
+！See also
+    
+    [bpy.types.Panel](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/Typesbpytypes.md)
+
+
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
   <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
 </a>
