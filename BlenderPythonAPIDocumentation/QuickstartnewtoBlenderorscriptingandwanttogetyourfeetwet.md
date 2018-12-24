@@ -381,11 +381,11 @@ Blender的Python API可以分为3类。
 
 *   Blender enumerator->string
 
-    >>>C.object.rotation_mode = 'AXIS_ANGLE'
+        >>>C.object.rotation_mode = 'AXIS_ANGLE'
     
 *   Blender enumerator(multiple)->set of strings
 
-    # setting multiple camera overlay guides
+        # setting multiple camera overlay guides
 
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
