@@ -210,9 +210,7 @@ Operators通常是用户通过按钮，菜单项或键快捷键访问的工具�
     >>>bpy.ops.object.scale_apply()
     {'FINISHED'}
     
-！Note
-    
-    菜单项：Help>Operator Cheat Sheet提供了Python中所有operators及默认值的列表，以及生成的文档。这是了解所有Blender的operators概况的好方法。
+！Note——菜单项：Help>Operator Cheat Sheet提供了Python中所有operators及默认值的列表，以及生成的文档。这是了解所有Blender的operators概况的好方法。
 
 ### Operator Poll()
 
@@ -297,13 +295,9 @@ python脚本可以通过以下方式与Blender集成：
 
 8. 单击搜索中的Simple Operator项。
 
-!See also
+!See also——具有bl_前缀的类成员记录在API参考bpy.types.Operator中。
     
-    具有bl_前缀的类成员记录在API参考bpy.types.Operator中。
-    
-！Note
-
-   主函数的输出发送到终端；为了看到这一点，一定要[使用终端](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/TipsandTricksHintstohelpyouwhilewritingscriptsforBlender.md)。
+！Note——主函数的输出发送到终端；为了看到这一点，一定要[使用终端](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/TipsandTricksHintstohelpyouwhilewritingscriptsforBlender.md)。
 
 ### Example Panel
 
@@ -371,9 +365,16 @@ python脚本可以通过以下方式与Blender集成：
 
 请注意行分布以及代码中可用的标签和属性。
 
-！See also
-    
-   [bpy.types.Panel](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/Typesbpytypes.md)
+！See also——[bpy.types.Panel](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/Typesbpytypes.md)
+
+### Types
+
+Blender定义了许多Python类型，但也使用Python本地类型。
+
+Blender的Python API可以分为3类。
+
+### Native Types
+
 
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
