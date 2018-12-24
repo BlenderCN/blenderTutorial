@@ -375,6 +375,17 @@ Blender的Python API可以分为3类。
 
 ### Native Types
 
+在简单的情况下，将数字或字符串作为自定义类型返回会很麻烦，因此可以将它们作为普通的Python类型进行访问。
+
+*   Blender float/int/boolean->float/int/boolean
+
+*   Blender enumerator->string
+
+    >>>C.object.rotation_mode = 'AXIS_ANGLE'
+    
+*   Blender enumerator(multiple)->set of strings
+
+    # setting multiple camera overlay guides
 
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
