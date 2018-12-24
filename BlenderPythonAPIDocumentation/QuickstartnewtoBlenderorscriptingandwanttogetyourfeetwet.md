@@ -219,7 +219,65 @@ Operators通常是用户通过按钮，菜单项或键快捷键访问的工具�
 许多operators都有poll函数，可以检查光标是否位于有效区域，或者对象是否处于正确模式（编辑模式、绘制权重等）。当operator的poll
 函数在Python中失败时，会引发异常。
 
+例如，从控制台调用bpy.ops.view3d.render_border()会引发以下错误：
 
+    RuntimeError: Operator bpy.ops.view3d.render_border.poll() failed, context is incorrect
+    
+在这种情况下，context必须是带有活动摄像机的3d视图。
+
+为了避免在调用运算符的地方使用try/except子句，可以调用operators自己的poll()函数来检查它是否可以在当前context中运行。
+
+    if bpy.ops.view3d.render_border.poll():
+        bpy.ops.view3d.render_border()
+        
+### Integration
+
+python脚本可以通过以下方式与Blender集成：
+
+*   通过定义渲染引擎。
+
+*   通过定义operators
+
+*   通过定义菜单，标题和面板。
+
+*   通过在现有菜单，标题和面板中插入新按钮。
+
+在Python中，这是通过定义一个类来完成的，该类是现有类型的子类。
+
+### Example Operator
+
+    import bpy
+    
+    def main(context):
+        for ob in context.scene.objects:
+            print(ob)
+            
+    class SimpleOperator(bpy.types.Operator):
+        """Tooltip"""
+        bl_idname = "object.simple_operator"
+        bl_label = "Simple Object Operator"
+        
+        @classmethod
+        def poll(cls,context):
+            return context.active_object is not None
+        
+        def execute(self,context):
+            main(context)
+            return {'FINISHED'}
+            
+    def register():
+        bpy.utils.register_class(SimpleOperator)
+        
+    def unregister():
+        bpy.utils.unregister_class(SimpleOperator)
+        
+    if __name__ == "__main__":
+        register()
+        
+        # test call
+        bpy.ops.object.simple_operator()
+        
+运行此脚本后，SimpleOperator将在Blender中注册，可以从operator搜索弹出窗口中调用或添加到工具栏中。
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
   <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
