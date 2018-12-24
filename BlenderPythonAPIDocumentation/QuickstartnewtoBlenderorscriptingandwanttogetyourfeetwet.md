@@ -104,6 +104,20 @@ Python以与动画系统和用户界面相同的方式访问Blender的数据；�
     
 ### Accessing Attributes
 
+一旦有了数据块，例如材质，对象，集合等，就可以像使用图形基面更改设置一样访问其属性。事实上，每个按钮的工具提示也会显示Python属性，这有助于查找脚本中要更改的设置。
+
+    >>>bpy.data.objects[0].name
+    'Camera'
+    
+    >>>bpy.data.scenes["Scene"]
+    bpy.data.scenes['Scene']
+    
+    >>>bpy.data.materials.new("MyMaterial")
+    bpy.data.materials['MyMaterial']
+    
+为了测试访问它的数据，使用Console很有用，它是自己的空间类型。这支持自动完成，为你提供了一种快速浏览文件中不同的数据方法。
+
+可以通过控制台快速找到的数据路径示例：
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
   <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
