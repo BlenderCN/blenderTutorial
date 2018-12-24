@@ -119,6 +119,55 @@ Python以与动画系统和用户界面相同的方式访问Blender的数据；�
 
 可以通过控制台快速找到的数据路径示例：
 
+    >>>bpy.data.scenes[0].render.resolution_percentage
+    100
+    >>>bpy.data.scenes[0].objects["Cube"].data.vertices[0].co.x
+    1.0
+
+### Data Creation/Removal
+
+熟悉其他Python API的人可能会惊讶于bpy API中的新数据块不能通过调用该类创建。
+
+    >>>bpy.types.Mesh()
+    Traceback (most recent call last):
+        File "<blender_console>", line 1, in <module>
+    TypeError: bpy_struct.__new__(type): expected a single argument
+
+这是API设计的一部分。Blender/Python API无法创建存在于主Blender数据库之外（通过[bpy.data](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/DataAccessbpydata.md)访问）的Blender数据，因为此数据由Blender管理(/save/load/undo/append...等）。
+
+通过bpy.data中的集合上的方法添加和删除数据，例如：
+
+    >>>mesh = bpy.data.meshes.new(name="MyMesh")
+    >>>print(mesh)
+    <bpy_struct, Mesh("MyMesh")>
+    
+    >>>bpy.data.meshes.remove(mesh)
+    
+### Custom Properties    
+
+Python可以访问具有ID的任何数据块的属性（可以在[bpy.data](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/DataAccessbpydata.md)中链接和访问的数据。在分配属性时，你可以组成自己的名称，这些名称将在需要时创建或覆盖（如果存在）。
+
+该数据保存在Blend文件中，并与对象一起复制。
+
+例如：
+
+    bpy.context.object["MyOwnProperty"] = 42
+    
+    if "SomeProp" in bpy.context.object:
+        print("Property found")
+
+    # Use the get function like a Python dictionary
+    # which can have a fallback value.    
+    value = bpy.data.scenes["Scene"].get("test_prop","fallback value")
+    
+    # dictionaries can be assigned as long as they only use basic types.
+    
+    collection = bpy.data.collections.new("MyTestCollection")
+    collection["MySeting"] = {"foo": 10, "bar": "spam", "baz": {}}
+    
+    del collection["MySettings"]
+
+
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
   <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
 </a>
