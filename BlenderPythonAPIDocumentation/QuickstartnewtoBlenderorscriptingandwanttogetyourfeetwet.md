@@ -281,21 +281,21 @@ python脚本可以通过以下方式与Blender集成：
 
 要运行脚本：
 
-1.突出显示上面的代码，然后按Ctrl-C复制它。
+1. 突出显示上面的代码，然后按Ctrl-C复制它。
 
 2. 启动Blender。
 
-3.按Ctrl-Right两次以更改为Scripting布局。
+3. 按Ctrl-Right两次以更改为Scripting布局。
 
-4.单击标记为新建的按钮，弹出确认以创建新的文本块。
+4. 单击标记为新建的按钮，弹出确认以创建新的文本块。
 
-5.按Ctrl-V将代码粘贴到文本面板（左上方框架）。
+5. 按Ctrl-V将代码粘贴到文本面板（左上方框架）。
 
-6.单击“运行脚本”按钮。
+6. 单击“运行脚本”按钮。
 
-7.将光标移动到3D视图，按空格键选择operator搜索菜单，然后键入Simple。
+7. 将光标移动到3D视图，按空格键选择operator搜索菜单，然后键入Simple。
 
-8.单击搜索中的Simple Operator项。
+8. 单击搜索中的Simple Operator项。
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
   <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
