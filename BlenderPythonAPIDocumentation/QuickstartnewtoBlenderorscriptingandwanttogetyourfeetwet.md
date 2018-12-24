@@ -163,9 +163,52 @@ Python可以访问具有ID的任何数据块的属性（可以在[bpy.data](http
     # dictionaries can be assigned as long as they only use basic types.
     
     collection = bpy.data.collections.new("MyTestCollection")
-    collection["MySeting"] = {"foo": 10, "bar": "spam", "baz": {}}
+    collection["MySetting"] = {"foo": 10, "bar": "spam", "baz": {}}
     
     del collection["MySettings"]
+
+注意，这些属性只能分配基本的Python类型。
+
+*   int，float,string
+
+*   array of ints/floats
+
+*   dictionary(只支持字符串，值也必须是基本类型)
+
+这些属性在Python之外是有效的。它们可以通过曲线动画或用于驱动程序路径。
+
+### Context
+
+虽然能够通过名称或列表直接访问数据很有用，但是对用户的选择进行操作更常见。内容总是可以从bpy.context获得，可用于获取活动对象，场景，工具设置以及许多其他属性
+
+常见用例：
+
+    >>>bpy.context.object
+    >>>bpy.context.selected_objects
+    >>bpy.context.visible_bones
+    
+注意，context是只读的。不能直接修改这些值，但是可以通过运行API函数或使用data API来更改它们。    
+
+所以bpy.context.object = obj将会引发错误。
+
+但是bpy.context.scene.objects.active = obj将会按预期工作。  ?????
+
+context属性根据访问它们的位置而变化。3D视图的context成员与console不同，因此在访问用户状态已知的context属性时要小心
+
+查看[bpy.context](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/ContextAccessbpycontext.md) API参考。
+
+### Operators(Tools)
+
+Operators通常是用户通过按钮，菜单项或键快捷键访问的工具。从用户的角度来看，它们是一个工具，但是Python可以通过bpy.ops模块使用自己的设置来运行它们。
+
+例如：
+
+    >>>bpy.ops.mesh.flip_normals()
+    {'FINISHED'}
+    >>>bpy.ops.mesh.hide(unselected=False)
+    {'FINISHED'}
+    >>>bpy.ops.object.scale_apply()
+    {'FINISHED'}
 
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
