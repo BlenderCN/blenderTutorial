@@ -283,7 +283,7 @@ python脚本可以通过以下方式与Blender集成：
 
 1.突出显示上面的代码，然后按Ctrl-C复制它。
 
-2. 启动Blender
+2. 启动Blender。
 
 3.按Ctrl-Right两次以更改为Scripting布局。
 
