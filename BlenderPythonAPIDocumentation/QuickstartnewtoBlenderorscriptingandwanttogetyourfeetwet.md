@@ -303,7 +303,7 @@ python脚本可以通过以下方式与Blender集成：
     
 ！Note
 
-    主函数的输出发送到终端；为了看到这一点，一定要[使用终端](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/TipsandTricksHintstohelpyouwhilewritingscriptsforBlender.md)。
+   主函数的输出发送到终端；为了看到这一点，一定要[使用终端](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/TipsandTricksHintstohelpyouwhilewritingscriptsforBlender.md)。
 
 ### Example Panel
 
@@ -373,7 +373,7 @@ python脚本可以通过以下方式与Blender集成：
 
 ！See also
     
-    [bpy.types.Panel](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/Typesbpytypes.md)
+   [bpy.types.Panel](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/Typesbpytypes.md)
 
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
