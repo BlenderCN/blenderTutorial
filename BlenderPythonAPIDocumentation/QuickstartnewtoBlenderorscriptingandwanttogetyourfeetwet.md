@@ -209,6 +209,16 @@ Operators通常是用户通过按钮，菜单项或键快捷键访问的工具�
     {'FINISHED'}
     >>>bpy.ops.object.scale_apply()
     {'FINISHED'}
+    
+！Note
+    
+    菜单项：Help>Operator Cheat Sheet提供了Python中所有operators及默认值的列表，以及生成的文档。这是了解所有Blender的operators概况的好方法。
+
+### Operator Poll()
+
+许多operators都有poll函数，可以检查光标是否位于有效区域，或者对象是否处于正确模式（编辑模式、绘制权重等）。当operator的poll
+函数在Python中失败时，会引发异常。
+
 
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
