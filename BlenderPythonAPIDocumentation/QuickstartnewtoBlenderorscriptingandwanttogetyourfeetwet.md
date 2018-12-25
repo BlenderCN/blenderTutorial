@@ -386,7 +386,10 @@ Blender的Python API可以分为3类。
 *   Blender enumerator(multiple)->set of strings
 
         # setting multiple camera overlay guides
-
+        bpy.context.scene.camera.data.show_guide = {'GOLDEN','CENTER'}
+        
+        # passing as an operator argument for report types
+        self.report({'WARNING','INFO'},"Some message!")
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md">
   <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
