@@ -70,3 +70,5 @@
 
 ### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Blender Python API 2.8官方文档 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderPythonAPIDocumentation/README.md)
 
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Neural Network Visualization with Blender documentation 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/NeuralNetworkVisualizationwithBlenderdocumentation/README.md)
+
