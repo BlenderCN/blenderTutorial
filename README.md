@@ -72,3 +72,5 @@
 
 ### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Neural Network Visualization with Blender documentation 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/NeuralNetworkVisualizationwithBlenderdocumentation/README.md)
 
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[armory docs 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/README.md)
+
