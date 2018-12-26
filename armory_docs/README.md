@@ -165,3 +165,11 @@ Armory是在[zlib license](https://github.com/armory3d/armory/blob/master/LICENS
 
 
 [link](https://armory3d.org/manual)
+
+
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/README.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoleft.png" align="left">
+</a>
+<a href="https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Setup.md">
+  <img src="https://github.com/BlenderCN/blenderTutorial/blob/master/mDrivEngine/blenderpng/logoright.png" align="right">
+</a>
