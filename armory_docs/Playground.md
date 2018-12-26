@@ -10,7 +10,7 @@
 
 ## Hello World
 
-从我们在[setup tutorial]中离开的地方继续。打开Blender，保存项目并在标题中选择Cycles Render或Eevee引擎。按Armory Player-Run（F5）在窗口中播放。
+从我们在[setup tutorial](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Setup.md)中离开的地方继续。打开Blender，保存项目并在标题中选择Cycles Render或Eevee引擎。按Armory Player-Run（F5）在窗口中播放。
 
 你可以在Armory Player面板中选择运行时：
 
