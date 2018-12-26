@@ -1,6 +1,6 @@
 ### Getting Started
 
-[Setup](https://armory3d.org/manual/#/getting_started/setup)
+[Setup](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Setup.md)
 
 [Playground](https://armory3d.org/manual/#/getting_started/playground)
 
