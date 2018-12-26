@@ -2,107 +2,107 @@
 
 [Setup](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Setup.md)
 
-[Playground](https://armory3d.org/manual/#/getting_started/playground)
+[Playground](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Playground.md)
 
-[Tanks](https://armory3d.org/manual/#/getting_started/tanks)
+[Tanks](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Tanks.md)
 
-[Video Tutorials](https://armory3d.org/manual/#/getting_started/video_tutorials)
+[Video Tutorials](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/VideoTutorials.md)
 
 ### Essentials
 
-[Armory API](http://armory3d.org/manual/api)
+[Armory API](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/ArmoryAPI.md)
 
-[Traits](https://armory3d.org/manual/#/essentials/traits)
+[Traits](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Traits.md)
 
-[Multi-User](https://armory3d.org/manual/#/essentials/multiuser)
+[Multi-User](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/MutiUser.md)
 
-[Optimize](https://armory3d.org/manual/#/essentials/optimize)
+[Optimize](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Optimize.md)
 
-[Krom](https://armory3d.org/manual/#/essentials/krom)
+[Krom](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Krom.md)
 
-[Physics](https://armory3d.org/manual/#/essentials/physics)
+[Physics](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Physics.md)
 
-[Navmesh](https://armory3d.org/manual/#/essentials/navmesh)
+[Navmesh](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Navmesh.md)
 
-[UI Editor](https://armory3d.org/manual/#/essentials/ui_editor)
+[UI Editor](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/UIEditor.md)
 
-[Debug](https://armory3d.org/manual/#/essentials/debug)
+[Debug](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Debug.md)
 
 ### Graphics
 
-[Materials](https://armory3d.org/manual/#/graphics/materials)
+[Materials](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Materials.md)
 
-[Global Illumination](https://armory3d.org/manual/#/graphics/global_illumination)
+[Global Illumination](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/GlobalIllumination.md)
 
-[Anit-processing](https://armory3d.org/manual/#/graphics/antialiasing)
+[Anit-processing](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Antiprocessing.md)
 
-[Post-Processing](https://armory3d.org/manual/#/graphics/screen-effects)
+[Post-Processing](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/PostProcessing.md)
 
-[Vertex Colors](https://armory3d.org/manual/#/graphics/vertexcolors)
+[Vertex Colors](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/VertexColors.md)
 
-[Instancing](https://armory3d.org/manual/#/graphics/instancing)
+[Instancing](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Instancing.md)
 
 ### Code
 
-[WebAssembly](https://armory3d.org/manual/#/code/wasm)
+[WebAssembly](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/WebAssembly.md)
 
-[JS](https://armory3d.org/manual/#/code/js)
+[JS](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/JS.md)
 
-[C++](https://armory3d.org/manual/#/code/cpp)
+[C++](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Cpp.md)
 
-[Machine Learning](https://armory3d.org/manual/#/code/machine_learning)
+[Machine Learning](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/MachineLearning.md)
 
-[Generate Mesh](https://armory3d.org/manual/#/code/generate_mesh)
+[Generate Mesh](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/GenerateMesh.md)
 
-[Transform](https://armory3d.org/manual/#/code/transform)
+[Transform](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Transform.md)
 
 ### Logic Nodes
 
-[Reference](https://armory3d.org/manual/#/logic_nodes/reference)
+[Reference](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Reference.md)
 
 ### Platforms
 
-[Windows](https://armory3d.org/manual/#/platforms/windows)
+[Windows](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Windows.md)
 
-[Linux](https://armory3d.org/manual/#/platforms/linux)
+[Linux](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Linux.md)
 
-[MacOS](https://armory3d.org/manual/#/platforms/macos)
+[MacOS](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/MacOS.md)
 
-[HTML5](https://armory3d.org/manual/#/platforms/html5)
+[HTML5](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/HTML.md)
 
-[Android](https://armory3d.org/manual/#/platforms/android)
+[Android](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Android.md)
 
-[ios](https://armory3d.org/manual/#/platforms/ios)
+[ios](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/ios.md)
 
-[Consoles](https://armory3d.org/manual/#/platforms/consoles)
+[Consoles](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Consoles.md)
 
 ### Engine Development
 
-[Git Version](https://armory3d.org/manual/#/dev/gitversion)
+[Git Version](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/GitVersion.md)
 
-[Logic Nodes](https://armory3d.org/manual/#/dev/logicnodes)
+[Logic Nodes](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/LogicNodes.md)
 
-[Render Path](https://armory3d.org/manual/#/dev/renderpath)
+[Render Path](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/RenderPath.md)
 
-[Contribute](https://armory3d.org/manual/#/dev/contribute)
+[Contribute](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Contribute.md)
 
 ### Tooling
 
-[ArmorPaint](http://armorpaint.org/manual)
+[ArmorPaint](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/ArmorPaint.md)
 
-[Substance Painter](https://armory3d.org/manual/#/tooling/substancepainter)
+[Substance Painter](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/SubstancePainter.md)
 
-[RenderDoc](https://armory3d.org/manual/#/tooling/renderdoc)
+[RenderDoc](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/RenderDoc.md)
 
 ### Remarks
 
-[Roadmap](https://github.com/armory3d/armory/projects)
+[Roadmap](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Roadmap.md)
 
-[Project History](https://armory3d.org/manual/#/remarks/history)
+[Project History](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/ProjectHistory.md)
 
-[Supported Nodes](https://armory3d.org/manual/#/remarks/supported_nodes)
+[Supported Nodes](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Supported.md)
 
-[Supported Particles](https://armory3d.org/manual/#/remarks/supported_particles)
+[Supported Particles](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/SupportedParticles.md)
 
 ### Links
 
