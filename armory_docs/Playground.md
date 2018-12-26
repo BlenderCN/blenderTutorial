@@ -16,15 +16,21 @@
 
 *   选择Krom可快速播放场景。
 
-*   选择浏览器进行HTML5部署。
+*   选择Browser进行HTML5部署。
 
-*   选择C++进行本机部署（选择C++编译器）。
+*   选择C++进行本机部署（需要C++编译器）。
 
 你可以在Armory Player面板中选择相机模式：
 
-*   选择场景从活动场景摄像机开始游戏。
+*   选择Scene从活动场景摄像机开始游戏。
 
-*   选择“视口”以从视口视图开始游戏。这对于快速场景预览很有用，因为它还可以
+*   选择Viewport以从视口视图开始游戏。这对于快速场景预览很有用，因为它还可以让你控制相机。试试看！
+
+*   在3D视图中按Shift+F可在场景中导航。
+
+此外，你可以为窗口大小调整Dimensions-Resolution。要以全屏模式运行，请选择Armory Project-Window Mode-Fullscreen
+
+![](https://armory3d.org/manual/getting_started/img/playground/1.jpg)
 
 
 
