@@ -1,6 +1,8 @@
 ## Playground Tutorial
 
-<iframe width="558" height="313" src="https://www.youtube.com/embed/H5ylSfTfNg8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch the video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://youtu.be/H5ylSfTfNg8)
+
+
 
 这个教程将引导你完成Armory的基础知识。我们将创建一个类似游乐场的场景，逐步展示基本功能
 
