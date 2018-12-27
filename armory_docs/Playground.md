@@ -72,6 +72,24 @@ Blender具有各种编辑器，可对活动对象应用程序效果。选择Cube
 
 ## Animation
 
+让我们创建一个旋转立方体的动画。找到Timeline并转到第1帧。选择立方体并按I-Rotation以插入关键帧进行旋转。接下来，转到时间轴中的第60帧。选择立方体后，按R键旋转所需的数量，然后再按I-Rotation。
+
+![](https://armory3d.org/manual/getting_started/img/playground/6.jpg)
+
+## Light
+
+从层次结构中选择灯对象并切换到Data选项卡。你可以设置灯泡类型并调整灯泡颜色和强度。
+
+![](https://armory3d.org/manual/getting_started/img/playground/9.jpg)
+
+## Environment
+
+世界节点用于设置环境。切换到Node Editor-World Nodes以访问节点。在本教程中，我们使用Sky Texture节点来渲染程序天空。我们要添加环境贴图，我们将使用带有.hdr文件的Enviroment Texture节点
+
+![](https://armory3d.org/manual/getting_started/img/playground/10.jpg)
+
+## Physics
+
 
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Setup.md">
