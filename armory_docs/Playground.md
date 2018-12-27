@@ -90,6 +90,20 @@ Blender具有各种编辑器，可对活动对象应用程序效果。选择Cube
 
 ## Physics
 
+选择对象后，导航到Physics选项卡，然后按Rigid Body按钮。在Rigid Body Collision面板中设置表示对象所需的形状。
+
+在Rigid Body面板中，设置对象质量和类型：
+
+*   为受物理影响的对象选择Active。
+
+*   为在时间轴上设置动画的对象选择Passive。
+
+![](https://armory3d.org/manual/getting_started/img/playground/11.jpg)
+
+## Asset Import 
+
+使用Blender，我们可以轻松导入常见的资产格式。
+
 
 
 <a href="https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/Setup.md">
