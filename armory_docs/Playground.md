@@ -32,9 +32,45 @@
 
 ![](https://armory3d.org/manual/getting_started/img/playground/1.jpg)
 
+## Objects
 
+我们将从一些关于如何操作场景对象的Blender基础开始：
 
+*   在3D视图中，单击Space并键入Add Plane以创建平面对象（或从3D视图标题执行Add-Mesh-Plane）。
 
+*   按S键放大平面，按R键旋转，或按G键抓取并平移。
+
+*   right-click选择对象。
+
+*   按X删除对象。
+
+## Modifiers
+
+Blender具有各种编辑器，可对活动对象应用程序效果。选择Cube，导航到Modifiers选型卡并添加Bevel修改器以使立方体边缘看起来很光亮。
+
+![](https://armory3d.org/manual/getting_started/img/playground/1b.jpg)
+
+## Materials
+
+选择立方体并切换到Node Editor。转到Shader Nodes并启用Use Nodes。现在，你可以使用默认的Diffuse BSDF节点调整材质颜色和粗糙度。
+
+![](https://armory3d.org/manual/getting_started/img/playground/2.jpg)
+
+接下来，切换回3D View并选择平面。我们想在上面放一个纹理。按Tab键进入编辑模式，点击Space并键入Unwrap以创建平板的UV坐标。
+
+在材料选项卡中，创建新材料。像我们之前一样切换到节点编辑器。选择Diffuse BSDF节点，然后按X删除它。在标题中，按Add-Group-Armory PBR并放入画布。将Surface套接字连接到Material Output节点。为了获得最佳效果，在使用Armory中的材料时，更偏向于使用Armory PBR节点。
+
+![](https://armory3d.org/manual/getting_started/img/playground/grid_rough.png)
+
+保存上面的图像，只需将文件拖放到Blender中的节点画布上即可。将Image Texture节点连接到Base Color和Roughness套接字。
+
+![](https://armory3d.org/manual/getting_started/img/playground/3.jpg)
+
+按照这些步骤，一个基本的场景已经形成。按F5在Armory播放。
+
+![](https://armory3d.org/manual/getting_started/img/playground/5.jpg)
+
+## Animation
 
 
 
