@@ -96,4 +96,6 @@
 
 ### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Blender 2.49 Scripting 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender249Scripting/README.md)
 
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Bounce, Tumble, and Splash!: Simulating the Physical World with Blender 3D 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/BounceTumbleandSplash!SimulatingthePhysicalWorldwithBlender3D/README.md)
+
 
