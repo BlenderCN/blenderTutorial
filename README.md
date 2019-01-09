@@ -84,3 +84,16 @@
 
 ### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[3D for iPhone Apps with Blender and SIO2 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/3DforiPhoneAppswithBlenderandSIO2/README.md)
 
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Foundation Blender Compositing 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/FoundationBlenderCompositing/README.md)
+
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Animating with Blender 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/AnimatingwithBlender/README.md)
+
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Animating with Blender 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/AnimatingwithBlender/README.md)
+
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Interactive Environments with Open-Source Software: 3D Walkthroughs and Augmented Reality for Architects with Blender 2.43, DART 3.0 and ARToolKit 2.72 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/InteractiveEnvironmentswithOpenSourceSoftware3DWalkthroughsandAugmentedRealityforArchitectswithBlender243DART30andARToolKit272/README.md)
+
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Crafting Digital Media: Audacity, Blender, Drupal, GIMP, Scribus, and other Open Source Tools (Expert's Voice in Open Source) 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/CraftingDigitalMediaAudacityBlenderDrupalGIMPScribusandotherOpenSourceToolsExpertsVoiceinOpenSource/README.md)
+
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Blender 2.49 Scripting 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender249Scripting/README.md)
+
+
