@@ -74,3 +74,13 @@
 
 ### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[armory docs 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/armory_docs/README.md)
 
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Blender Foundations:The Essential Guide to Learning blender 2.6试译](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderFoundationsTheEssentialGuidetoLearningblender26/README.md)
+
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Blender Compositing and Post Processing 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/BlenderCompositingandPostProcessing/README.md)
+
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Introducing Character Animation with Blender 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/IntroducingCharacterAnimationwithBlender/README.md)
+
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[Blender 3D Architecture,Buildings,and Scenery 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/Blender3DArchitectureBuildingsandScenery/README.md)
+
+### ![](mDrivEngine/blender_16px_1097682_easyicon.net.png)[3D for iPhone Apps with Blender and SIO2 试译](https://github.com/BlenderCN/blenderTutorial/blob/master/3DforiPhoneAppswithBlenderandSIO2/README.md)
+
